@@ -18,10 +18,10 @@ $OpenBSD$
 +
 +# OpenBSD specifics
 +ifeq ($(shell uname -s),OpenBSD)
-+	CFLAGS += -I${TRUEPREFIX}/include
-+	LDFLAGS += -L${TRUEPREFIX}/lib -lmpg123 -lvorbisfile -logg \
++	CFLAGS += -I${DESTDIR}${TRUEPREFIX}/include
++	LDFLAGS += -L${DESTDIR}${TRUEPREFIX}/lib -lmpg123 -lvorbisfile -logg \
 +         			   -lvorbis -lcrypto -lm -lpthread
-+	INSTALL_PREFIX = $(DESTDIR)${TRUEPREFIX}
++	INSTALL_PREFIX = ${DESTDIR}${TRUEPREFIX}
 +	LT = $(LIBTOOL)
  endif
  

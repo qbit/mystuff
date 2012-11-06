@@ -22,14 +22,14 @@ BUILD_DEPENDS=	devel/gmake \
 				audio/libvorbis 
 
 USE_GMAKE=	Yes
-USE_LIBTOOL=	gnu
+USE_LIBTOOL=	Yes
 
-WANTLIB += c crypto pthread m ncursesw z
-SHARED_LIBS +=	despotify                 0.0 # 0.0
+WANTLIB 	+= c crypto pthread m ncursesw z
+SHARED_LIBS 	+=	despotify                 0.0 # 0.0
 
-SUBST_VARS+=	CFLAGS
+SUBST_VARS	+=	CFLAGS
 
-MAKE_ENV+=	CXX=c++ CCFLAGS+="${CFLAGS}" CXXFLAGS="${CXXFLAGS}"
+MAKE_ENV	+=	CXX=c++ CCFLAGS+="${CFLAGS}" CXXFLAGS="${CXXFLAGS}"
 
 NO_CCACHE=	Yes
 
