@@ -1,0 +1,74 @@
+--- Makefile.orig	Sat Feb 16 19:55:52 2008
++++ Makefile	Wed Jan  7 12:11:35 2009
+@@ -8,25 +8,25 @@
+ #	Licensed under the GNU Public License.
+ #
+ 
+-CC      = gcc
+-CFLAGS  = -W -Wall -Wshadow -Wstrict-prototypes -Wpointer-arith -Wcast-qual \
++#CC      = gcc
++CFLAGS  += -W -Wall -Wshadow -Wstrict-prototypes -Wpointer-arith -Wcast-qual \
+           -Wcast-align -Wwrite-strings -Wmissing-prototypes -Winline -Wundef
+ #CFLAGS += -DBIGENDIAN
+ #CFLAGS += -DALIGNMENT_WORKAROUND
+ 
+ # When debugging, disable -O2 and enable -g.
+-CFLAGS += -O2
++#CFLAGS += -O2
+ #CFLAGS += -g
+ 
+ # Pass linker flags here
+-LDFLAGS =
++LDFLAGS +=
+ 
+-DESTDIR =
+-prefix  = /usr/local
+-sbindir = $(prefix)/sbin
+-mandir  = $(prefix)/share/man
++#DESTDIR =
++#prefix  = /usr/local
++sbindir = $(PREFIX)/sbin
++mandir  = $(PREFIX)/man
+ man8dir = $(mandir)/man8
+-docdir  = $(prefix)/share/doc/dmidecode
++docdir  = $(PREFIX)/share/doc/dmidecode
+ 
+ INSTALL         := install
+ INSTALL_DATA    := $(INSTALL) -m 644
+@@ -100,28 +100,28 @@
+ uninstall : uninstall-bin uninstall-man uninstall-doc
+ 
+ install-bin : $(PROGRAMS)
+-	$(INSTALL_DIR) $(DESTDIR)$(sbindir)
++	$(INSTALL_DIR) $(sbindir)
+ 	for program in $(PROGRAMS) ; do \
+-	$(INSTALL_PROGRAM) $$program $(DESTDIR)$(sbindir) ; done
++	$(INSTALL_PROGRAM) $$program $(sbindir) ; done
+ 
+ uninstall-bin :
+ 	for program in $(PROGRAMS) ; do \
+ 	$(RM) $(DESTDIR)$(sbindir)/$$program ; done
+ 
+ install-man :
+-	$(INSTALL_DIR) $(DESTDIR)$(man8dir)
++	$(INSTALL_DIR) $(man8dir)
+ 	for program in $(PROGRAMS) ; do \
+-	$(INSTALL_DATA) man/$$program.8 $(DESTDIR)$(man8dir) ; done
++	$(INSTALL_DATA) man/$$program.8 $(man8dir) ; done
+ 
+ uninstall-man :
+ 	for program in $(PROGRAMS) ; do \
+ 	$(RM) $(DESTDIR)$(man8dir)/$$program.8 ; done
+ 
+ install-doc :
+-	$(INSTALL_DIR) $(DESTDIR)$(docdir)
+-	$(INSTALL_DATA) README $(DESTDIR)$(docdir)
+-	$(INSTALL_DATA) CHANGELOG $(DESTDIR)$(docdir)
+-	$(INSTALL_DATA) AUTHORS $(DESTDIR)$(docdir)
++	$(INSTALL_DIR) $(docdir)
++	$(INSTALL_DATA) README $(docdir)
++	$(INSTALL_DATA) CHANGELOG $(docdir)
++	$(INSTALL_DATA) AUTHORS $(docdir)
+ 
+ uninstall-doc :
+ 	$(RM) -r $(DESTDIR)$(docdir)

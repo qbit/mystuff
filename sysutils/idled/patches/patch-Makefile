@@ -1,0 +1,111 @@
+$OpenBSD: patch-Makefile,v 1.2 2005/04/21 10:47:37 espie Exp $
+--- Makefile.orig	Fri May 17 00:05:28 1996
++++ Makefile	Wed Apr 20 11:57:59 2005
+@@ -2,7 +2,6 @@
+ #
+ 
+ # C compiler flags
+-CC = cc
+ RM = rm
+ INCLUDE = 
+ 
+@@ -165,16 +164,17 @@ INCLUDE = 
+ #        If you add it, '-lkvm' must also be added to the SPECLIBS line
+ # You will need to delete parse.c before compiling!  You can either
+ # do so by hand, or do a 'make clean' followed by the normal 'make'.
+-#DEFS += -O -m486
+-#DEFS += -DBSD_OS2 -DHAVE_SETSID -DHAVE_YYRESTART -DPS_HACK
++DEFS += -DBSD_OS2 -DHAVE_SETSID -DHAVE_YYRESTART -DPS_HACK
+ #DEFS += -DPROC_SEARCH_1
+ #SPECLIBS = -lkvm
+-#INSTTYPE = install1a
++INSTTYPE = install1a
+ #
+-#DEST    = /usr/local/libexec
+-#CFDEST  = /usr/local/libexec
+-#MDEST   = /usr/local/man
+-#LOGDEST = /var/log
++DEST    = ${DESTDIR}${PREFIX}/libexec
++CFLIB   = ${DESTDIR}${PREFIX}/lib
++CFDEST  = ${DESTDIR}${PREFIX}/share/examples/idled
++SYSCONF = ${SYSCONFDIR}
++MDEST   = ${DESTDIR}${PREFIX}/man
++LOGDEST = /var/log
+ #
+ #OWNER   = root
+ #CFOWNER = root
+@@ -215,14 +215,14 @@ INCLUDE = 
+ # SVR4  --  Solaris 2.x
+ # Use install3 for /usr/sbin/install
+ # and install1 for /usr/ucb/install
+-DEFS += -DSYSV -DHAVE_PROC_FS -DUTMPPID -DHAVE_SETSID -DHAVE_UTMPX -DUTMPHOST -DRUDEKILL
+-SPECLIBS = 
+-INSTTYPE = install3
++#DEFS += -DSYSV -DHAVE_PROC_FS -DUTMPPID -DHAVE_SETSID -DHAVE_UTMPX -DUTMPHOST -DRUDEKILL
++#SPECLIBS = 
++#INSTTYPE = install3
+ 
+-DEST    = /usr/local/bin
+-CFDEST  = /usr/local/lib
+-MDEST   = /usr/local/man
+-LOGDEST = /var/log
++#DEST    = /usr/local/bin
++#CFDEST  = /usr/local/lib
++#MDEST   = /usr/local/man
++#LOGDEST = /var/log
+ 
+ OWNER   = root
+ CFOWNER = root
+@@ -422,13 +422,13 @@ CFMAN   = idled.cf.5
+ PMAN    = idled.8
+ 
+ # Names of config and log files
+-CONFIG  = ${CFDEST}/${COMMFILE}
++CONFIG  = ${SYSCONF}/${COMMFILE}
+ LOGFILE = ${LOGDEST}/idled.log
+ 
+ # HERE are the big CFLAGS
+ # Add -g if you want debugging
+ # Add -O or whatever variant for optimization
+-CFLAGS = ${DEFS} ${DEBUG} -DCONFIG=\"${CONFIG}\" -DLOGFILE=\"${LOGFILE}\" ${INCLUDE}
++CFLAGS += ${DEFS} ${DEBUG} -DCONFIG=\"${CONFIG}\" -DLOGFILE=\"${LOGFILE}\" ${INCLUDE}
+ 
+ # For HP's ANSI C compiler (use -g instead of +O3 for debugging)
+ # CFLAGS = +O3 -Aa -D_HPUX_SOURCE ${DEFS} ${DEBUG} -DCONFIG=\"${CONFIG}\" -DLOGFILE=\"${LOGFILE}\" ${INCLUDE}
+@@ -479,18 +479,17 @@ install1: all 
+ 	@echo "file can serve as a guide, as well as the man pages."
+ 
+ # BSD like, but with some enhancements like: install -s -> strip binary
+-#                                            gzip manual pages
+ install1a: all
+-	install -s -c -m ${MODE} -o ${OWNER} -g ${GROUP} ${BINARY} ${DEST}
+-	install -c -m ${CFMODE} -o ${CFOWNER} -g ${CFGROUP} ${COMMFILE}.template ${CFDEST}
+-	install -c -m ${MMODE} -o ${MOWNER} ${CFMAN} ${MDEST}/man5
+-	gzip -f ${MDEST}/man5/${CFMAN}
+-	install -c -m ${MMODE} -o ${MOWNER} ${PMAN} ${MDEST}/man8
+-	gzip -f ${MDEST}/man8/${PMAN}
++	${BSD_INSTALL_PROGRAM} ${BINARY} ${DEST}
++	${BSD_INSTALL_DATA_DIR} ${CFDEST}
++	${BSD_INSTALL_DATA} ${COMMFILE}.template ${CFDEST}
++	${BSD_INSTALL_MAN} ${CFMAN} ${MDEST}/man5
++	${BSD_INSTALL_MAN} ${PMAN} ${MDEST}/man8
+ 	@echo ""
+-	@echo "Be sure to edit/create the file ${CONFIG} based on"
+-	@echo "the needs for your system. The ${CONFIG}.template"
+-	@echo "file can serve as a guide, as well as the man pages."
++	@echo "*** Be sure to edit/create the file ${CONFIG} based on"
++	@echo "*** the needs for your system. The ${CFLIB}/${COMMFILE}.template"
++	@echo "*** file can serve as a guide, as well as the man pages."
++	@echo ""
+ 
+ # Aix Prefers install2
+ install2: all 
+@@ -527,7 +526,7 @@ ${MAN}: idled.man.form idled.cf.man.form
+ 
+ lint: ${SRC} ${SRCg}
+ 	lint -hxn ${DEFS} ${SRC} ${SRCg}
+-	
++
+ print: 
+ 	print -n -J "Idled Source" Makefile ${HDR} ${SRCl} ${SRC}
+ 

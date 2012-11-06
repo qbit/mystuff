@@ -1,0 +1,81 @@
+$OpenBSD: patch-gkrellm_1,v 1.5 2011/03/02 06:59:55 ajacoutot Exp $
+--- gkrellm.1.orig	Tue Oct  5 18:21:55 2010
++++ gkrellm.1	Mon Feb 14 07:46:00 2011
+@@ -1,4 +1,4 @@
+-.TH gkrellm 1 "Sep 15, 2010" "GNU/Linux" "User's Manual"
++.TH gkrellm 1 "Oct 24, 2006" "OpenBSD" "User's Manual"
+ 
+ .SH "NAME"
+ gkrellm \- The GNU Krell Monitors
+@@ -807,7 +807,7 @@ any correction factors and offsets for each of the sen
+ (see below and lm_sensor documentation).  For Linux, default values are
+ automatically provided for many sensor chips.
+ .PP
+-But if using libsenors, it is not possible to enter correction factors and
++But if using libsensors, it is not possible to enter correction factors and
+ offsets on the Sensors config page because libsensors configuration is
+ done in the /etc/sensors.conf file.  To get sensor debug output and to find
+ out the sensor data source, run:
+@@ -1137,8 +1137,7 @@ several locations:
+ .RS
+ .nf
+ ~/.gkrellm2/themes
+-/usr/local/share/gkrellm2/themes
+-/usr/share/gkrellm2/themes
++${PREFIX}/share/gkrellm2/themes
+ .fi
+ .RE
+ .PP
+@@ -1149,7 +1148,7 @@ theme may also be installed as:
+ .RS
+ .nf
+ ~/.themes/THEME_NAME/gkrellm2
+-/usr/share/themes/THEME_NAME/gkrellm2
++${PREFIX}/share/themes/THEME_NAME/gkrellm2
+ .fi
+ .RE
+ .PP
+@@ -1174,11 +1173,9 @@ and there you will find a Theme making reference.
+ tries to load all plugins (shared object files ending in .so)
+ it finds in your plugin directory
+ .IR ~/.gkrellm2/plugins.
+-The directories
+-.IR /usr/local/lib/gkrellm2/plugins
+-and
+-.IR /usr/lib/gkrellm2/plugins
+-are also searched for plugins to install.
++The directory
++.IR ${PREFIX}/lib/gkrellm2/plugins
++is also searched for plugins to install.
+ .PP
+ Some plugins may be available only as source files and they will
+ have to be compiled before installation.  There should be instructions
+@@ -1213,25 +1210,19 @@ and user's themes.
+ .I ~/.gkrellm2/plugins
+ User plugin directory.
+ .TP
+-.I /usr/lib/gkrellm2/plugins
++.I ${PREFIX}/lib/gkrellm2/plugins
+ System wide plugin directory.
+ .TP
+-.I /usr/local/lib/gkrellm2/plugins
+-Local plugin directory.
+-.TP
+ .I ~/.gkrellm2/themes
+ User theme directory.
+ .TP
+ .I ~/.themes/THEME_NAME/gkrellm2
+ User theme packaged as part of a user Gtk theme.
+ .TP
+-.I /usr/share/gkrellm2/themes
++.I ${PREFIX}/share/gkrellm2/themes
+ System wide theme directory.
+ .TP
+-.I /usr/local/share/gkrellm2/themes
+-Local theme directory.
+-.TP
+-.I /usr/share/themes/THEME_NAME/gkrellm2
++.I ${PREFIX}/share/themes/THEME_NAME/gkrellm2
+ System wide theme packaged as part of a system wide Gtk theme.
+ 
+ .SH "AUTHORS"

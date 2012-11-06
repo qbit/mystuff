@@ -1,0 +1,57 @@
+--- Makefile.orig	Thu Aug 19 22:07:27 2004
++++ Makefile	Wed Jan 19 21:48:43 2005
+@@ -1,46 +1,32 @@
+ # Makefile for  GKrellM volume plugin
+ 
+ PACKAGE ?= gkrellm-volume
+-LOCALEDIR ?= /usr/local/share/locale
++LOCALEDIR ?= ${LOCALBASE}/share/locale
+ 
+ FLAGS += -DPACKAGE="\"$(PACKAGE)\"" 
+ export PACKAGE LOCALEDIR
+ 
+-GTK_CONFIG = pkg-config gtk+-2.0
++GTK_CONFIG = pkg-config gtk+-2.0 gthread-2.0
+ 
+-PLUGIN_DIR ?= /usr/local/lib/gkrellm2/plugins
+-GKRELLM_INCLUDE = -I/usr/local/include
++PLUGIN_DIR ?= ${LOCALBASE}/lib/gkrellm2/plugins
++GKRELLM_INCLUDE = -I${LOCALBASE}/include
+ 
+ GTK_CFLAGS = `$(GTK_CONFIG) --cflags` 
+ GTK_LIB = `$(GTK_CONFIG) --libs`
+ 
+-FLAGS = -O2 -Wall -fPIC $(GTK_CFLAGS) $(GKRELLM_INCLUDE)
+-LIBS = $(GTK_LIB)
+-LFLAGS = -shared
++CFLAGS += -fPIC $(GTK_CFLAGS) $(GKRELLM_INCLUDE)
++LIBS += $(GTK_LIB)
++LFLAGS += -shared -pthread -lossaudio
+ 
+ OBJS = volume.o mixer.o oss_mixer.o
+ 
+-ifeq ($(enable_alsa),1)
+-  FLAGS += -DALSA
+-  LIBS += -lasound
+-  OBJS += alsa_mixer.o 
+-endif
+-
+-ifeq ($(enable_nls),1)
+-    FLAGS += -DENABLE_NLS -DLOCALEDIR=\"$(LOCALEDIR)\"
+-    export enable_nls
+-endif
+-
+-CC = gcc $(CFLAGS) $(FLAGS)
+-
+ INSTALL = install -c
+ INSTALL_PROGRAM = $(INSTALL) -s
+ 
+ all:	volume.so
+-	(cd po && ${MAKE} all )
+ 
+ volume.so: $(OBJS)
+-	$(CC) $(OBJS) -o volume.so $(LIBS) $(LFLAGS)
++	$(CC) $(CFLAGS) $(OBJS) -o volume.so $(LIBS) $(LFLAGS)
+ 
+ clean:
+ 	rm -f *.o core *.so* *.bak *~

@@ -1,0 +1,99 @@
+$OpenBSD: patch-xbatt_c,v 1.2 2008/06/28 16:36:21 naddy Exp $
+--- xbatt.c.orig	Fri Sep 11 10:47:12 1998
++++ xbatt.c	Sat Jun 28 14:51:49 2008
+@@ -43,12 +43,14 @@
+  */
+ 
+ #include <stdio.h>
++#include <stdlib.h>
+ #include <errno.h>
+ #include <time.h>
++#include <unistd.h>
+ #include <sys/file.h>
+ #include <sys/ioctl.h>
+ #include <X11/StringDefs.h>
+-#include <X11/Intrinsic.h>
++#include <X11/IntrinsicP.h>
+ #include <X11/Shell.h>
+ #include <X11/extensions/shape.h>
+ #include <X11/Xaw/Cardinals.h>
+@@ -65,6 +67,11 @@
+ # define APMDEV22	"/dev/apm"
+ #endif
+ 
++#ifdef __OpenBSD__
++# include <machine/apmvar.h>
++# define APMDEV                "/dev/apm"
++#endif /* __OpenBSD__ */
++
+ #include "pixmaps/battery.xpm"
+ #include "pixmaps/unknown.xpm"
+ #include "bitmaps/full.xbm"
+@@ -195,6 +202,14 @@ main(
+     }
+ #endif
+ 
++#ifdef __OpenBSD__
++     /* initialize APM Interface */
++     if ((apmfd = open(APMDEV, O_RDONLY)) == -1) {
++	fprintf(stderr, "xbatt: cannot open apm device\n");
++	exit(1);
++     }
++#endif /* __OpenBSD__ */
++
+     /* start X-Window session */
+     XtSetLanguageProc( NULL, NULL, NULL );
+     toplevel = XtOpenApplication(&appContext, "XBatt",
+@@ -371,6 +386,52 @@ struct status getBatteryStatus()
+ 						/* chrging or not.	*/
+     }
+ #endif	/* FreeBSD */
++
++#ifdef __OpenBSD__
++    struct apm_power_info info;
++
++    if (ioctl(apmfd, APM_IOC_GETPOWER, &info) == -1) {
++	fprintf(stderr, "xbatt: ioctl APM_IOC_GETPOWER failed\n");
++	exit(1);
++    }
++
++    /* get current status */
++    if (info.battery_life == APM_BATT_LIFE_UNKNOWN) {
++       switch (info.battery_state) {
++         case APM_BATT_HIGH:
++           ret.remain = 100;
++           break;
++         case APM_BATT_LOW:
++           ret.remain = 40;
++           break;
++         case APM_BATT_CRITICAL:
++           ret.remain = 10;
++           break;
++         default:        /* expected to be APM_STAT_UNKNOWN */
++           ret.remain = APM_STAT_UNKNOWN;
++       }
++    } else if (info.battery_life > 100) {
++       /* some APM BIOSes return values slightly > 100 */
++       ret.remain = 100;
++    } else {
++       ret.remain = info.battery_life;
++    }
++
++    /* get AC-line status */
++    if (info.ac_state == APM_AC_ON) {
++       ret.acline = APM_STAT_LINE_ON;
++    } else {
++       ret.acline = APM_STAT_LINE_OFF;
++    }
++
++    /* get charging status */
++    if (info.battery_state == APM_BATT_CHARGING) {
++       ret.charge = APM_STAT_BATT_CHARGING;
++    } else {
++       ret.charge = APM_STAT_BATT_HIGH;        /* I only want to know, */
++                                               /* chrging or not.      */
++    }
++#endif /* __OpenBSD__ */
+ 
+ #ifdef	__linux__
+     char	buffer[64];

@@ -1,0 +1,21 @@
+$OpenBSD: patch-jsd_jsh_1,v 1.3 2008/04/03 12:13:48 wcmaier Exp $
+--- jsd/jsh.1.orig	Mon Mar 31 19:46:06 2008
++++ jsd/jsh.1	Mon Mar 31 19:46:16 2008
+@@ -133,7 +133,7 @@ utilizes the following environment variables:
+ .It Ev RCMD_CMD
+ Command to use to connect to remote machines.  The command chosen must
+ be able to connect with no password to the remote host.  Defaults to
+-.Ic rsh .
++.Ic ssh .
+ .It Ev RCMD_CMD_ARGS
+ Arguments to pass to the remote shell command.  Defaults to none.
+ .It Ev JSD_OPORT
+@@ -161,7 +161,7 @@ option.
+ .El
+ .Sh SEE ALSO
+ .Xr dsh 1 ,
+-.Xr rsh 1 ,
++.Xr ssh 1 ,
+ .Xr kerberos 3 ,
+ .Xr hosts.equiv 5 ,
+ .Xr rhosts 5 ,

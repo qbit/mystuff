@@ -1,0 +1,55 @@
+$OpenBSD: patch-configure,v 1.13 2012/09/14 08:14:31 ajacoutot Exp $
+--- configure.orig	Thu Jun 28 15:52:03 2012
++++ configure	Thu Jul  5 18:18:02 2012
+@@ -4804,7 +4804,7 @@ $as_echo "no" >&6; }
+ fi
+ 
+ 
+-if test ! -e $CXX; then
++if test ! -e `which $CXX`; then
+    as_fn_error $? "Unable to find C++ compiler" "$LINENO" 5
+ fi
+ 
+@@ -16714,7 +16714,7 @@ if test x$use_libtool != xno; then
+    LIBTOOL_INSTALL_TARGET="libtool-install"
+    LIBTOOL_UNINSTALL_TARGET="libtool-uninstall"
+    LIBTOOL_CLEAN_TARGET="libtool-clean"
+-   QMAKE_LIBTOOL="${BUILD_DIR}/libtool"
++   QMAKE_LIBTOOL="${LIBTOOL}"
+    FD_PLUGIN_DIR="src/plugins/fd"
+    have_plugins=yes
+ else
+@@ -22392,7 +22392,7 @@ if eval test \"x\$"$as_ac_Header"\" = x"yes"; then :
+ 
+ $as_echo "#define HAVE_READLINE 1" >>confdefs.h
+ 
+-		    CONS_LIBS="-lreadline -lhistory $TERM_LIB"
++		    CONS_LIBS="-lreadline $TERM_LIB"
+ 		    got_readline="yes"
+ 
+ else
+@@ -22431,7 +22431,7 @@ $as_echo "#define HAVE_READLINE 1" >>confdefs.h
+ 
+ 			got_readline="yes"
+ 			CONS_INC="-I${TOP_DIR}/depkgs/readline"
+-			CONS_LIBS="-lreadline -lhistory $TERM_LIB"
++			CONS_LIBS="-lreadline $TERM_LIB"
+ 			CONS_LDFLAGS="-L${TOP_DIR}/depkgs/readline"
+ 			PRTREADLINE_SRC="${TOP_DIR}/depkgs/readline"
+ 
+@@ -30720,6 +30720,7 @@ netbsd)
+    DISTVER=`uname -a |awk '{print $3}'`
+    lld="qd"
+    llu="qu"
++   COMPRESS_MANPAGES=
+    TAPEDRIVE="/dev/nrst0"
+    PSCMD="ps -ax -o pid,command"
+    PTHREAD_LIB="-pthread"
+@@ -30738,6 +30739,7 @@ openbsd)
+        platforms/openbsd/bacula-fd \
+        platforms/openbsd/bacula-sd \
+        platforms/openbsd/bacula-dir"
++   largefile_support="yes"
+   ;;
+ redhat)
+    if test -f /etc/whitebox-release ; then

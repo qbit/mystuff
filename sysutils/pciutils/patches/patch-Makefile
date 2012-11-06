@@ -1,0 +1,20 @@
+--- Makefile.orig	Sat Jan 14 11:07:55 2012
++++ Makefile	Fri Jun 29 10:19:48 2012
+@@ -1,8 +1,7 @@
+ # Makefile for The PCI Utilities
+ # (c) 1998--2012 Martin Mares <mj@ucw.cz>
+ 
+-OPT=-O2
+-CFLAGS=$(OPT) -Wall -W -Wno-parentheses -Wstrict-prototypes -Wmissing-prototypes
++CFLAGS+= -Wall -W -Wno-parentheses -Wstrict-prototypes -Wmissing-prototypes
+ 
+ VERSION=3.1.9
+ DATE=2012-01-14
+@@ -105,7 +104,6 @@ install: all
+ 	$(INSTALL) -c -m 755 update-pciids $(DESTDIR)$(SBINDIR)
+ 	$(INSTALL) -c -m 644 $(PCI_IDS) $(DESTDIR)$(IDSDIR)
+ 	$(INSTALL) -c -m 644 lspci.8 setpci.8 update-pciids.8 $(DESTDIR)$(MANDIR)/man8
+-	$(INSTALL) -c -m 644 pcilib.7 $(DESTDIR)$(MANDIR)/man7
+ ifeq ($(SHARED),yes)
+ 	$(DIRINSTALL) -m 755 $(DESTDIR)$(LIBDIR)
+ 	$(INSTALL) -c -m 644 lib/$(PCILIB) $(DESTDIR)$(LIBDIR)

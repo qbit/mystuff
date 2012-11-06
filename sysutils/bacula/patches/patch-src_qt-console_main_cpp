@@ -1,0 +1,12 @@
+$OpenBSD: patch-src_qt-console_main_cpp,v 1.6 2011/12/12 09:15:09 sthen Exp $
+--- src/qt-console/main.cpp.orig	Sat Nov 26 14:08:12 2011
++++ src/qt-console/main.cpp	Sun Dec  4 11:52:17 2011
+@@ -58,7 +58,7 @@ extern bool parse_bat_config(CONFIG *config, const cha
+ extern void message_callback(int /* type */, char *msg);
+ 
+ 
+-#define CONFIG_FILE "bat.conf"     /* default configuration file */
++#define CONFIG_FILE "${BACULACONF}/bat.conf"   /* default configuration file */
+ 
+ /* Static variables */
+ static CONFIG *config;

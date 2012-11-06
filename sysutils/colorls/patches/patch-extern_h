@@ -1,0 +1,17 @@
+$OpenBSD: patch-extern_h,v 1.4 2003/08/27 00:41:51 naddy Exp $
+--- extern.h.orig	2003-06-03 01:32:08.000000000 +0200
++++ extern.h	2003-08-27 00:28:16.000000000 +0200
+@@ -52,3 +52,13 @@ void	 printlong(DISPLAY *);
+ void	 printscol(DISPLAY *);
+ void	 printstream(DISPLAY *);
+ void	 usage(void);
++#ifdef COLORLS
++void	 parsecolors(const char *cs);
++void	 colorquit(int);
++
++extern char *ansi_fgcol;
++extern char *ansi_bgcol;
++extern char *ansi_coloff;
++extern char *attrs_off;
++extern char *enter_bold;
++#endif

@@ -1,0 +1,69 @@
+$OpenBSD: README-main,v 1.2 2012/01/24 12:38:44 sthen Exp $
+
++-----------------------------------------------------------------------
+| Running ${FULLPKGNAME} on OpenBSD
++-----------------------------------------------------------------------
+
+NUT is split into separate components. A hardware driver interfaces
+with the device and sends information to upsd. A monitor (upsmon)
+connects to upsd and shuts down the machine when necessary.
+
+These components can reside on separate computers (i.e. UPS monitored
+by various computers may communicate with a central upsd, and a whole
+network may run upsmon to allow for shutdown).
+
+On OpenBSD, daemons are usually started by adding to the pkg_scripts
+variable in /etc/rc.conf.local. For NUT, machines running upsd or
+the hardware driver should include "upsd" in this line, and all
+machines should include "upsmon". Where you run both, upsd should
+be started first. For example you could use this line:
+
+	pkg_scripts="upsd upsmon [...any other daemons...]"
+
+Network devices
+---------------
+To reduce dependencies for the basic NUT package, some network devices
+are supported by optional subpackages: nut-snmp (for SNMP-based devices),
+nut-xml (for Eaton/MGE devices using an XML/HTTP protocol).
+
+Connecting to a remote server running nutd(8) requires only the basic
+NUT package which also includes the file you are reading now.
+
+Configuring NUT
+---------------
+The following files must be edited for a typical installation.
+
+* ups.conf
+
+Details of UPS device/s are held here. These may either be directly
+connected, or network devices (this can include a NUT server running on
+another machine). Configuration sections for this file can be generated
+for network and USB devices using nut-scanner(8). This is in the main
+NUT package but picks up dependencies at runtime, so if you wish
+to scan for network devices, just make sure the relevant package
+is installed before you run the scanner.
+
+To scan for network devices, specify start and end IP addresses:
+
+	# nut-scanner -s 192.168.17.1 -e 192.168.17.20
+
+* upsd.users
+
+upsd(8) user authentication is configured here.
+
+* upsmon.conf
+
+This file informs upsmon(8) which devices (configured in ups.conf) it
+should monitor. It also contains passwords to authenticate to upsd(8).
+
+Device permissions
+------------------
+For locally connected UPS devices, the userid running NUT (normally
+${NUT_USER}) must have access to the relevant device nodes.
+
+RS232: Either add ${NUT_USER} to group "dialer" or change the group
+ownership of the relevant /dev/tty* device to ${NUT_USER}.
+
+USB: Change the group of the relevant /dev/ugen* and /dev/usb* devices
+to ${NUT_USER}; to identify the specific controller and ugen device
+names, use "sudo usbdevs -vd".

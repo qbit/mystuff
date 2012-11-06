@@ -1,0 +1,18 @@
+@comment $OpenBSD: PLIST,v 1.6 2004/09/15 18:39:33 espie Exp $
+rtty/
+rtty/README
+rtty/bin/
+rtty/bin/Startup
+rtty/bin/agelog
+rtty/bin/agelogs
+rtty/bin/console
+rtty/bin/locbrok
+rtty/bin/rtty
+rtty/bin/startsrv
+rtty/bin/ttysrv
+rtty/dev/
+rtty/log/
+rtty/opt/
+rtty/out/
+rtty/pid/
+rtty/sock/

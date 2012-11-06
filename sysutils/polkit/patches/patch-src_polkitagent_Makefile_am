@@ -1,0 +1,13 @@
+$OpenBSD: patch-src_polkitagent_Makefile_am,v 1.3 2011/08/17 16:59:27 ajacoutot Exp $
+--- src/polkitagent/Makefile.am.orig	Sat Feb 26 23:23:53 2011
++++ src/polkitagent/Makefile.am	Wed Apr 27 19:10:36 2011
+@@ -89,6 +89,9 @@ endif
+ if POLKIT_AUTHFW_SHADOW
+ polkit_agent_helper_1_SOURCES += polkitagenthelper-shadow.c
+ endif
++if POLKIT_AUTHFW_BSDAUTH
++polkit_agent_helper_1_SOURCES += polkitagenthelper-bsdauth.c
++endif
+ 
+ polkit_agent_helper_1_CFLAGS  = 					\
+         -D_POLKIT_COMPILATION                                  		\

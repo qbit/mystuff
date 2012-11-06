@@ -1,0 +1,58 @@
+--- wireless.c.orig	Sat Dec  6 14:19:55 2003
++++ wireless.c	Fri Jan 20 13:15:48 2006
+@@ -91,7 +91,7 @@
+ }
+ 
+ /* system specific stuff */
+-#if defined(__FreeBSD__) || defined(__NetBSD__)
++#if defined(__FreeBSD__) || defined(__NetBSD__) || defined(__OpenBSD__)
+ /* FreeBSD & NetBSD specific */
+ 
+ static int
+@@ -133,7 +133,7 @@
+   return ret;
+ }
+ 
+-#if !defined(__NetBSD__)
++#if !defined(__NetBSD__) && !defined(__OpenBSD__)
+ static gint
+ find_an_card(void) {
+   char interfaces[][4] = {"an0","an1","an2"};
+@@ -161,16 +161,16 @@
+   close(s);
+   return ret;
+ }
+-#endif /* !defined(__NetBSD__) */
++#endif /* !defined(__NetBSD__) && !defined(__OpenBSD__) */
+ 
+ static gint 
+ find_wlancard(void) {
+   gint ret = FALSE;
+  
+   ret = find_wi_card();
+-#if !defined(__NetBSD__)
++#if !defined(__NetBSD__) && !defined(__OpenBSD__)
+   ret = find_an_card() || ret;
+-#endif /* !defined(__NetBSD__) */
++#endif /* !defined(__NetBSD__) && !defined(__OpenBSD__) */
+   return ret;
+ }
+ 
+@@ -212,7 +212,7 @@
+  return TRUE;
+ }
+ 
+-#if !defined(__NetBSD__)
++#if !defined(__NetBSD__) && !defined(__OpenBSD__)
+ static int
+ get_an_link_quality(wcard_t *card, float *quality, float *level, float *noise) {
+   int nr,s;
+@@ -258,7 +258,7 @@
+ static int
+ get_link_quality(wcard_t *card, float *quality, float *level, float *noise) {
+   switch (card->ifname[0]) { 
+-#if !defined(__NetBSD__)
++#if !defined(__NetBSD__) && !defined(__OpenBSD__)
+     case 'a': /* an card */
+       return get_an_link_quality(card,quality,level,noise);
+ #endif /* !defined(__NetBSD__) */

@@ -1,0 +1,3 @@
+@comment $OpenBSD: PLIST,v 1.4 2004/09/15 18:39:33 espie Exp $
+bin/socket
+@man man/man1/socket.1

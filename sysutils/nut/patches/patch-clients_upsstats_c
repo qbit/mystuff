@@ -1,0 +1,21 @@
+$OpenBSD: patch-clients_upsstats_c,v 1.8 2010/03/31 22:11:11 sthen Exp $
+--- clients/upsstats.c.orig	Thu Feb 11 21:43:13 2010
++++ clients/upsstats.c	Sat Mar 20 23:18:11 2010
+@@ -844,7 +844,7 @@ static void display_template(const char *tfn)
+ {
+ 	char	fn[SMALLBUF], buf[LARGEBUF];	
+ 
+-	snprintf(fn, sizeof(fn), "%s/%s", confpath(), tfn);
++	snprintf(fn, sizeof(fn), "%s/%s", cgiconfpath(), tfn);
+ 
+ 	tf = fopen(fn, "r");
+ 
+@@ -964,7 +964,7 @@ static void load_hosts_conf(void)
+ 	char	fn[SMALLBUF];
+ 	PCONF_CTX_t	ctx;
+ 
+-	snprintf(fn, sizeof(fn), "%s/hosts.conf", CONFPATH);
++	snprintf(fn, sizeof(fn), "%s/hosts.conf", cgiconfpath());
+ 
+ 	pconf_init(&ctx, upsstats_hosts_err);
+ 

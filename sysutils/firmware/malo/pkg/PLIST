@@ -1,0 +1,10 @@
+@comment $OpenBSD: PLIST,v 1.2 2011/07/08 21:20:49 sthen Exp $
+@pkgpath malo-firmware
+@pkgpath mystuff/malo-firmware
+@pkgpath sysutils/malo-firmware
+firmware/malo-info
+firmware/malo8335-h
+firmware/malo8335-m
+firmware/malo8338
+firmware/malo8385-h
+firmware/malo8385-m

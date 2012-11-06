@@ -1,0 +1,2 @@
+login_ldap provides an authentication mechanism through bsdauth to
+authenticate users against an LDAP server.

@@ -1,0 +1,14 @@
+$OpenBSD: patch-proctree_c,v 1.2 2011/07/06 13:15:40 jasper Exp $
+--- proctree.c.orig	Mon Jan 18 11:36:53 2010
++++ proctree.c	Mon Jan 18 11:52:10 2010
+@@ -170,8 +170,8 @@ int update_tree(void del(void*))
+ #ifdef HAVE_PROCESS_SYSCTL
+ 	el = get_all_info(&pi);
+ 	for(i = 0; i < el; i++) {
+-		p = validate_proc(pi[i].kp_proc.p_pid);
+-		q = validate_proc(pi[i].kp_eproc.e_ppid);
++		p = validate_proc(pi[i].p_pid);
++		q = validate_proc(pi[i].p_ppid);
+ #else
+ 
+ 	d=opendir(PROCDIR);

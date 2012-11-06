@@ -1,0 +1,13 @@
+@comment $OpenBSD: PLIST,v 1.9 2011/09/14 02:34:06 william Exp $
+@bin bin/pdbtool
+bin/update-patterndb
+@man man/man1/pdbtool.1
+@man man/man5/syslog-ng.conf.5
+@man man/man8/syslog-ng.8
+@bin sbin/syslog-ng
+@bin sbin/syslog-ng-ctl
+share/examples/syslog-ng/
+@sample ${SYSCONFDIR}/syslog-ng/
+share/examples/syslog-ng/syslog-ng.conf.sample
+@sample ${SYSCONFDIR}/syslog-ng/syslog-ng.conf
+@rcscript ${RCDIR}/syslog_ng

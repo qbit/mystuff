@@ -1,0 +1,20 @@
+$OpenBSD: patch-ttysrv_c,v 1.2 2002/05/08 18:42:10 millert Exp $
+--- ttysrv.c.orig	Wed May  8 12:30:37 2002
++++ ttysrv.c	Wed May  8 12:30:37 2002
+@@ -136,13 +136,13 @@ static	int		set_baud(int),
+ 
+ int
+ main(int argc, char *argv[]) {
+-	int i;
+-	char ch, *msg;
++	int ch, i;
++	char *msg;
+ 
+ 	gethostname(Hostname, sizeof Hostname);
+ 	ProgName = argv[0];
+ 
+-	while ((ch = getopt(argc, argv, "o:s:r:t:l:b:p:w:x:i:")) != EOF) {
++	while ((ch = getopt(argc, argv, "o:s:r:t:l:b:p:w:x:i:")) != -1) {
+ 		switch (ch) {
+ 		case 'o':
+ 			msg = handle_option(optarg);

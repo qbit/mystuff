@@ -1,0 +1,40 @@
+$OpenBSD: patch-gkrellmd_1,v 1.5 2011/03/02 06:59:55 ajacoutot Exp $
+--- gkrellmd.1.orig	Tue Sep 14 18:55:49 2010
++++ gkrellmd.1	Mon Feb 14 07:46:00 2011
+@@ -1,4 +1,4 @@
+-.TH gkrellmd 1 "Sep 15, 2010" "GNU/Linux" "User's Manual"
++.TH gkrellmd 1 "Oct 24, 2006" "OpenBSD" "User's Manual"
+ 
+ .SH "NAME"
+ gkrellmd \- The GNU Krell Monitors Server
+@@ -375,7 +375,7 @@ to see a log of the plugin install process.
+ 
+ .SH "FILES"
+ .TP
+-.I /etc/gkrellmd.conf
++.I ${SYSCONFDIR}/gkrellmd.conf
+ System server config which is read first.
+ The config file may contain lines similar to the command line args.
+ For example:
+@@ -414,20 +414,14 @@ command line args will override options in gkrellmd.co
+ 
+ .RE
+ .TP
+-.I /usr/local/etc/gkrellmd.conf
+-Local server config file which is read second.
+-.TP
+ .I ~/.gkrellmd.conf
+ User server config file which is read last.
+ .TP
+ .I ~/.gkrellm2/plugins-gkrellmd
+ User server plugin directory.
+ .TP
+-.I /usr/lib/gkrellm2/plugins-gkrellmd
++.I ${PREFIX}/lib/gkrellm2/plugins-gkrellmd
+ System wide server plugin directory.
+-.TP
+-.I /usr/local/lib/gkrellm2/plugins-gkrellmd
+-Local server plugin directory.
+ 
+ 
+ .PP

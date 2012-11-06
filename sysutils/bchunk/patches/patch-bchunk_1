@@ -1,0 +1,12 @@
+$OpenBSD: patch-bchunk_1,v 1.3 2004/12/18 20:56:19 naddy Exp $
+--- bchunk.1.orig	Fri Dec 17 11:36:12 2004
++++ bchunk.1	Fri Dec 17 11:36:40 2004
+@@ -73,7 +73,7 @@ format for that matter) using sox ('sox 
+ Audio tracks in WAV format.
+ .SH "SEE ALSO"
+ .BR cdrecord (1),
+-.BR mkisofs (8),
++.BR mkhybrid (8),
+ .BR sox (1),
+ .BR cdrdao (1)
+ .SH AUTHORS

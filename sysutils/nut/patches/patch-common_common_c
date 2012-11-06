@@ -1,0 +1,21 @@
+$OpenBSD: patch-common_common_c,v 1.7 2011/09/19 15:59:57 sthen Exp $
+--- common/common.c.orig	Thu Sep 15 12:30:44 2011
++++ common/common.c	Mon Sep 19 09:22:03 2011
+@@ -363,6 +363,17 @@ const char * confpath(void) 
+ 	return path;
+ }
+ 
++/* return a config path for the CGIs so they can be kept seperate */
++const char * cgiconfpath(void) 
++{
++	const char * path;
++
++	if ((path = getenv("NUT_CGICONFPATH")) == NULL)
++		path = CGICONFPATH;
++
++	return path;
++}
++
+ /* Return the default path for the directory containing state files */
+ const char * dflt_statepath(void) 
+ {

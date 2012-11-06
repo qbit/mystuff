@@ -1,0 +1,13 @@
+$OpenBSD: patch-src_filed_Makefile_in,v 1.2 2012/07/09 18:40:58 sthen Exp $
+--- src/filed/Makefile.in.orig	Thu Jun 28 15:52:03 2012
++++ src/filed/Makefile.in	Thu Jul  5 16:27:27 2012
+@@ -147,9 +147,6 @@ install: all
+ 	fi; \
+ 	echo "${INSTALL_CONFIG} $$srcconf ${DESTDIR}${sysconfdir}/$$destconf"; \
+ 	${INSTALL_CONFIG} $$srcconf ${DESTDIR}${sysconfdir}/$$destconf
+-	@if test "x${fd_group}" != "x"; then \
+-	   chgrp -f ${fd_group} ${DESTDIR}${sysconfdir}/$$destconf ; \
+-	fi
+ 	@if test -f static-bacula-fd; then \
+ 	   $(LIBTOOL_INSTALL) $(INSTALL_PROGRAM) static-bacula-fd $(DESTDIR)$(sbindir)/static-bacula-fd; \
+ 	fi

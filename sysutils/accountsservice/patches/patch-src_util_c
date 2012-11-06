@@ -1,0 +1,73 @@
+$OpenBSD: patch-src_util_c,v 1.10 2012/09/27 05:53:43 ajacoutot Exp $
+
+We don't use /proc on OpenBSD.
+
+--- src/util.c.orig	Mon Sep 10 20:15:59 2012
++++ src/util.c	Thu Sep 27 07:47:35 2012
+@@ -32,11 +32,19 @@
+ 
+ #include <polkit/polkit.h>
+ 
++#ifdef __OpenBSD__
++#include <sys/param.h>
++#include <sys/types.h>
++#include <sys/sysctl.h>
++#include <kvm.h>
++#endif
++
+ #include "util.h"
+ 
+ static gchar *
+ get_cmdline_of_pid (GPid pid)
+ {
++#ifndef __OpenBSD__
+   gchar *ret = NULL;
+   gchar *filename;
+   gchar *contents;
+@@ -70,7 +78,31 @@ get_cmdline_of_pid (GPid pid)
+  out:
+   g_free (filename);
+   g_free (contents);
++#else /* OpenBSD */
++  kvm_t *kd;
++  gchar *ret = NULL;
++  int nproc;
++  struct kinfo_proc *kp;
++  char **pargv;
+ 
++  if ((kd = kvm_openfiles(NULL, NULL, NULL, KVM_NO_FILES, NULL)) == NULL)
++    goto out;
++
++  if ((kp = kvm_getprocs(kd, KERN_PROC_PID, pid, sizeof(*kp), &nproc)) == NULL)
++    goto out;
++
++  if ((kp->p_flag & P_SYSTEM) != 0) 
++    goto out;
++
++  if ((pargv = kvm_getargv(kd, kp, 0)) == NULL)
++    goto out;
++
++  ret = g_path_get_basename(pargv[0]);
++
++out:
++  kvm_close(kd);
++#endif
++
+   return ret;
+ }
+ 
+@@ -204,12 +236,14 @@ get_caller_loginuid (GDBusMethodInvocation *context, g
+ static void
+ setup_loginuid (gpointer data)
+ {
++#ifndef __OpenBSD
+         const char *id = data;
+         int fd;
+ 
+         fd = open ("/proc/self/loginuid", O_WRONLY);
+         write (fd, id, strlen (id));
+         close (fd);
++#endif
+ }
+ 
+ gboolean

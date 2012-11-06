@@ -1,0 +1,11 @@
+#!/bin/sh
+#
+# $OpenBSD: symon.rc,v 1.2 2011/05/19 20:01:27 gsoares Exp $
+
+daemon="${TRUEPREFIX}/libexec/symon"
+
+. /etc/rc.d/rc.subr
+
+rc_reload=NO
+
+rc_cmd $1

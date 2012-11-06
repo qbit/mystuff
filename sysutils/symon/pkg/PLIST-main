@@ -1,0 +1,24 @@
+@comment $OpenBSD: PLIST-main,v 1.3 2011/03/02 07:13:13 ajacoutot Exp $
+@conflict symon-mon-*
+@conflict symon-mux-*
+@pkgpath sysutils/symon
+@newgroup _symon:535
+@newuser _symon:535:_symon:daemon:symon Account:/var/empty:/sbin/nologin
+@bin libexec/symon
+@bin libexec/symux
+@man man/man8/symon.8
+@man man/man8/symux.8
+share/examples/symon/
+share/examples/symon/symon.conf
+@sample ${SYSCONFDIR}/symon.conf
+share/examples/symon/symux.conf
+@sample ${SYSCONFDIR}/symux.conf
+share/symon/
+share/symon/c_config.sh
+share/symon/c_smrrds.sh
+share/symon/client/
+share/symon/client/SymuxClient.0
+share/symon/client/SymuxClient.pm
+share/symon/client/getsymonitem.pl
+@rcscript ${RCDIR}/symon
+@rcscript ${RCDIR}/symux

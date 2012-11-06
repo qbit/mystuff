@@ -1,0 +1,60 @@
+$OpenBSD: patch-src_ck-sysdeps-unix_c,v 1.10 2012/10/12 14:55:42 ajacoutot Exp $
+--- src/ck-sysdeps-unix.c.orig	Tue May  3 01:51:07 2011
++++ src/ck-sysdeps-unix.c	Fri Oct 12 16:17:55 2012
+@@ -36,6 +36,10 @@
+ #include <linux/kd.h>
+ #endif
+ 
++#if defined(__OpenBSD__)
++#include <dev/wscons/wsdisplay_usl_io.h>
++#endif
++
+ #ifdef HAVE_SYS_VT_H
+ #include <sys/vt.h>
+ #endif
+@@ -70,7 +74,11 @@ ck_get_socket_peer_credentials   (int      socket_fd,
+         ret = FALSE;
+ 
+ #ifdef SO_PEERCRED
+-        struct ucred cr;
++#ifndef __OpenBSD__
++        struct uncred cr;
++#else
++        struct sockpeercred cr;
++#endif
+         socklen_t    cr_len;
+ 
+         cr_len = sizeof (cr);
+@@ -127,7 +135,7 @@ ck_get_socket_peer_credentials   (int      socket_fd,
+ gboolean
+ ck_fd_is_a_console (int fd)
+ {
+-#ifdef __linux__
++#if defined(__linux__) || defined(__OpenBSD__)
+         struct vt_stat vts;
+ #elif defined(__FreeBSD__)
+         int vers;
+@@ -135,7 +143,7 @@ ck_fd_is_a_console (int fd)
+         int  kb_ok;
+ 
+         errno = 0;
+-#ifdef __linux__
++#if defined(__linux__) || defined(__OpenBSD__)
+         kb_ok = (ioctl (fd, VT_GETSTATE, &vts) == 0);
+ #elif defined(__FreeBSD__)
+         kb_ok = (ioctl (fd, CONS_GETVERS, &vers) == 0);
+@@ -199,6 +207,14 @@ ck_get_a_console_fd (void)
+         if (fd >= 0) {
+                 goto done;
+         }
++#endif
++
++#if defined(__OpenBSD__)
++	/* On OpenBSD, first try wsdisplay device. */
++	fd = open_a_console ("/dev/ttyC0");
++	if (fd >= 0) {
++		goto done;
++	}
+ #endif
+ 
+ #ifdef _PATH_TTY

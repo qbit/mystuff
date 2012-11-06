@@ -1,0 +1,10 @@
+$OpenBSD: README,v 1.3 2011/10/16 06:29:30 ajacoutot Exp $
+
++-----------------------------------------------------------------------
+| Running ${FULLPKGNAME} on OpenBSD
++-----------------------------------------------------------------------
+
+To get all upower(1) functionalities (battery status on APM-only
+machines, suspend...), apmd(8) needs to be running.
+To enable apmd(8) on startup, add the following line to rc.conf.local(8):
+    apmd_flags=

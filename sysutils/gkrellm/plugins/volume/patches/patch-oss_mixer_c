@@ -1,0 +1,12 @@
+$OpenBSD: patch-oss_mixer_c,v 1.1 2005/01/20 20:19:40 sturm Exp $
+--- oss_mixer.c.orig	Wed Jan 19 21:49:53 2005
++++ oss_mixer.c	Wed Jan 19 21:50:09 2005
+@@ -30,7 +30,7 @@
+ #if defined(__FreeBSD__) && __FreeBSD_version < 500000
+   #include <machine/soundcard.h>
+ #else
+-  #include <sys/soundcard.h>
++  #include <soundcard.h>
+ #endif
+ 
+ #include "mixer.h"

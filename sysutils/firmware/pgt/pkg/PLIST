@@ -1,0 +1,7 @@
+@comment $OpenBSD: PLIST,v 1.2 2011/07/08 21:20:49 sthen Exp $
+@pkgpath mystuff/pgt-firmware
+@pkgpath pgt-firmware
+@pkgpath sysutils/pgt-firmware
+firmware/pgt-info
+firmware/pgt-isl3877
+firmware/pgt-isl3890

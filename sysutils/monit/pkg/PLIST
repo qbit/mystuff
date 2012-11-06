@@ -1,0 +1,11 @@
+@comment $OpenBSD: PLIST,v 1.9 2012/05/29 15:45:56 jasper Exp $
+@bin bin/monit
+@man man/man1/monit.1
+share/doc/monit/
+share/doc/monit/README
+share/examples/monit/
+share/examples/monit/monitrc
+@mode 0600
+@sample ${SYSCONFDIR}/monitrc
+@mode
+@rcscript ${RCDIR}/monit

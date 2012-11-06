@@ -1,0 +1,15 @@
+@comment $OpenBSD: PLIST,v 1.1 2011/06/12 00:20:51 sthen Exp $
+@pkgpath sysutils/uvideo-firmware
+firmware/uvideo_info
+firmware/uvideo_isight_05ac-8300
+firmware/uvideo_r5u87x_05ca-1803
+firmware/uvideo_r5u87x_05ca-1810
+firmware/uvideo_r5u87x_05ca-1812
+firmware/uvideo_r5u87x_05ca-1835
+firmware/uvideo_r5u87x_05ca-1836
+firmware/uvideo_r5u87x_05ca-1837
+firmware/uvideo_r5u87x_05ca-1839
+firmware/uvideo_r5u87x_05ca-183a
+firmware/uvideo_r5u87x_05ca-183b
+firmware/uvideo_r5u87x_05ca-183e
+firmware/uvideo_r5u87x_05ca-1841

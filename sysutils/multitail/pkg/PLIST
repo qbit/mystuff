@@ -1,0 +1,13 @@
+@comment $OpenBSD: PLIST,v 1.5 2011/04/27 11:40:24 gsoares Exp $
+@bin bin/multitail
+@man man/man1/multitail.1
+share/doc/multitail/
+share/doc/multitail/manual.html
+share/doc/multitail/readme.txt
+share/examples/multitail/
+share/examples/multitail/colors-example.pl
+share/examples/multitail/colors-example.sh
+share/examples/multitail/convert-geoip.pl
+share/examples/multitail/convert-simple.pl
+share/examples/multitail/multitail.conf
+@sample ${SYSCONFDIR}/multitail.conf
