@@ -1,0 +1,2 @@
+Start the couchpotato daemon with ${TRUEPREFIX}/bin/couchpotato and do the initial
+configuration via http://localhost:5050/
