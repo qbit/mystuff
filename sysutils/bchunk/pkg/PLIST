@@ -1,3 +1,0 @@
-@comment $OpenBSD: PLIST,v 1.2 2004/09/15 18:39:32 espie Exp $
-bin/bchunk
-@man man/man1/bchunk.1
