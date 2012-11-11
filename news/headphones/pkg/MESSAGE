@@ -1,0 +1,2 @@
+Start the headphones daemon with ${TRUEPREFIX}/bin/headphones and do the initial
+configuration via http://localhost:8181/
