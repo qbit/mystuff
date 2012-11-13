@@ -1,0 +1,14 @@
+$OpenBSD: patch-src_ipc_c,v 1.8 2012/09/21 17:16:14 dcoppa Exp $
+
+Add missing header
+
+--- src/ipc.c.orig	Wed Sep 19 18:08:09 2012
++++ src/ipc.c	Thu Sep 20 14:12:10 2012
+@@ -11,6 +11,7 @@
+  */
+ #include "all.h"
+ 
++#include <sys/types.h>
+ #include <sys/socket.h>
+ #include <sys/un.h>
+ #include <fcntl.h>

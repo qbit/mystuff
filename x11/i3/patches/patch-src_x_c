@@ -1,0 +1,29 @@
+$OpenBSD: patch-src_x_c,v 1.9 2012/11/13 08:44:02 dcoppa Exp $
+
+From e7a4580c5f5f895df2990dae0f26a8662d58d80f Mon Sep 17 00:00:00 2001
+From: Michael Stapelberg <michael@stapelberg.de>
+Date: Mon, 29 Oct 2012 15:41:16 +0000
+Subject: Bugfix: force rendering when the parent's orientation changed
+Otherwise, the split indicator might not be refreshed even though
+it should be.
+
+From a082cf8c65225678af782187e4b6f3ba85a0701a Mon Sep 17 00:00:00 2001
+From: Michael Stapelberg <michael@stapelberg.de>
+Date: Fri, 28 Sep 2012 17:46:50 +0000
+Subject: Bugfix: Draw h-split indicator at the right position
+
+OpenBSD lacks POSIX shared memory support (shm_open() and friends)
+
+--- src/x.c.orig	Tue Nov 13 08:49:13 2012
++++ src/x.c	Tue Nov 13 08:51:28 2012
+@@ -1038,8 +1038,10 @@ void x_set_i3_atoms(void) {
+     xcb_change_property(conn, XCB_PROP_MODE_REPLACE, root, A_I3_PID, XCB_ATOM_CARDINAL, 32, 1, &pid);
+     xcb_change_property(conn, XCB_PROP_MODE_REPLACE, root, A_I3_CONFIG_PATH, A_UTF8_STRING, 8,
+                         strlen(current_configpath), current_configpath);
++#if !defined(__OpenBSD__)
+     xcb_change_property(conn, XCB_PROP_MODE_REPLACE, root, A_I3_SHMLOG_PATH, A_UTF8_STRING, 8,
+                         strlen(shmlogname), shmlogname);
++#endif
+ }
+ 
+ /*
