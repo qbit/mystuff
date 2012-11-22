@@ -2,7 +2,7 @@
 
 COMMENT = 		minimal SSH command and control
 
-MODPY_EGG_VERSION = 	0.7.1
+MODPY_EGG_VERSION = 	0.8
 DISTNAME = 		ansible-${MODPY_EGG_VERSION}
 CATEGORIES = 		sysutils
 

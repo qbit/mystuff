@@ -1,21 +1,21 @@
 $OpenBSD$
---- lib/ansible/constants.py.orig	Thu Sep 27 21:07:26 2012
-+++ lib/ansible/constants.py	Thu Sep 27 21:16:22 2012
-@@ -37,7 +37,7 @@ def load_config_file():
+--- lib/ansible/constants.py.orig	Tue Nov  6 09:20:43 2012
++++ lib/ansible/constants.py	Tue Nov  6 09:23:28 2012
+@@ -36,7 +36,7 @@ def load_config_file():
      p = ConfigParser.ConfigParser()
-     path1 = os.path.expanduser(
-         os.environ.get('ANSIBLE_CONFIG', "~/.ansible.cfg"))
--    path2 = "/etc/ansible/ansible.cfg"
-+    path2 = "${SYSCONFDIR}/ansible/ansible.cfg"
+     path1 = os.path.expanduser(os.environ.get('ANSIBLE_CONFIG', "~/.ansible.cfg"))
+     path2 = os.getcwd() + "/ansible.cfg"
+-    path3 = "/etc/ansible/ansible.cfg"
++    path3 = "${SYSCONFDIR}/ansible/ansible.cfg"
+ 
      if os.path.exists(path1):
          p.read(path1)
-     elif os.path.exists(path2):
-@@ -61,8 +61,8 @@ active_user   = pwd.getpwuid(os.geteuid())[0]
+@@ -67,8 +67,8 @@ DIST_MODULE_PATH = '/usr/share/ansible/'
  DEFAULTS='defaults'
  
  # configurable things
 -DEFAULT_HOST_LIST         = shell_expand_path(get_config(p, DEFAULTS, 'hostfile',         'ANSIBLE_HOSTS',            '/etc/ansible/hosts'))
--DEFAULT_MODULE_PATH       = shell_expand_path(get_config(p, DEFAULTS, 'library',          'ANSIBLE_LIBRARY',          '/usr/share/ansible'))
+-DEFAULT_MODULE_PATH       = shell_expand_path(get_config(p, DEFAULTS, 'library',          'ANSIBLE_LIBRARY',          DIST_MODULE_PATH))
 +DEFAULT_HOST_LIST         = shell_expand_path(get_config(p, DEFAULTS, 'hostfile',         'ANSIBLE_HOSTS',            '${SYSCONFDIR}/ansible/hosts'))
 +DEFAULT_MODULE_PATH       = shell_expand_path(get_config(p, DEFAULTS, 'library',          'ANSIBLE_LIBRARY',          '${TRUEPREFIX}/share/ansible'))
  DEFAULT_REMOTE_TMP        = shell_expand_path(get_config(p, DEFAULTS, 'remote_tmp',       'ANSIBLE_REMOTE_TEMP',      '$HOME/.ansible/tmp'))
