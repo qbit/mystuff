@@ -1,0 +1,15 @@
+$OpenBSD: patch-i3-config-wizard_main_c,v 1.5 2012/05/09 11:56:49 dcoppa Exp $
+
+We have getline(3) now
+
+--- i3-config-wizard/main.c.orig	Tue May  8 16:42:21 2012
++++ i3-config-wizard/main.c	Tue May  8 16:42:37 2012
+@@ -13,7 +13,7 @@
+ #endif
+ 
+ /* For systems without getline, fall back to fgetln */
+-#if defined(__APPLE__) || (defined(__FreeBSD__) && __FreeBSD_version < 800000) || defined(__OpenBSD__)
++#if defined(__APPLE__) || (defined(__FreeBSD__) && __FreeBSD_version < 800000)
+ #define USE_FGETLN
+ #elif defined(__FreeBSD__)
+ /* Defining this macro before including stdio.h is necessary in order to have
