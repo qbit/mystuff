@@ -1,9 +1,9 @@
 # $OpenBSD: Makefile,v 1.2 2012/07/10 10:29:39 ajacoutot Exp $
 
 COMMENT =			search for TV serie nzb-files via web interface
-DISTNAME =			midgetspy-Sick-Beard-alpha1-2775-gbe000ad
+DISTNAME =			Sick-Beard-master
 # alpha version
-PKGNAME =			sickbeard-0.0.2
+PKGNAME =			sickbeard-0.0.3
 CATEGORIES =			news
 HOMEPAGE =			http://sickbeard.com/
 MAINTAINER =			Marcus Glocker <marcus@nazgul.ch>
@@ -25,7 +25,7 @@ NO_BUILD =			Yes
 NO_REGRESS =			Yes
 PKG_ARCH =			*
 
-WRKSRC =			${WRKDIR}/midgetspy-Sick-Beard-be000ad
+WRKSRC =			${WRKDIR}/Sick-Beard-master
 
 pre-configure: 
 	for file in ${WRKSRC}/autoProcessTV/*.py; do \
