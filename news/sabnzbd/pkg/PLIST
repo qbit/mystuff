@@ -433,7 +433,6 @@ lib/python${MODPY_VERSION}/site-packages/sabnzbd/interfaces/smpl/templates/stati
 lib/python${MODPY_VERSION}/site-packages/sabnzbd/interfaces/smpl/templates/status.tmpl
 lib/python${MODPY_VERSION}/site-packages/sabnzbd/interfaces/wizard/
 lib/python${MODPY_VERSION}/site-packages/sabnzbd/interfaces/wizard/README.TXT
-lib/python${MODPY_VERSION}/site-packages/sabnzbd/interfaces/wizard/four.html
 lib/python${MODPY_VERSION}/site-packages/sabnzbd/interfaces/wizard/inc_bottom.tmpl
 lib/python${MODPY_VERSION}/site-packages/sabnzbd/interfaces/wizard/inc_top.tmpl
 lib/python${MODPY_VERSION}/site-packages/sabnzbd/interfaces/wizard/index.html
