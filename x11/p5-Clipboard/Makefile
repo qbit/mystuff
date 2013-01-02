@@ -7,7 +7,9 @@ MODULES =	cpan
 DISTNAME =	Clipboard-0.13
 CATEGORIES =	x11
 
-MASTER_SITES = http://search.cpan.org/CPAN/authors/id/K/KI/KING/
+MAINTAINER =	Aaron Bieber <abieber@openbsd.org>
+
+MASTER_SITES =	http://search.cpan.org/CPAN/authors/id/K/KI/KING/
 
 # Perl
 PERMIT_PACKAGE_CDROM =		Yes
@@ -15,12 +17,10 @@ PERMIT_PACKAGE_FTP =		Yes
 PERMIT_DISTFILES_CDROM =	Yes
 PERMIT_DISTFILES_FTP =		Yes
 
-WANTLIB += c
-
+WANTLIB +=	c
 RUN_DEPENDS =	x11/xclip
-
 USE_GROFF =	Yes
 
-REGRESS_IS_INTERACTIVE =	x11
+REGRESS_IS_INTERACTIVE = x11
 
 .include <bsd.port.mk>
