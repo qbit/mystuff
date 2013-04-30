@@ -1,9 +1,10 @@
 # $OpenBSD: Makefile,v 1.2 2012/07/10 10:29:39 ajacoutot Exp $
 
 COMMENT =			search for Movie nzb-files via web interface
-DISTNAME =			couchpotato
+DISTNAME =			master
 # alpha version
 PKGNAME =			couchpotato-2.0.0
+REVISION=			0
 CATEGORIES =			news
 HOMEPAGE =			http://couchpota.to/
 MAINTAINER =			Aaron Bieber <abieber@openbsd.org>
@@ -14,7 +15,7 @@ PERMIT_PACKAGE_FTP =		Yes
 PERMIT_DISTFILES_CDROM =	Yes
 PERMIT_DISTFILES_FTP =		Yes
 
-MASTER_SITES = 			http://deftly.net/
+MASTER_SITES = 			https://github.com/RuudBurger/CouchPotatoServer/archive/
 
 MODULES =			lang/python
 
