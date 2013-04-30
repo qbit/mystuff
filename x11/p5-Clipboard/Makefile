@@ -17,7 +17,6 @@ PERMIT_PACKAGE_FTP =	Yes
 PERMIT_DISTFILES_FTP =	Yes
 
 RUN_DEPENDS =	x11/xclip
-
 USE_GROFF =	Yes
 
 .include <bsd.port.mk>
