@@ -1,3 +1,0 @@
-#!/bin/sh
-
-${MODPY_BIN} ${TRUEPREFIX}/lib/python${MODPY_VERSION}/site-packages/couchpotato/CouchPotato.py --daemon --data_dir $HOME/.couchpotato --config_file $HOME/.couchpotato/couchpotato.ini
