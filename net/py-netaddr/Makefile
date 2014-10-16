@@ -10,6 +10,8 @@ CATEGORIES =		net
 
 HOMEPAGE =		http://github.com/drkjam/netaddr/
 
+MAINTAINER =		Aaron Bieber <abieber@openbsd.org>
+
 # MIT
 PERMIT_PACKAGE_CDROM =	Yes
 

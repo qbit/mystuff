@@ -10,6 +10,8 @@ CATEGORIES =		www
 
 HOMEPAGE =		https://github.com/maxcountryman/flask-login
 
+MAINTAINER =		Aaron Bieber <abieber@openbsd.org>
+
 # MIT
 PERMIT_PACKAGE_CDROM =	Yes
 

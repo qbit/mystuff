@@ -10,6 +10,8 @@ CATEGORIES =		www
 
 HOMEPAGE =		https://github.com/MrJoes/sockjs-tornado/
 
+MAINTAINER =		Aaron Bieber <abieber@openbsd.org>
+
 # MIT
 PERMIT_PACKAGE_CDROM =	Yes
 
