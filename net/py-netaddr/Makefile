@@ -19,6 +19,8 @@ MASTER_SITES =		${MASTER_SITE_PYPI:=n/netaddr/}
 
 MODULES =		lang/python
 
-#MODPY_SETUPTOOLS =	Yes
+RUN_DEPENDS =		devel/ipython
+
+NO_TEST =		Yes
 
 .include <bsd.port.mk>

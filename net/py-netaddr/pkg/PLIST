@@ -1,5 +1,5 @@
 @comment $OpenBSD$
-@comment bin/netaddr
+bin/netaddr
 lib/python${MODPY_VERSION}/site-packages/netaddr/
 lib/python${MODPY_VERSION}/site-packages/netaddr-${MODPY_EGG_VERSION}-py${MODPY_VERSION}.egg-info
 lib/python${MODPY_VERSION}/site-packages/netaddr/__init__.py
