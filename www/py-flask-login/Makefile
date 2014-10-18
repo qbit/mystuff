@@ -23,4 +23,6 @@ RUN_DEPENDS +=		www/py-flask
 
 MODPY_SETUPTOOLS =	Yes
 
+NO_TEST =		Yes
+
 .include <bsd.port.mk>
