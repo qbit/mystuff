@@ -18,7 +18,8 @@ DISTFILES=	${DISTNAME}{${GH_VER}}${EXTRACT_SUFX}
 
 BUILD_DEPENDS=	${MODGNU_AUTOCONF_DEPENDS} \
 		${MODGNU_AUTOMAKE_DEPENDS} \
-		editors/emacs
+		devel/libtool \
+		emacs->=24:editors/emacs
 
 LIB_DEPENDS=	databases/xapian-core \
 		mail/gmime
@@ -35,7 +36,6 @@ CONFIGURE_ARGS=		--disable-gtk \
 			--disable-webkit \
 			--disable-guile
 
-USE_LIBTOOL=		gnu
 USE_GMAKE=		Yes
 
 pre-configure:
