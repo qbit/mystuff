@@ -22,6 +22,7 @@ BUILD_DEPENDS=	${MODGNU_AUTOCONF_DEPENDS} \
 		emacs->=24:editors/emacs
 
 LIB_DEPENDS=	databases/xapian-core \
+		devel/glib2 \
 		mail/gmime
 
 WANTLIB+= 	c ffi gio-2.0 glib-2.0 gmime-2.6 gmodule-2.0 gobject-2.0
