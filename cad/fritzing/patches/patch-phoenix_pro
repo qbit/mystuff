@@ -1,0 +1,17 @@
+$OpenBSD: patch-phoenix_pro,v 1.7 2014/03/26 16:00:31 jasper Exp $
+
+- Don't build everything twice, just once takes long enough already.
+- Remove bundled boost and use the system-wide version instead.
+
+--- phoenix.pro.orig	Fri Jan 24 21:00:54 2014
++++ phoenix.pro	Wed Mar 26 16:11:04 2014
+@@ -31,7 +31,7 @@
+ # QTPLUGIN  += qjpeg qsqlite
+ 
+ 
+-CONFIG += debug_and_release
++CONFIG += release
+ win32 {
+ # release build using msvc 2010 needs to use Multi-threaded (/MT) for the code generation/runtime library option
+ # release build using msvc 2010 needs to add msvcrt.lib;%(IgnoreSpecificDefaultLibraries) to the linker/no default libraries option
+ 
