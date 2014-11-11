@@ -1,0 +1,2 @@
+This module supplies features similar as wcwidth(3) and wcswidth(3) in C
+language.

@@ -1,0 +1,10 @@
+@comment $OpenBSD$
+%%SHARED%%
+${P5ARCH}/
+${P5ARCH}/Text/
+${P5ARCH}/Text/CharWidth.pm
+${P5ARCH}/auto/
+${P5ARCH}/auto/Text/
+${P5ARCH}/auto/Text/CharWidth/
+${P5ARCH}/auto/Text/CharWidth/CharWidth.bs
+@man man/man3p/Text::CharWidth.3p
