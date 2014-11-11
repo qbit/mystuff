@@ -6,9 +6,11 @@ MODULES =	cpan
 DISTNAME =	Text-CharWidth-0.04
 CATEGORIES =	sysutils
 
-MASTER_SITES =	http://search.cpan.org/CPAN/authors/id/K/KU/KUBOTA/
+SHARED_LIBS=	CharWidth	0.0
 
 MAINTAINER =	Aaron Bieber <abieber@openbsd.org>
+
+MASTER_SITES =	http://search.cpan.org/CPAN/authors/id/K/KU/KUBOTA/
 
 # Perl
 PERMIT_PACKAGE_CDROM =	Yes
