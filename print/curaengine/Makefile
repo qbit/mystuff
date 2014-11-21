@@ -11,11 +11,9 @@ HOMEPAGE =		https://github.com/Ultimaker/CuraEngine
 
 MAINTAINER =		Aaron Bieber <abieber@openbsd.org>
 
-# GPLv3
+# AGPLv3
 PERMIT_PACKAGE_CDROM =	Yes
 
-# "make port-lib-depends-check" can help
-#WANTLIB =		???
 WANTLIB += c m
 
 GH_ACCOUNT =		Ultimaker
