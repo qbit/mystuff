@@ -1,0 +1,11 @@
+$OpenBSD$
+--- power.egg-info/PKG-INFO.orig	Thu Nov 20 19:44:45 2014
++++ power.egg-info/PKG-INFO	Thu Nov 20 19:43:52 2014
+@@ -11,6 +11,7 @@ Platform: Mac OS X 10.6+
+ Platform: Windows XP+
+ Platform: Linux 2.6+
+ Platform: FreeBSD
++Platform: OpenBSD
+ Classifier: Intended Audience :: Developers
+ Classifier: Intended Audience :: System Administrators
+ Classifier: License :: OSI Approved :: MIT License

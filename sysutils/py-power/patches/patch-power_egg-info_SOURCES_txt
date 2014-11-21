@@ -1,0 +1,11 @@
+$OpenBSD$
+--- power.egg-info/SOURCES.txt.orig	Thu Nov 20 19:44:15 2014
++++ power.egg-info/SOURCES.txt	Thu Nov 20 19:44:26 2014
+@@ -3,6 +3,7 @@ power/__init__.py
+ power/common.py
+ power/darwin.py
+ power/freebsd.py
++power/openbsd.py
+ power/linux.py
+ power/tests.py
+ power/win32.py
