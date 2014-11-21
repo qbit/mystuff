@@ -2,7 +2,7 @@
 
 COMMENT =		3d printing and slicing application
 
-VERSION =		14.07
+VERSION =		14.11-RC7
 DISTNAME =		Cura-${VERSION}
 PKGNAME =		cura-${VERSION}
 
@@ -27,6 +27,9 @@ BUILD_DEPENDS =		graphics/py-opengl \
 			math/py-numpy \
 			devel/py-serial \
 			sysutils/py-power
+
+pre-configure:
+	@echo ${VERSION} > ${WRKSRC}/resources/version
 
 do-install:
 	${INSTALL_DATA_DIR} \

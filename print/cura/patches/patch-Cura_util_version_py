@@ -1,0 +1,12 @@
+$OpenBSD$
+--- Cura/util/version.py.orig	Thu Nov 20 22:02:15 2014
++++ Cura/util/version.py	Thu Nov 20 22:03:23 2014
+@@ -18,7 +18,7 @@ from Cura.util import resources
+ 
+ def getVersion(getGitVersion = True):
+ 	gitPath = os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0], "../.."))
+-	if hasattr(sys, 'frozen'):
++	if hasattr(sys, 'frozen') or sys.platform.startswith('openbsd'):
+ 		versionFile = os.path.normpath(os.path.join(resources.resourceBasePath, "version"))
+ 	else:
+ 		versionFile = os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0], "../version"))
