@@ -1,0 +1,15 @@
+$OpenBSD$
+--- Cura/util/resources.py.orig	Thu Nov 20 21:46:28 2014
++++ Cura/util/resources.py	Thu Nov 20 21:48:43 2014
+@@ -28,7 +28,10 @@ if sys.platform.startswith('darwin'):
+ 	else:
+ 		resourceBasePath = os.path.join(os.path.dirname(__file__), "../../resources")
+ else:
+-	resourceBasePath = os.path.join(os.path.dirname(__file__), "../../resources")
++        if sys.platform.startswith('openbsd'):
++                resourceBasePath = os.path.join(os.path.dirname(__file__), "../resources")
++        else:
++                resourceBasePath = os.path.join(os.path.dirname(__file__), "../../resources")
+ 
+ def getPathForResource(dir, subdir, resource_name):
+ 	assert os.path.isdir(dir), "{p} is not a directory".format(p=dir)
