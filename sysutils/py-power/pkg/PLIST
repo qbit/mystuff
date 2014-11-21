@@ -1,0 +1,21 @@
+@comment $OpenBSD$
+lib/python${MODPY_VERSION}/site-packages/power/
+lib/python${MODPY_VERSION}/site-packages/power-${MODPY_EGG_VERSION}-py${MODPY_VERSION}.egg-info/
+lib/python${MODPY_VERSION}/site-packages/power-${MODPY_EGG_VERSION}-py${MODPY_VERSION}.egg-info/PKG-INFO
+lib/python${MODPY_VERSION}/site-packages/power-${MODPY_EGG_VERSION}-py${MODPY_VERSION}.egg-info/SOURCES.txt
+lib/python${MODPY_VERSION}/site-packages/power-${MODPY_EGG_VERSION}-py${MODPY_VERSION}.egg-info/dependency_links.txt
+lib/python${MODPY_VERSION}/site-packages/power-${MODPY_EGG_VERSION}-py${MODPY_VERSION}.egg-info/top_level.txt
+lib/python${MODPY_VERSION}/site-packages/power/__init__.py
+lib/python${MODPY_VERSION}/site-packages/power/__init__.pyc
+lib/python${MODPY_VERSION}/site-packages/power/common.py
+lib/python${MODPY_VERSION}/site-packages/power/common.pyc
+lib/python${MODPY_VERSION}/site-packages/power/darwin.py
+lib/python${MODPY_VERSION}/site-packages/power/darwin.pyc
+lib/python${MODPY_VERSION}/site-packages/power/freebsd.py
+lib/python${MODPY_VERSION}/site-packages/power/freebsd.pyc
+lib/python${MODPY_VERSION}/site-packages/power/linux.py
+lib/python${MODPY_VERSION}/site-packages/power/linux.pyc
+lib/python${MODPY_VERSION}/site-packages/power/tests.py
+lib/python${MODPY_VERSION}/site-packages/power/tests.pyc
+lib/python${MODPY_VERSION}/site-packages/power/win32.py
+lib/python${MODPY_VERSION}/site-packages/power/win32.pyc
