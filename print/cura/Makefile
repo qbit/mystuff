@@ -28,6 +28,8 @@ BUILD_DEPENDS =		graphics/py-opengl \
 			devel/py-serial \
 			sysutils/py-power
 
+RUN_DEPENDS =		x11/py-wxPython
+
 pre-configure:
 	@echo ${VERSION} > ${WRKSRC}/resources/version
 
