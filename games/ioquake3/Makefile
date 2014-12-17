@@ -20,7 +20,6 @@ PERMIT_PACKAGE_CDROM=	Yes
 
 LIB_DEPENDS=		devel/sdl2
 
-LIBTOOL_FLAGS=		--tag=disable-static
 USE_GMAKE=		Yes
 NO_TEST=		Yes
 
