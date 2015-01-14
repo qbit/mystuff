@@ -1,0 +1,12 @@
+$OpenBSD$
+--- deps/v8/src/base/macros.h.orig	Tue Jan 13 21:31:29 2015
++++ deps/v8/src/base/macros.h	Wed Jan 14 13:18:28 2015
+@@ -333,7 +333,7 @@ inline void USE(T) { }
+ # define V8_INTPTR_C(x)   (x ## LL)
+ # define V8_PTR_PREFIX    "I64"
+ #elif V8_HOST_ARCH_64_BIT
+-# if V8_OS_MACOSX
++# if V8_OS_MACOSX || defined(__OpenBSD__)
+ #  define V8_UINT64_C(x)   (x ## ULL)
+ #  define V8_INT64_C(x)    (x ## LL)
+ # else

@@ -1,0 +1,17 @@
+@comment $OpenBSD: PLIST,v 1.20 2014/09/24 18:17:27 abieber Exp $
+@pkgpath www/node
+bin/node-gyp
+lib/iojs/
+lib/iojs/${DISTFILES}
+lib/node/
+@comment lib/node_modules/node-gyp/gyp/pylib/gyp/generator/make.py.orig
+@comment lib/node_modules/node-gyp/gyp/pylib/gyp/generator/ninja.py.orig
+@comment lib/node_modules/node-gyp/lib/build.js.orig
+@comment lib/node_modules/node-gyp/lib/configure.js.beforesubst
+@comment lib/node_modules/node-gyp/lib/configure.js.orig
+@comment lib/node_modules/node-gyp/lib/install.js.beforesubst
+@comment lib/node_modules/node-gyp/lib/install.js.orig
+@comment lib/node_modules/npm/bin/node-gyp-bin/node-gyp.orig
+@comment lib/node_modules/npm/lib/build.js.orig
+@comment lib/node_modules/npm/lib/npm.js.orig
+lib/node/${DISTFILES}
