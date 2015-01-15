@@ -21,8 +21,6 @@ HOMEPAGE=	http://iojs.org/
 
 MAINTAINER=	Aaron Bieber <abieber@openbsd.org>
 
-
-
 # MIT
 PERMIT_PACKAGE_CDROM=	Yes
 
@@ -44,7 +42,8 @@ RUN_DEPENDS=	devel/gmake \
 
 TEST_TARGET= test
 CONFIGURE_STYLE= simple
-CONFIGURE_ARGS= --openssl-use-sys \
+CONFIGURE_ARGS= --prefix=${LOCALBASE} \
+		--shared-openssl \
 		--shared-zlib
 
 SUBST_VARS+=	CFLAGS
