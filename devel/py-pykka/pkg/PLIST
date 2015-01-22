@@ -1,0 +1,21 @@
+@comment $OpenBSD$
+lib/python${MODPY_VERSION}/site-packages/Pykka-${MODPY_EGG_VERSION}-py${MODPY_VERSION}.egg-info
+lib/python${MODPY_VERSION}/site-packages/pykka/
+lib/python${MODPY_VERSION}/site-packages/pykka/__init__.py
+lib/python${MODPY_VERSION}/site-packages/pykka/__init__.pyc
+lib/python${MODPY_VERSION}/site-packages/pykka/actor.py
+lib/python${MODPY_VERSION}/site-packages/pykka/actor.pyc
+lib/python${MODPY_VERSION}/site-packages/pykka/debug.py
+lib/python${MODPY_VERSION}/site-packages/pykka/debug.pyc
+lib/python${MODPY_VERSION}/site-packages/pykka/eventlet.py
+lib/python${MODPY_VERSION}/site-packages/pykka/eventlet.pyc
+lib/python${MODPY_VERSION}/site-packages/pykka/exceptions.py
+lib/python${MODPY_VERSION}/site-packages/pykka/exceptions.pyc
+lib/python${MODPY_VERSION}/site-packages/pykka/future.py
+lib/python${MODPY_VERSION}/site-packages/pykka/future.pyc
+lib/python${MODPY_VERSION}/site-packages/pykka/gevent.py
+lib/python${MODPY_VERSION}/site-packages/pykka/gevent.pyc
+lib/python${MODPY_VERSION}/site-packages/pykka/proxy.py
+lib/python${MODPY_VERSION}/site-packages/pykka/proxy.pyc
+lib/python${MODPY_VERSION}/site-packages/pykka/registry.py
+lib/python${MODPY_VERSION}/site-packages/pykka/registry.pyc
