@@ -10,9 +10,9 @@ COMMENT=	V8 JavaScript for clients and servers
 
 GH_ACCOUNT=	iojs
 GH_PROJECT=	io.js
-GH_TAGNAME=	v1.0.1-release
+GH_TAGNAME=	v1.2.0
 
-DISTNAME=	iojs-${GH_TAGNAME:S/-release//g}
+DISTNAME=	iojs-${GH_TAGNAME}
 PKGNAME=	${DISTNAME:S/v//g}
 
 CATEGORIES=	lang devel
@@ -44,7 +44,8 @@ TEST_TARGET= test
 CONFIGURE_STYLE= simple
 CONFIGURE_ARGS= --prefix=${LOCALBASE} \
 		--shared-openssl \
-		--shared-zlib
+		--shared-zlib \
+		--without-npm
 
 SUBST_VARS+=	CFLAGS
 SUBST_VARS+= 	PREFIX
