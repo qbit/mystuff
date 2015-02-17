@@ -18,9 +18,10 @@ MAINTAINER =		Aaron Bieber <abieber@openbsd.org>
 # MIT
 PERMIT_PACKAGE_CDROM =	Yes
 
-RUN_DEPENDS =		www/py-webob \
+RUN_DEPENDS =		graphics/mapnik \
 			graphics/py-Pillow \
-			graphics/mapnik
+			www/py-paste-script \
+			www/py-webob
 
 MODULES =		lang/python
 
