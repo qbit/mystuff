@@ -10,7 +10,7 @@ COMMENT=	V8 JavaScript for clients and servers
 
 GH_ACCOUNT=	iojs
 GH_PROJECT=	io.js
-GH_TAGNAME=	v1.2.0
+GH_TAGNAME=	v1.6.3
 
 DISTNAME=	iojs-${GH_TAGNAME}
 PKGNAME=	${DISTNAME:S/v//g}
