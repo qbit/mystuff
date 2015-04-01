@@ -1,6 +1,5 @@
 $OpenBSD$
 --- Makefile.local.orig	Tue Dec 16 13:45:15 2014
 +++ Makefile.local	Tue Dec 16 13:46:21 2014
-@@ -0,0 +2 @@
+@@ -0,0 +1 @@
 +DEFAULT_BASEDIR=${LOCALBASE}/share/ioquake3
-+BUILD_STANDALONE=Yes

@@ -15,7 +15,7 @@ HOMEPAGE=	http://fsharp.org/
 
 MAINTAINER=	Aaron Bieber <abieber@openbsd.org>
 
-# Apache
+# Apache 2
 PERMIT_PACKAGE_CDROM=	Yes
 
 MODULES=		lang/mono
