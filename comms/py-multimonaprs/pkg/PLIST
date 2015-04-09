@@ -1,0 +1,16 @@
+@comment $OpenBSD$
+bin/pymultimonaprs
+share/examples/py-multimonaprs/pymultimonaprs.json
+@sample ${SYSCONFDIR}/pymultimonaprs.json
+lib/python${MODPY_VERSION}/site-packages/pymultimonaprs/
+lib/python${MODPY_VERSION}/site-packages/pymultimonaprs-1.0.0-py${MODPY_VERSION}.egg-info
+lib/python${MODPY_VERSION}/site-packages/pymultimonaprs/__init__.py
+lib/python${MODPY_VERSION}/site-packages/pymultimonaprs/__init__.pyc
+lib/python${MODPY_VERSION}/site-packages/pymultimonaprs/beacon.py
+lib/python${MODPY_VERSION}/site-packages/pymultimonaprs/beacon.pyc
+lib/python${MODPY_VERSION}/site-packages/pymultimonaprs/frame.py
+lib/python${MODPY_VERSION}/site-packages/pymultimonaprs/frame.pyc
+lib/python${MODPY_VERSION}/site-packages/pymultimonaprs/gate.py
+lib/python${MODPY_VERSION}/site-packages/pymultimonaprs/gate.pyc
+lib/python${MODPY_VERSION}/site-packages/pymultimonaprs/multimon.py
+lib/python${MODPY_VERSION}/site-packages/pymultimonaprs/multimon.pyc
