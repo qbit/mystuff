@@ -17,7 +17,8 @@ PERMIT_PACKAGE_CDROM=	Yes
 MODULES=        x11/qt4
 
 BUILD_DEPENDS=	${RUN_DEPENDS}
-RUN_DEPENDS=	comms/rtl-sdr
+RUN_DEPENDS=	comms/rtl-sdr \
+		audio/pulseaudio
 
 CFLAGS+=	-I${X11BASE}/include
 LDFLAGS+=	-L${X11BASE}/lib
