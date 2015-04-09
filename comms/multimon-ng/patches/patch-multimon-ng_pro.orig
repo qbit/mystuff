@@ -1,0 +1,18 @@
+$OpenBSD$
+--- multimon-ng.pro.orig	Sat Nov 29 00:10:58 2014
++++ multimon-ng.pro	Thu Apr  9 08:14:59 2015
+@@ -85,6 +85,14 @@ SOURCES +=  xdisplay.c \
+             demod_display.c
+ }
+ 
++unix:openbsd-g++:!symbian:+!macx{
++DEFINES += PULSE_AUDIO
++DEFINES += CHARSET_UTF8
++LIBS += -lX11 -lpulse-simple -lpulse
++SOURCES += xdisplay.c \
++	demod_display.c
++}
++
+ unix:linux-g++-32:!symbian:!macx{
+ #DEFINES += ARCH_I386
+ DEFINES += PULSE_AUDIO

@@ -1,0 +1,13 @@
+$OpenBSD$
+--- multimon-ng.pro.orig	Sat Nov 29 00:10:58 2014
++++ multimon-ng.pro	Thu Apr  9 08:15:47 2015
+@@ -110,3 +110,9 @@ LIBS += -lX11 -lpulse-simple -lpulse
+ SOURCES +=  xdisplay.c \
+             demod_display.c
+ }
++
++DEFINES += PULSE_AUDIO
++DEFINES += CHARSET_UTF8
++LIBS += -L${X11BASE}/lib -lX11 -lpulse-simple -lpulse
++SOURCES += xdisplay.c \
++	demod_display.c
