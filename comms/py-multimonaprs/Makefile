@@ -6,7 +6,7 @@ GH_ACCOUNT =		asdil12
 GH_PROJECT =		pymultimonaprs
 GH_TAGNAME =		1.0.1
 
-REVISION =		0
+REVISION =		1
 
 DISTNAME =		pymultimonaprs-${GH_TAGNAME}
 PKGNAME =		${DISTNAME:S/^py/py-/}
