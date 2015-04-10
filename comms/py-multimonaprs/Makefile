@@ -1,21 +1,23 @@
 # $OpenBSD: Makefile,v 1.9 2013/04/27 16:02:59 kili Exp $
 
-COMMENT=	APRS-IS Gateway
+COMMENT =		APRS-IS Gateway
 
-GH_ACCOUNT =           asdil12
-GH_PROJECT =           pymultimonaprs
-GH_TAGNAME =           1.0.1
+GH_ACCOUNT =		asdil12
+GH_PROJECT =		pymultimonaprs
+GH_TAGNAME =		1.0.1
 
-DISTNAME=	pymultimonaprs-${GH_TAGNAME}
-PKGNAME=        ${DISTNAME:S/^py/py-/}
-CATEGORIES=	comms
+REVISION =		0
 
-HOMEPAGE=	http://asdil12.github.io/pymultimonaprs/
+DISTNAME =		pymultimonaprs-${GH_TAGNAME}
+PKGNAME =		${DISTNAME:S/^py/py-/}
+CATEGORIES =		comms
+
+HOMEPAGE =		http://asdil12.github.io/pymultimonaprs/
 
 # GPLv3
 PERMIT_PACKAGE_CDROM=	Yes
 
-MODULES=	lang/python
+MODULES=		lang/python
 
 BUILD_DEPENDS=		${RUN_DEPENDS}
 RUN_DEPENDS=		comms/rtl-sdr

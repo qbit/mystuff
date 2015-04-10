@@ -1,0 +1,25 @@
+$OpenBSD$
+--- pymultimonaprs/gate.py.orig	Mon Dec  8 06:44:26 2014
++++ pymultimonaprs/gate.py	Fri Apr 10 09:08:39 2015
+@@ -102,15 +102,16 @@ class IGate:
+ 					if not e.errno == 11:
+ 						# if the error is other than 'rx queue empty'
+ 						raise
+-				self.socket.setblocking(1)
++				self.socket.setblocking(0)
+ 			except socket.error as e:
+ 				# possible errors on io:
+ 				# [Errno  11] Buffer is empty (maybe not when using blocking sockets)
+ 				# [Errno  32] Broken Pipe
+ 				# [Errno 104] Connection reset by peer
+ 				# [Errno 110] Connection time out
+-				self.log.warn("Connection issue: '%s'" % str(e))
+-				sleep(1)
+-				# try to reconnect
+-				self._connect()
++				if e.errno != 35:
++					self.log.warn("Connection issue: '%s'" % str(e))
++					sleep(1)
++					# try to reconnect
++					self._connect()
+ 		self.log.debug("sending thread exit")
