@@ -1,0 +1,3 @@
+Generator based tools for working with audio clips.
+
+The audiogen module provides time domain audio processing tools using Python generators.

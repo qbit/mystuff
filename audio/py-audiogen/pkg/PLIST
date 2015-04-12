@@ -1,0 +1,18 @@
+@comment $OpenBSD$
+lib/python${MODPY_VERSION}/site-packages/audiogen/
+lib/python${MODPY_VERSION}/site-packages/audiogen-${MODPY_EGG_VERSION}-py${MODPY_VERSION}.egg-info/
+lib/python${MODPY_VERSION}/site-packages/audiogen-${MODPY_EGG_VERSION}-py${MODPY_VERSION}.egg-info/PKG-INFO
+lib/python${MODPY_VERSION}/site-packages/audiogen-${MODPY_EGG_VERSION}-py${MODPY_VERSION}.egg-info/SOURCES.txt
+lib/python${MODPY_VERSION}/site-packages/audiogen-${MODPY_EGG_VERSION}-py${MODPY_VERSION}.egg-info/dependency_links.txt
+lib/python${MODPY_VERSION}/site-packages/audiogen-${MODPY_EGG_VERSION}-py${MODPY_VERSION}.egg-info/requires.txt
+lib/python${MODPY_VERSION}/site-packages/audiogen-${MODPY_EGG_VERSION}-py${MODPY_VERSION}.egg-info/top_level.txt
+lib/python${MODPY_VERSION}/site-packages/audiogen/__init__.py
+lib/python${MODPY_VERSION}/site-packages/audiogen/__init__.pyc
+lib/python${MODPY_VERSION}/site-packages/audiogen/generators.py
+lib/python${MODPY_VERSION}/site-packages/audiogen/generators.pyc
+lib/python${MODPY_VERSION}/site-packages/audiogen/noise.py
+lib/python${MODPY_VERSION}/site-packages/audiogen/noise.pyc
+lib/python${MODPY_VERSION}/site-packages/audiogen/sampler.py
+lib/python${MODPY_VERSION}/site-packages/audiogen/sampler.pyc
+lib/python${MODPY_VERSION}/site-packages/audiogen/util.py
+lib/python${MODPY_VERSION}/site-packages/audiogen/util.pyc

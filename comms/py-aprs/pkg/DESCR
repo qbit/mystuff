@@ -1,0 +1,5 @@
+Bell 202 Audio Frequency Shift Keying encoder and APRS packet audio tools
+
+Library to generate Bell 202 AFSK audio samples and AFSK encoded APRS/AX.25 packets.
+
+The aprs command line program encodes APRS packets as AFSK audio data.
