@@ -7,9 +7,9 @@ COMMENT=		first person shooter
 
 GH_ACCOUNT=		ioquake
 GH_PROJECT=		ioq3
-GH_COMMIT=		65121c62c99d7609f1c9524e63f812c1e08b0697
+GH_COMMIT=		10c5f0b5a9f2978764bafeda41b2d5b29f54ee4e
 
-DISTNAME=		ioquake3-2014.12.16
+DISTNAME=		ioquake3-2015.04.13
 CATEGORIES=		games
 
 HOMEPAGE=		http://ioquake3.org/
@@ -22,6 +22,8 @@ LIB_DEPENDS=		devel/sdl2
 
 USE_GMAKE=		Yes
 NO_TEST=		Yes
+
+MAKE_ENV=		"V=1"
 
 CFLAGS+=                -pthread -g
 
