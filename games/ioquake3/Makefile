@@ -18,7 +18,8 @@ MAINTAINER=		Aaron Bieber <abieber@openbsd.org>
 # GPL
 PERMIT_PACKAGE_CDROM=	Yes
 
-LIB_DEPENDS=		devel/sdl2
+LIB_DEPENDS=		devel/sdl2 \
+			net/curl
 
 USE_GMAKE=		Yes
 NO_TEST=		Yes
@@ -27,7 +28,7 @@ MAKE_ENV=		"V=1"
 
 CFLAGS+=                -pthread -g
 
-WANTLIB += GL SDL2 c m pthread
+WANTLIB += GL SDL2 c curl m pthread
 
 do-install:
 	${INSTALL_DATA_DIR} ${PREFIX}/share/ioquake3/
