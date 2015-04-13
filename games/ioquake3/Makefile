@@ -27,6 +27,8 @@ MAKE_ENV=		"V=1"
 
 CFLAGS+=                -pthread -g
 
+WANTLIB += GL SDL2 c m pthread
+
 do-install:
 	${INSTALL_DATA_DIR} ${PREFIX}/share/ioquake3/
 	cp -rp ${WRKSRC}/build/release-openbsd-x86_64/* ${PREFIX}/share/ioquake3/
