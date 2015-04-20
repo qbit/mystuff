@@ -21,6 +21,7 @@ MODULES =	lang/python
 BUILD_DEPENDS =	${RUN_DEPENDS}
 RUN_DEPENDS =	www/py-werkzeug \
 		geo/py-modestmaps \
+		geo/gdal,-python \
 		graphics/py-Pillow \
 		graphics/mapnik \
 		devel/py-simplejson
