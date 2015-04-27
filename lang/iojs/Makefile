@@ -6,11 +6,11 @@
 
 ONLY_FOR_ARCHS=	amd64 i386
 
-COMMENT=	V8 JavaScript for clients and servers
+COMMENT=	V8 ES6 JavaScript for clients and servers
 
 GH_ACCOUNT=	iojs
 GH_PROJECT=	io.js
-GH_TAGNAME=	v1.6.4
+GH_TAGNAME=	v1.8.1
 
 DISTNAME=	iojs-${GH_TAGNAME}
 PKGNAME=	${DISTNAME:S/v//g}
@@ -42,10 +42,9 @@ RUN_DEPENDS=	devel/gmake \
 
 TEST_TARGET= test
 CONFIGURE_STYLE= simple
-CONFIGURE_ARGS= --prefix=${LOCALBASE} \
+CONFIGURE_ARGS= --prefix=${PREFIX} \
 		--shared-openssl \
-		--shared-zlib \
-		--without-npm
+		--shared-zlib
 
 SUBST_VARS+=	CFLAGS
 SUBST_VARS+= 	PREFIX

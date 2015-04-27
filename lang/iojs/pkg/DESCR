@@ -1,2 +1,3 @@
-Node.js is an evented I/O framework for the V8 JavaScript engine. It is
-intended for writing scalable network programs such as web servers.
+io.js is a JavaScript platform built on Chrome's V8 runtime.
+This project began as a fork of Joyent's Node.js and is compatible
+with the npm ecosystem.
