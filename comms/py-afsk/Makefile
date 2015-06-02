@@ -18,7 +18,8 @@ MODPY_PI =	Yes
 
 MODULES =	lang/python
 
-RUN_DEPENDS =	devel/py-bitarray
+RUN_DEPENDS =	audio/py-audiogen \
+		devel/py-bitarray
 
 MODPY_SETUPTOOLS = Yes
 
