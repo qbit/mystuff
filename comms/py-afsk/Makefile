@@ -18,6 +18,8 @@ MODPY_PI =	Yes
 
 MODULES =	lang/python
 
+RUN_DEPENDS =	devel/py-bitarray
+
 MODPY_SETUPTOOLS = Yes
 
 NO_TEST =	Yes
