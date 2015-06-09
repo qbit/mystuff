@@ -17,7 +17,7 @@ MASTER_SITES =	https://www.keepassx.org/dev/attachments/download/69/
 
 MODULES =	x11/qt5 devel/cmake
 
-WANTLIB += QtDBus QtGui X11 Xtst c gcrypt m pthread stdc++ z
+WANTLIB +=	QtDBus QtGui X11 Xtst c gcrypt m pthread stdc++ z
 
 RUN_DEPENDS =	devel/desktop-file-utils \
 		misc/shared-mime-info 
