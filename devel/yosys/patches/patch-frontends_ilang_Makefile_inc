@@ -1,0 +1,20 @@
+$OpenBSD$
+--- frontends/ilang/Makefile.inc.orig	Sat Sep 12 08:01:20 2015
++++ frontends/ilang/Makefile.inc	Mon Sep 14 13:53:15 2015
+@@ -6,14 +6,14 @@ GENFILES += frontends/ilang/ilang_lexer.cc
+ 
+ frontends/ilang/ilang_parser.tab.cc: frontends/ilang/ilang_parser.y
+ 	$(Q) mkdir -p $(dir $@)
+-	$(P) $(BISON) -d -r all -b frontends/ilang/ilang_parser $<
++	$(P) $(BISON) -p rtlil_frontend_ilang_yy -d -r all -b frontends/ilang/ilang_parser $<
+ 	$(Q) mv frontends/ilang/ilang_parser.tab.c frontends/ilang/ilang_parser.tab.cc
+ 
+ frontends/ilang/ilang_parser.tab.h: frontends/ilang/ilang_parser.tab.cc
+ 
+ frontends/ilang/ilang_lexer.cc: frontends/ilang/ilang_lexer.l
+ 	$(Q) mkdir -p $(dir $@)
+-	$(P) flex -o frontends/ilang/ilang_lexer.cc $<
++	$(P) gflex -o frontends/ilang/ilang_lexer.cc $<
+ 
+ OBJS += frontends/ilang/ilang_parser.tab.o frontends/ilang/ilang_lexer.o
+ OBJS += frontends/ilang/ilang_frontend.o

@@ -1,0 +1,20 @@
+$OpenBSD$
+--- frontends/verilog/Makefile.inc.orig	Sat Sep 12 08:01:20 2015
++++ frontends/verilog/Makefile.inc	Mon Sep 14 14:05:53 2015
+@@ -6,14 +6,14 @@ GENFILES += frontends/verilog/verilog_lexer.cc
+ 
+ frontends/verilog/verilog_parser.tab.cc: frontends/verilog/verilog_parser.y
+ 	$(Q) mkdir -p $(dir $@)
+-	$(P) $(BISON) -d -r all -b frontends/verilog/verilog_parser $<
++	$(P) $(BISON) -p frontend_verilog_yy -d -r all -b frontends/verilog/verilog_parser $<
+ 	$(Q) mv frontends/verilog/verilog_parser.tab.c frontends/verilog/verilog_parser.tab.cc
+ 
+ frontends/verilog/verilog_parser.tab.h: frontends/verilog/verilog_parser.tab.cc
+ 
+ frontends/verilog/verilog_lexer.cc: frontends/verilog/verilog_lexer.l
+ 	$(Q) mkdir -p $(dir $@)
+-	$(P) flex -o frontends/verilog/verilog_lexer.cc $<
++	$(P) gflex -o frontends/verilog/verilog_lexer.cc $<
+ 
+ OBJS += frontends/verilog/verilog_parser.tab.o
+ OBJS += frontends/verilog/verilog_lexer.o

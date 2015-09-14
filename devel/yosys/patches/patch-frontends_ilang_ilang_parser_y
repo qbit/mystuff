@@ -1,0 +1,12 @@
+$OpenBSD$
+--- frontends/ilang/ilang_parser.y.orig	Sat Sep 12 08:01:20 2015
++++ frontends/ilang/ilang_parser.y	Mon Sep 14 13:43:09 2015
+@@ -43,8 +43,6 @@ YOSYS_NAMESPACE_END
+ USING_YOSYS_NAMESPACE
+ %}
+ 
+-%name-prefix "rtlil_frontend_ilang_yy"
+-
+ %union {
+ 	char *string;
+ 	int integer;
