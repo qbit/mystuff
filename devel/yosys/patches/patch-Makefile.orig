@@ -1,15 +1,6 @@
 $OpenBSD$
 --- Makefile.orig	Sat Sep 12 08:01:20 2015
-+++ Makefile	Mon Sep 14 11:41:25 2015
-@@ -31,7 +31,7 @@ EXTRA_OBJS =
- EXTRA_TARGETS =
- TARGETS = yosys$(EXE) yosys-config
- 
--PRETTY = 1
-+PRETTY = 0
- SMALL = 0
- 
- all: top-all
++++ Makefile	Mon Sep 14 09:19:03 2015
 @@ -89,8 +89,8 @@ CXX = clang
  CXXFLAGS += -std=c++11 -Os
  
