@@ -1,0 +1,37 @@
+$OpenBSD$
+--- kernel/yosys.cc.orig	Sat Sep 12 08:01:20 2015
++++ kernel/yosys.cc	Mon Sep 14 11:31:17 2015
+@@ -37,6 +37,16 @@
+ #  include <unistd.h>
+ #  include <dirent.h>
+ #  include <sys/stat.h>
++#elif defined(__OpenBSD__)
++#  include <dirent.h>
++#  include <unistd.h>
++#  include <sys/param.h>
++#  include <sys/cdefs.h>
++#  include <sys/proc.h>
++#  include <sys/sysctl.h>
++#  include <sys/wait.h>
++#  include <sys/types.h>
++#  include <sys/stat.h>
+ #else
+ #  include <unistd.h>
+ #  include <dirent.h>
+@@ -632,6 +642,16 @@ std::string proc_self_dirname()
+ 	while (buflen > 0 && path[buflen-1] != '/')
+ 		buflen--;
+ 	return std::string(path, buflen);
++}
++#elif defined(__OpenBSD__)
++std::string proc_self_dirname()
++{
++	pid_t pid = getpid();
++	int name[] = { CTL_KERN, KERN_PROC_CWD, pid };
++	char path[PATH_MAX];
++	size_t pathlen = sizeof path;
++	sysctl(name, 3, path, &pathlen, NULL, 0);
++	return std::string(path, pathlen);
+ }
+ #elif defined(_WIN32)
+ std::string proc_self_dirname()
