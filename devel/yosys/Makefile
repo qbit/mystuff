@@ -18,6 +18,7 @@ USE_GMAKE =		Yes
 
 MAKE_ENV =		PYTHON="${MODPY_BIN}" \
 			CXX="eg++" \
+			LDFLAGS=$(LDFLAGS) \
 			PRETTY=0
 
 MODULES =		gcc4 \
@@ -27,9 +28,13 @@ MODGCC4_ARCHS =		*
 MODGCC4_LANGS =		c c++
 
 SUBST_VARS +=		MODTCL_INCDIR
+SUBST_VARS +=		MODTCL_LIBDIR
+SUBST_VARS +=		MODTCL_BIN
+SUBST_VARS +=		MODTCL_LIB
 
 pre-configure:
-	perl -pi -e s,'tclsh',${MODTCL_BIN},g ${WRKSRC}/Makefile
+	${SUBST_CMD} ${WRKDIST}/Makefile
+
 do-configure:
 	cd ${WRKSRC} && gmake config-gcc
 
