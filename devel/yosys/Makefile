@@ -16,10 +16,8 @@ PERMIT_PACKAGE_CDROM =	Yes
 
 USE_GMAKE =		Yes
 
-MAKE_ENV =		PYTHON="${MODPY_BIN}" \
-			CXX="eg++" \
-			LDFLAGS=$(LDFLAGS) \
-			PRETTY=0
+MAKE_ENV =		CXX="eg++" \
+			LDFLAGS+=${LDFLAGS}
 
 MODULES =		gcc4 \
 			lang/tcl
