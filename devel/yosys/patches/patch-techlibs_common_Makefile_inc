@@ -1,0 +1,10 @@
+$OpenBSD$
+--- techlibs/common/Makefile.inc.orig	Tue Sep 15 09:05:54 2015
++++ techlibs/common/Makefile.inc	Tue Sep 15 09:06:04 2015
+@@ -1,4 +1,6 @@
+ 
++PATH ?= $(PATH)
++
+ ifneq ($(SMALL),1)
+ OBJS += techlibs/common/synth.o
+ endif

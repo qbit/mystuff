@@ -1,0 +1,10 @@
+$OpenBSD$
+--- techlibs/ice40/Makefile.inc.orig	Tue Sep 15 09:05:24 2015
++++ techlibs/ice40/Makefile.inc	Tue Sep 15 09:05:36 2015
+@@ -1,4 +1,6 @@
+ 
++PATH ?= $(PATH)
++
+ OBJS += techlibs/ice40/synth_ice40.o
+ OBJS += techlibs/ice40/ice40_ffssr.o
+ OBJS += techlibs/ice40/ice40_opt.o

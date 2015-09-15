@@ -1,7 +1,36 @@
 $OpenBSD$
 --- Makefile.orig	Sat Sep 12 08:01:20 2015
-+++ Makefile	Mon Sep 14 18:06:16 2015
-@@ -31,7 +31,7 @@ EXTRA_OBJS =
++++ Makefile	Tue Sep 15 12:19:55 2015
+@@ -5,9 +5,11 @@ CONFIG := clang
+ # CONFIG := emcc
+ # CONFIG := mxe
+ 
++PATH ?= $(PATH)
++
+ # features (the more the better)
+ ENABLE_TCL := 1
+-ENABLE_ABC := 1
++ENABLE_ABC := 0
+ ENABLE_PLUGINS := 1
+ ENABLE_READLINE := 1
+ ENABLE_VERIFIC := 0
+@@ -18,11 +20,12 @@ ENABLE_LIBYOSYS := 0
+ ENABLE_GPROF := 0
+ ENABLE_NDEBUG := 0
+ 
+-DESTDIR := /usr/local
++DESTDIR ?= /
++PREFIX = /usr/local
+ INSTALL_SUDO :=
+ 
+-TARGET_BINDIR := $(DESTDIR)/bin
+-TARGET_DATDIR := $(DESTDIR)/share/yosys
++TARGET_BINDIR := $(DESTDIR)/$(PREFIX)/bin
++TARGET_DATDIR := $(DESTDIR)/$(PREFIX)/share/yosys
+ 
+ EXE =
+ OBJS =
+@@ -31,7 +34,7 @@ EXTRA_OBJS =
  EXTRA_TARGETS =
  TARGETS = yosys$(EXE) yosys-config
  
@@ -10,7 +39,7 @@ $OpenBSD$
  SMALL = 0
  
  all: top-all
-@@ -40,8 +40,8 @@ YOSYS_SRC := $(dir $(firstword $(MAKEFILE_LIST)))
+@@ -40,8 +43,8 @@ YOSYS_SRC := $(dir $(firstword $(MAKEFILE_LIST)))
  VPATH := $(YOSYS_SRC)
  
  CXXFLAGS = -Wall -Wextra -ggdb -I. -I"$(YOSYS_SRC)" -MD -D_YOSYS_ -fPIC -I$(DESTDIR)/include
@@ -21,7 +50,7 @@ $OpenBSD$
  SED = sed
  BISON = bison
  
-@@ -57,7 +57,6 @@ ifeq (Darwin,$(findstring Darwin,$(shell uname)))
+@@ -57,7 +60,6 @@ ifeq (Darwin,$(findstring Darwin,$(shell uname)))
  	SED = gsed
  else
  	LDFLAGS += -rdynamic
@@ -29,7 +58,7 @@ $OpenBSD$
  endif
  
  YOSYS_VER := 0.5+$(shell cd $(YOSYS_SRC) && test -d .git && { git log --author=clifford@clifford.at --oneline c3c9fbfb8c678.. | wc -l; })
-@@ -89,8 +88,8 @@ CXX = clang
+@@ -89,8 +91,8 @@ CXX = clang
  CXXFLAGS += -std=c++11 -Os
  
  else ifeq ($(CONFIG),gcc)
@@ -40,7 +69,7 @@ $OpenBSD$
  
  else ifeq ($(CONFIG),gcc-4.6)
  CXX = gcc-4.6
-@@ -153,14 +152,14 @@ endif
+@@ -153,14 +155,14 @@ endif
  
  ifeq ($(ENABLE_PLUGINS),1)
  CXXFLAGS += -DYOSYS_ENABLE_PLUGINS $(shell pkg-config --silence-errors --cflags libffi)
@@ -59,3 +88,18 @@ $OpenBSD$
  endif
  
  ifeq ($(ENABLE_GPROF),1)
+@@ -378,10 +380,10 @@ vloghtb: $(TARGETS) $(EXTRA_TARGETS)
+ 	@echo ""
+ 
+ install: $(TARGETS) $(EXTRA_TARGETS)
+-	$(INSTALL_SUDO) mkdir -p $(DESTDIR)/bin
+-	$(INSTALL_SUDO) install $(TARGETS) $(DESTDIR)/bin/
+-	$(INSTALL_SUDO) mkdir -p $(DESTDIR)/share/yosys
+-	$(INSTALL_SUDO) cp -r share/. $(DESTDIR)/share/yosys/.
++	$(INSTALL_SUDO) mkdir -p $(TARGET_BINDIR)
++	$(INSTALL_SUDO) install $(TARGETS) $(TARGET_BINDIR)
++	$(INSTALL_SUDO) mkdir -p $(TARGET_DATDIR)
++	$(INSTALL_SUDO) cp -r share/. $(TARGET_DATDIR)/.
+ ifeq ($(ENABLE_LIBYOSYS),1)
+ 	$(INSTALL_SUDO) cp libyosys.so $(DESTDIR)/lib/
+ 	$(INSTALL_SUDO) ldconfig

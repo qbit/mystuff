@@ -1,0 +1,10 @@
+$OpenBSD$
+--- techlibs/xilinx/Makefile.inc.orig	Tue Sep 15 09:06:11 2015
++++ techlibs/xilinx/Makefile.inc	Tue Sep 15 09:06:21 2015
+@@ -1,4 +1,6 @@
+ 
++PATH ?= $(PATH)
++
+ OBJS += techlibs/xilinx/synth_xilinx.o
+ 
+ GENFILES += techlibs/xilinx/brams_init_36.vh
