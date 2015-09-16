@@ -1,7 +1,7 @@
 $OpenBSD$
---- src/crypto/Crypto.cpp.orig	Sat Jul 18 16:41:35 2015
-+++ src/crypto/Crypto.cpp	Wed Sep 16 12:13:42 2015
-@@ -55,13 +55,7 @@ static int gcry_qt_mutex_unlock(void** p_sys)
+--- src/crypto/Crypto.cpp.orig	Fri Dec 20 04:41:45 2013
++++ src/crypto/Crypto.cpp	Tue Feb  4 08:09:45 2014
+@@ -49,13 +49,7 @@ static int gcry_qt_mutex_unlock(void** p_sys)
  
  static const struct gcry_thread_cbs gcry_threads_qt =
  {
@@ -14,5 +14,5 @@ $OpenBSD$
 -    0, 0, 0, 0, 0, 0, 0, 0
 +    GCRY_THREAD_OPTION_USER
  };
- #endif
  
+ Crypto::Crypto()
