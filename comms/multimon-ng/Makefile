@@ -1,12 +1,12 @@
 # $OpenBSD: Makefile,v 1.9 2013/04/27 16:02:59 kili Exp $
 
-COMMENT=	multiple transmission decoder	
+COMMENT=	multiple transmission decoder
 
 GH_ACCOUNT =	EliasOenal
 GH_PROJECT =	multimon-ng
-GH_COMMIT =	538a7589ee3fc4adfb763eacefa617635bf84a29
+GH_COMMIT =	4cc984f35f859539c94aa56d3fc6218a6de51148
 
-DISTNAME=	multimon-ng-0.0.1
+DISTNAME=	multimon-ng-0.0.2
 CATEGORIES=	comms
 
 HOMEPAGE=	https://github.com/EliasOenal/multimon-ng.git

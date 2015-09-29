@@ -1,4 +1,5 @@
-multimon-ng a fork of multimon. It decodes the following digital transmission modes:
+multimon-ng: a fork of multimon that decodes the following digital transmission
+modes:
 
 POCSAG512 POCSAG1200 POCSAG2400
 EAS
