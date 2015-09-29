@@ -1,6 +1,6 @@
 $OpenBSD$
 --- Makefile.orig	Sat Sep 12 08:01:20 2015
-+++ Makefile	Tue Sep 15 12:19:55 2015
++++ Makefile	Thu Sep 17 07:47:39 2015
 @@ -5,9 +5,11 @@ CONFIG := clang
  # CONFIG := emcc
  # CONFIG := mxe

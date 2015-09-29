@@ -17,4 +17,7 @@ PERMIT_PACKAGE_CDROM =	Yes
 
 USE_GMAKE = 		Yes
 
+do-install:
+	${INSTALL_PROGRAM} ${WRKSRC}/abc ${PREFIX}/bin/
+
 .include <bsd.port.mk>
