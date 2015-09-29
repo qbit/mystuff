@@ -16,6 +16,9 @@ PERMIT_PACKAGE_CDROM =	Yes
 
 MODPY_PI =	Yes
 
+BUILD_DEPENDS =	lang/python/2.7 \
+		${RUN_DEPENDS}
+
 MODULES =	lang/python
 
 MODPY_SETUPTOOLS = Yes
