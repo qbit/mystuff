@@ -1,0 +1,12 @@
+@comment $OpenBSD$
+@newgroup _aprx:756
+@newuser _aprx:756:_aprx:daemon:aprx user:/nonexistent:/sbin/nologin
+@extraunexec rm -rf /var/log/aprx/*
+@man man/man8/aprx-stat.8
+@man man/man8/aprx.8
+@bin sbin/aprx
+@bin sbin/aprx-stat
+@mode 770
+@owner _aprx
+@group _aprx
+@sample /var/log/aprx/
