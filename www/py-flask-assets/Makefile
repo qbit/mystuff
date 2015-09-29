@@ -19,7 +19,8 @@ MODPY_PI =		Yes
 
 MODULES =		lang/python
 
-RUN_DEPENDS +=		www/py-flask
+RUN_DEPENDS +=		www/py-flask \
+			www/py-webassets
 
 MODPY_SETUPTOOLS =	Yes
 
