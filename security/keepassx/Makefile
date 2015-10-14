@@ -2,9 +2,15 @@
 
 COMMENT =	management tool for sensitive data
 
-DISTNAME =	keepassx-2.0-alpha6
+DISTNAME =	keepassx-2.0-beta2
+
+REVISSION =	0
+
+GH_ACCOUNT =	keepassx
+GH_PROJECT =	keepassx
+GH_COMMIT =	6e45cf0dab5270dd245991adaa94ad7c13d75d52
+
 CATEGORIES =	security
-REVISION =	0
 
 HOMEPAGE =	http://www.keepassx.org/
 
@@ -13,13 +19,23 @@ MAINTAINER =	Steven Mestdagh <steven@openbsd.org>
 # GPLv2
 PERMIT_PACKAGE_CDROM =	Yes
 
-MASTER_SITES =	https://www.keepassx.org/dev/attachments/download/69/
+MODULES =	devel/cmake \
+		gcc4 \
+		x11/qt5
 
-MODULES =	x11/qt4 devel/cmake
+MODGCC4_LANGS=          c++
+MODGCC4_ARCHS=          *
 
-WANTLIB +=	QtDBus QtGui X11 Xtst c gcrypt m pthread stdc++ z
+
+USE_NINJA =	No
+
+CXXFLAGS+=      -I${X11BASE}/include -fPIC
+LDFLAGS+=       -L${X11BASE}/lib -L${MODQT5_LIBDIR} 
+
+CONFIGURE_ENV=  CPPFLAGS="${CPPFLAGS}" \
+                LDFLAGS="${LDFLAGS}"
 
 RUN_DEPENDS =	devel/desktop-file-utils \
-		misc/shared-mime-info 
+		misc/shared-mime-info
 
 .include <bsd.port.mk>
