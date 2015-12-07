@@ -1,0 +1,2 @@
+@comment $OpenBSD$
+lib/keepassx/libkeepassx-autotype-xcb.so
