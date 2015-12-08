@@ -17,8 +17,7 @@ MODGHC_PACKAGE_KEY =	B0v3H0Vm64OHnCEHWqVKIf
 MODGHC_SETUP_CONF_ARGS +=	--extra-include-dirs=${LOCALBASE}/include/inotify/ \
 				--extra-lib-dirs=${LOCALBASE}/lib/inotify/
 
-BUILD_DEPENDS +=	${RUN_DEPENDS} \
-			devel/libinotify
+LIB_DEPENDS = devel/libinotify
 
 NO_TEST = Yes
 
