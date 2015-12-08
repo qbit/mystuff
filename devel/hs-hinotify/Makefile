@@ -2,8 +2,6 @@
 
 COMMENT =		inotify lib for haskell
 
-# Dependency of meta/haskell-platform.
-# Please do *not* update without thinking.
 DISTNAME =		hinotify-0.3.8.1
 CATEGORIES =		devel
 
