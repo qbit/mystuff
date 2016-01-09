@@ -7,9 +7,9 @@ COMMENT=		first person shooter
 
 GH_ACCOUNT=		ioquake
 GH_PROJECT=		ioq3
-GH_COMMIT=		10c5f0b5a9f2978764bafeda41b2d5b29f54ee4e
+GH_COMMIT=		42dee17663cfc841fe6d0933f5c1dc10463e2dbd
 
-DISTNAME=		ioquake3-2015.04.13
+DISTNAME=		ioquake3-2016.01.09
 CATEGORIES=		games
 
 HOMEPAGE=		http://ioquake3.org/
