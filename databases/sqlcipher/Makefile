@@ -22,7 +22,7 @@ PERMIT_PACKAGE_CDROM =	Yes
 CONFIGURE_ARGS =	--enable-tempstore=yes CFLAGS="-DSQLITE_HAS_CODEC" \
 			LDFLAGS="-lcrypto"
 
-WANTLIB =		c sqlite3
+WANTLIB += c crypto ncurses pthread readline
 
 CONFIGURE_STYLE =	gnu
 
