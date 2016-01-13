@@ -2,7 +2,7 @@
 
 ONLY_FOR_ARCHS= 	amd64 i386
 
-COMMENT=		first person shooter
+COMMENT=		clone of the original Quake III Arena
 
 GH_ACCOUNT=		ioquake
 GH_PROJECT=		ioq3
