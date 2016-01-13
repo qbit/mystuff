@@ -35,10 +35,13 @@ SUBST_VARS+=		QUAKE_ARCH
 
 do-install:
 	${INSTALL_DATA_DIR} ${PREFIX}/share/ioquake3/
-	cp -rp ${WRKSRC}/build/release-openbsd-${QUAKE_ARCH}/* ${PREFIX}/share/ioquake3/
-	${INSTALL_PROGRAM} ${WRKSRC}/build/release-openbsd-${QUAKE_ARCH}/ioq3ded.${QUAKE_ARCH} \
+	cp -rp ${WRKSRC}/build/release-openbsd-${QUAKE_ARCH}/* \
+		${PREFIX}/share/ioquake3/
+	${INSTALL_PROGRAM} \
+		${WRKSRC}/build/release-openbsd-${QUAKE_ARCH}/ioq3ded.${QUAKE_ARCH} \
 		${PREFIX}/bin/ioq3ded
-	${INSTALL_PROGRAM} ${WRKSRC}/build/release-openbsd-${QUAKE_ARCH}/ioquake3.${QUAKE_ARCH} \
+	${INSTALL_PROGRAM} \
+		${WRKSRC}/build/release-openbsd-${QUAKE_ARCH}/ioquake3.${QUAKE_ARCH} \
 		${PREFIX}/bin/ioquake3
 
 .include <bsd.port.mk>
