@@ -1483,6 +1483,7 @@ share/ioquake3/tools/lburg/lburg.o
 @bin share/ioquake3/tools/q3cpp
 @bin share/ioquake3/tools/q3lcc
 @bin share/ioquake3/tools/q3rcc
+share/doc/pkg-readmes/${FULLPKGNAME}
 share/ioquake3/tools/rcc/
 share/ioquake3/tools/rcc/alloc.d
 share/ioquake3/tools/rcc/alloc.o
