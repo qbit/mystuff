@@ -1,4 +1,5 @@
 @comment $OpenBSD$
+%%SHARED%%
 @bin bin/ioq3ded
 @bin bin/ioquake3
 share/ioquake3/
@@ -75,7 +76,6 @@ share/ioquake3/baseq3/cgame/cg_view.o
 share/ioquake3/baseq3/cgame/cg_weapons.asm
 share/ioquake3/baseq3/cgame/cg_weapons.d
 share/ioquake3/baseq3/cgame/cg_weapons.o
-share/ioquake3/baseq3/cgamex86_64.so
 share/ioquake3/baseq3/game/
 share/ioquake3/baseq3/game/ai_chat.asm
 share/ioquake3/baseq3/game/ai_chat.d
@@ -172,7 +172,6 @@ share/ioquake3/baseq3/game/g_utils.o
 share/ioquake3/baseq3/game/g_weapon.asm
 share/ioquake3/baseq3/game/g_weapon.d
 share/ioquake3/baseq3/game/g_weapon.o
-share/ioquake3/baseq3/qagamex86_64.so
 share/ioquake3/baseq3/qcommon/
 share/ioquake3/baseq3/qcommon/q_math.asm
 share/ioquake3/baseq3/qcommon/q_math.d
@@ -304,7 +303,6 @@ share/ioquake3/baseq3/ui/ui_teamorders.o
 share/ioquake3/baseq3/ui/ui_video.asm
 share/ioquake3/baseq3/ui/ui_video.d
 share/ioquake3/baseq3/ui/ui_video.o
-share/ioquake3/baseq3/uix86_64.so
 share/ioquake3/baseq3/vm/
 share/ioquake3/baseq3/vm/cgame.qvm
 share/ioquake3/baseq3/vm/qagame.qvm
@@ -941,8 +939,8 @@ share/ioquake3/ded/vm_x86.d
 share/ioquake3/ded/vm_x86.o
 share/ioquake3/ded/zutil.d
 share/ioquake3/ded/zutil.o
-@bin share/ioquake3/ioq3ded.x86_64
-@bin share/ioquake3/ioquake3.x86_64
+@bin share/ioquake3/ioq3ded.${QUAKE_ARCH}
+@bin share/ioquake3/ioquake3.${QUAKE_ARCH}
 share/ioquake3/missionpack/
 share/ioquake3/missionpack/cgame/
 share/ioquake3/missionpack/cgame/bg_lib.asm
@@ -1019,7 +1017,6 @@ share/ioquake3/missionpack/cgame/cg_view.o
 share/ioquake3/missionpack/cgame/cg_weapons.asm
 share/ioquake3/missionpack/cgame/cg_weapons.d
 share/ioquake3/missionpack/cgame/cg_weapons.o
-share/ioquake3/missionpack/cgamex86_64.so
 share/ioquake3/missionpack/game/
 share/ioquake3/missionpack/game/ai_chat.asm
 share/ioquake3/missionpack/game/ai_chat.d
@@ -1116,7 +1113,6 @@ share/ioquake3/missionpack/game/g_utils.o
 share/ioquake3/missionpack/game/g_weapon.asm
 share/ioquake3/missionpack/game/g_weapon.d
 share/ioquake3/missionpack/game/g_weapon.o
-share/ioquake3/missionpack/qagamex86_64.so
 share/ioquake3/missionpack/qcommon/
 share/ioquake3/missionpack/qcommon/q_math.asm
 share/ioquake3/missionpack/qcommon/q_math.d
@@ -1148,13 +1144,10 @@ share/ioquake3/missionpack/ui/ui_shared.d
 share/ioquake3/missionpack/ui/ui_shared.o
 share/ioquake3/missionpack/ui/ui_syscalls.d
 share/ioquake3/missionpack/ui/ui_syscalls.o
-share/ioquake3/missionpack/uix86_64.so
 share/ioquake3/missionpack/vm/
 share/ioquake3/missionpack/vm/cgame.qvm
 share/ioquake3/missionpack/vm/qagame.qvm
 share/ioquake3/missionpack/vm/ui.qvm
-share/ioquake3/renderer_opengl1_x86_64.so
-share/ioquake3/renderer_opengl2_x86_64.so
 share/ioquake3/renderergl1/
 share/ioquake3/renderergl1/jaricom.d
 share/ioquake3/renderergl1/jaricom.o

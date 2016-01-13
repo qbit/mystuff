@@ -1,7 +1,6 @@
 # $OpenBSD: Makefile,v 1.25 2013/03/21 08:45:17 ajacoutot Exp $
 
 ONLY_FOR_ARCHS= 	amd64 i386
-SHARED_ONLY=		Yes
 
 COMMENT=		first person shooter
 
@@ -14,6 +13,8 @@ CATEGORIES=		games
 
 HOMEPAGE=		http://ioquake3.org/
 MAINTAINER=		Aaron Bieber <abieber@openbsd.org>
+
+QUAKE_ARCH=		${ARCH:S/amd64/x86_64/:S/i386/x86/}
 
 # GPL
 PERMIT_PACKAGE_CDROM=	Yes
@@ -30,12 +31,14 @@ CFLAGS+=                -pthread -g
 
 WANTLIB += GL SDL2 c curl m pthread
 
+SUBST_VARS+=		QUAKE_ARCH
+
 do-install:
 	${INSTALL_DATA_DIR} ${PREFIX}/share/ioquake3/
-	cp -rp ${WRKSRC}/build/release-openbsd-x86_64/* ${PREFIX}/share/ioquake3/
-	${INSTALL_PROGRAM} ${WRKSRC}/build/release-openbsd-x86_64/ioq3ded.x86_64 \
+	cp -rp ${WRKSRC}/build/release-openbsd-${QUAKE_ARCH}/* ${PREFIX}/share/ioquake3/
+	${INSTALL_PROGRAM} ${WRKSRC}/build/release-openbsd-${QUAKE_ARCH}/ioq3ded.${QUAKE_ARCH} \
 		${PREFIX}/bin/ioq3ded
-	${INSTALL_PROGRAM} ${WRKSRC}/build/release-openbsd-x86_64/ioquake3.x86_64 \
+	${INSTALL_PROGRAM} ${WRKSRC}/build/release-openbsd-${QUAKE_ARCH}/ioquake3.${QUAKE_ARCH} \
 		${PREFIX}/bin/ioquake3
 
 .include <bsd.port.mk>
