@@ -1,0 +1,12 @@
+$OpenBSD$
+--- src/base/platform/platform-posix.cc.orig	Sat Feb  6 07:18:59 2016
++++ src/base/platform/platform-posix.cc	Sat Feb  6 09:29:16 2016
+@@ -333,6 +333,8 @@ int OS::GetCurrentThreadId() {
+   return static_cast<int>(thread_self());
+ #elif V8_OS_SOLARIS
+   return static_cast<int>(pthread_self());
++#elif V8_OS_OPENBSD
++  return reinterpret_cast<uint64_t>(pthread_self());
+ #else
+   return static_cast<int>(reinterpret_cast<intptr_t>(pthread_self()));
+ #endif
