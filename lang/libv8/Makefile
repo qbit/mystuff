@@ -4,9 +4,6 @@ ONLY_FOR_ARCHS=	amd64 i386
 
 COMMENT=	V8 JavaScript for clients and servers
 
-#GH_TAGNAME=	4.8.271.17
-#GH_ACCOUNT=	v8
-#GH_PROJECT=	v8
 V8_VERSION=	4.8.271.17
 EPOCH=		0
 V8_ARCH=	${PKG_ARCH:S/amd64/x64/:S/i386/ia32/}
@@ -17,7 +14,8 @@ PKGNAME=	lib${DISTNAME}
 
 CATEGORIES=	lang
 
-SHARED_LIBS=    v8            0.0
+SONAME_VERSION=	1.0
+SHARED_LIBS=	v8	${SONAME_VERSION}
 
 HOMEPAGE=	https://bugs.chromium.org/p/v8/
 
@@ -31,7 +29,7 @@ PERMIT_PACKAGE_CDROM=	Yes
 BUILD_DEPENDS=		devel/gyp
 LIB_DEPENDS=		devel/libexecinfo
 
-WANTLIB += c execinfo m pthread ssl stdc++ 
+WANTLIB += c execinfo m pthread stdc++
 
 USE_GMAKE=		Yes
 CONFIGURE_STYLE=	python.port.mk
@@ -44,7 +42,9 @@ MODCLANG_LANGS=	c++
 SUBST_VARS+= 	WRKDIR
 SUBST_VARS+= 	V8_ARCH
 
-MAKE_FLAGS+=	library=shared ARCHES=${V8_ARCH} MODES=${V8_RELEASE} \
+ALL_TARGET=	release
+MAKE_FLAGS+=	soname_version=${SONAME_VERSION} library=shared \
+		ARCHES=${V8_ARCH} MODES=${V8_RELEASE} \
 		DEFAULT_ARCHES=${V8_ARCH}
 MAKE_ENV+=	V=1 CXX=c++ CCFLAGS+="${CFLAGS}" MODES=${V8_RELEASE} \
 		DEFAULT_ARCHES=${V8_ARCH} CXXFLAGS="${CXXFLAGS} \
@@ -54,8 +54,7 @@ TEST_TARGET=	check
 
 pre-configure:
 	@# Bad practice, but prevents a whole stack of patches.
-	ln -sf ${LOCALBASE}/bin/python${MODPY_VERSION} ${WRKDIR}/bin/python 
-	${SUBST_CMD} ${WRKDIST}/tools/gyp/v8.gyp ${WRKDIST}/Makefile
+	ln -sf ${LOCALBASE}/bin/python${MODPY_VERSION} ${WRKDIR}/bin/python
 
 do-install:
 	cp -p ${WRKSRC}/include/*.h ${PREFIX}/include/
