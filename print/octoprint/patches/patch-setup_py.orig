@@ -1,0 +1,32 @@
+$OpenBSD$
+--- setup.py.orig	Wed Feb 10 06:47:18 2016
++++ setup.py	Mon Feb 29 10:52:13 2016
+@@ -22,17 +22,17 @@ INSTALL_REQUIRES = [
+ 	"Flask-Principal==0.3.5",
+ 	"Flask-Babel==0.9",
+ 	"Flask-Assets==0.10",
+-	"pyserial==2.7",
+-	"netaddr==0.7.17",
+-	"watchdog==0.8.3",
+-	"sarge==0.1.4",
+-	"netifaces==0.10",
+-	"pylru==1.0.9",
+-	"rsa==3.2",
+-	"pkginfo==1.2.1",
+-	"requests==2.7.0",
+-	"semantic_version==2.4.2",
+-	"psutil==3.2.1",
++	"pyserial>=2.7",
++	"netaddr>=0.7.17",
++	"watchdog>=0.8.3",
++	"sarge>=0.1.4",
++	"netifaces>=0.10",
++	"pylru>=1.0.9",
++	"rsa>=3.2",
++	"pkginfo>=1.2.1",
++	"requests>=2.7.0",
++	"semantic_version>=2.4.2",
++	"psutil>=3.2.1",
+ 	"awesome-slugify>=1.6.5,<1.7"
+ ]
+ 
