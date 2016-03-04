@@ -19,7 +19,8 @@ MODPY_PI =		Yes
 
 MODULES =		lang/python
 
-RUN_DEPENDS +=		devel/py-babel \
+LIB_DEPENDS +=		devel/py-babel \
+			textproc/py-speaklater \
 			www/py-flask
 
 MODPY_SETUPTOOLS =	Yes

@@ -1,0 +1,16 @@
+@comment $OpenBSD$
+lib/python${MODPY_VERSION}/site-packages/awesome_slugify-${MODPY_EGG_VERSION}-py${MODPY_VERSION}.egg-info/
+lib/python${MODPY_VERSION}/site-packages/awesome_slugify-${MODPY_EGG_VERSION}-py${MODPY_VERSION}.egg-info/PKG-INFO
+lib/python${MODPY_VERSION}/site-packages/awesome_slugify-${MODPY_EGG_VERSION}-py${MODPY_VERSION}.egg-info/SOURCES.txt
+lib/python${MODPY_VERSION}/site-packages/awesome_slugify-${MODPY_EGG_VERSION}-py${MODPY_VERSION}.egg-info/dependency_links.txt
+lib/python${MODPY_VERSION}/site-packages/awesome_slugify-${MODPY_EGG_VERSION}-py${MODPY_VERSION}.egg-info/requires.txt
+lib/python${MODPY_VERSION}/site-packages/awesome_slugify-${MODPY_EGG_VERSION}-py${MODPY_VERSION}.egg-info/top_level.txt
+lib/python${MODPY_VERSION}/site-packages/slugify/
+lib/python${MODPY_VERSION}/site-packages/slugify/__init__.py
+lib/python${MODPY_VERSION}/site-packages/slugify/__init__.pyc
+lib/python${MODPY_VERSION}/site-packages/slugify/alt_translates.py
+lib/python${MODPY_VERSION}/site-packages/slugify/alt_translates.pyc
+lib/python${MODPY_VERSION}/site-packages/slugify/main.py
+lib/python${MODPY_VERSION}/site-packages/slugify/main.pyc
+lib/python${MODPY_VERSION}/site-packages/slugify/tests.py
+lib/python${MODPY_VERSION}/site-packages/slugify/tests.pyc

@@ -15,6 +15,9 @@ MAINTAINER =		Aaron Bieber <abieber@openbsd.org>
 # MIT
 PERMIT_PACKAGE_CDROM =	Yes
 
+LIB_DEPENDS =		sysutils/py-pathtools \
+			devel/py-argh
+
 MODULES =		lang/python
 
 MODPY_SETUPTOOLS =	Yes

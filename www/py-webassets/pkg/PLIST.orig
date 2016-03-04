@@ -33,8 +33,6 @@ lib/python${MODPY_VERSION}/site-packages/webassets/filter/clevercss.py
 lib/python${MODPY_VERSION}/site-packages/webassets/filter/clevercss.pyc
 lib/python${MODPY_VERSION}/site-packages/webassets/filter/closure.py
 lib/python${MODPY_VERSION}/site-packages/webassets/filter/closure.pyc
-lib/python${MODPY_VERSION}/site-packages/webassets/filter/closure_stylesheets.py
-lib/python${MODPY_VERSION}/site-packages/webassets/filter/closure_stylesheets.pyc
 lib/python${MODPY_VERSION}/site-packages/webassets/filter/closure_templates.py
 lib/python${MODPY_VERSION}/site-packages/webassets/filter/closure_templates.pyc
 lib/python${MODPY_VERSION}/site-packages/webassets/filter/coffeescript.py
@@ -77,8 +75,6 @@ lib/python${MODPY_VERSION}/site-packages/webassets/filter/less.py
 lib/python${MODPY_VERSION}/site-packages/webassets/filter/less.pyc
 lib/python${MODPY_VERSION}/site-packages/webassets/filter/less_ruby.py
 lib/python${MODPY_VERSION}/site-packages/webassets/filter/less_ruby.pyc
-lib/python${MODPY_VERSION}/site-packages/webassets/filter/libsass.py
-lib/python${MODPY_VERSION}/site-packages/webassets/filter/libsass.pyc
 lib/python${MODPY_VERSION}/site-packages/webassets/filter/pyscss.py
 lib/python${MODPY_VERSION}/site-packages/webassets/filter/pyscss.pyc
 lib/python${MODPY_VERSION}/site-packages/webassets/filter/requirejs.py
@@ -90,8 +86,6 @@ lib/python${MODPY_VERSION}/site-packages/webassets/filter/rjsmin/rjsmin.py
 lib/python${MODPY_VERSION}/site-packages/webassets/filter/rjsmin/rjsmin.pyc
 lib/python${MODPY_VERSION}/site-packages/webassets/filter/sass.py
 lib/python${MODPY_VERSION}/site-packages/webassets/filter/sass.pyc
-lib/python${MODPY_VERSION}/site-packages/webassets/filter/slimit.py
-lib/python${MODPY_VERSION}/site-packages/webassets/filter/slimit.pyc
 lib/python${MODPY_VERSION}/site-packages/webassets/filter/slimmer.py
 lib/python${MODPY_VERSION}/site-packages/webassets/filter/slimmer.pyc
 lib/python${MODPY_VERSION}/site-packages/webassets/filter/spritemapper.py

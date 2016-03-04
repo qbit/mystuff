@@ -1,0 +1,9 @@
+@comment $OpenBSD$
+lib/python${MODPY_VERSION}/site-packages/_regex.so
+lib/python${MODPY_VERSION}/site-packages/_regex_core.py
+lib/python${MODPY_VERSION}/site-packages/_regex_core.pyc
+lib/python${MODPY_VERSION}/site-packages/regex-${MODPY_EGG_VERSION}-py${MODPY_VERSION}.egg-info
+lib/python${MODPY_VERSION}/site-packages/regex.py
+lib/python${MODPY_VERSION}/site-packages/regex.pyc
+lib/python${MODPY_VERSION}/site-packages/test_regex.py
+lib/python${MODPY_VERSION}/site-packages/test_regex.pyc

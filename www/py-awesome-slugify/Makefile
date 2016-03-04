@@ -1,19 +1,21 @@
 # $OpenBSD: Makefile,v 1.4 2015/09/29 10:52:54 sthen Exp $
 
-COMMENT =		library for managing the assets of your web
+COMMENT =		flexible slugify function
 
-MODPY_EGG_VERSION =	0.11.1
-DISTNAME =		webassets-${MODPY_EGG_VERSION}
-PKGNAME =		py-${DISTNAME:L}
+MODPY_EGG_VERSION =	1.6.5
+DISTNAME =		awesome-slugify-${MODPY_EGG_VERSION}
+PKGNAME =		py-${DISTNAME}
 
 CATEGORIES =		www
 
-HOMEPAGE =		http://webassets.readthedocs.org/en/latest/
+HOMEPAGE =		https://github.com/dimka665/awesome-slugify
 
 MAINTAINER =		Aaron Bieber <abieber@openbsd.org>
 
 # MIT
 PERMIT_PACKAGE_CDROM =	Yes
+
+RUN_DEPENDS =		devel/py-regex
 
 MODPY_PI =		Yes
 
