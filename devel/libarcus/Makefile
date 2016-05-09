@@ -23,8 +23,16 @@ GH_TAGNAME =		${VERSION}
 USE_GMAKE =		Yes
 
 MODULES +=		devel/cmake \
+			lang/python \
 			gcc4
-MODGCC4_LANGS =	c++
+
+MODGCC4_LANGS =		c c++
+MODGCC4_ARCHS =		*
+
+MODPY_VERSION =		${MODPY_DEFAULT_VERSION_3}
+
+BUILD_DEPENDS =		devel/protobuf \
+			devel/ninja
 
 MAKE_ENV =		CXX=eg++ \
 			VERSION=${VERSION}
