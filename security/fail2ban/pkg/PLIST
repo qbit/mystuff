@@ -1,0 +1,481 @@
+@comment $OpenBSD$
+bin/fail2ban-client
+bin/fail2ban-regex
+bin/fail2ban-server
+bin/fail2ban-testcases
+lib/python${MODPY_VERSION}/site-packages/fail2ban/
+lib/python${MODPY_VERSION}/site-packages/fail2ban-${MODPY_EGG_VERSION}-py${MODPY_VERSION}.egg-info/
+lib/python${MODPY_VERSION}/site-packages/fail2ban-${MODPY_EGG_VERSION}-py${MODPY_VERSION}.egg-info/PKG-INFO
+lib/python${MODPY_VERSION}/site-packages/fail2ban-${MODPY_EGG_VERSION}-py${MODPY_VERSION}.egg-info/SOURCES.txt
+lib/python${MODPY_VERSION}/site-packages/fail2ban-${MODPY_EGG_VERSION}-py${MODPY_VERSION}.egg-info/dependency_links.txt
+lib/python${MODPY_VERSION}/site-packages/fail2ban-${MODPY_EGG_VERSION}-py${MODPY_VERSION}.egg-info/top_level.txt
+lib/python${MODPY_VERSION}/site-packages/fail2ban/__init__.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/__init__.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/client/
+lib/python${MODPY_VERSION}/site-packages/fail2ban/client/__init__.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/client/__init__.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/client/actionreader.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/client/actionreader.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/client/beautifier.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/client/beautifier.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/client/configparserinc.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/client/configparserinc.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/client/configreader.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/client/configreader.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/client/configurator.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/client/configurator.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/client/csocket.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/client/csocket.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/client/fail2banreader.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/client/fail2banreader.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/client/filterreader.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/client/filterreader.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/client/jailreader.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/client/jailreader.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/client/jailsreader.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/client/jailsreader.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/exceptions.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/exceptions.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/helpers.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/helpers.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/protocol.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/protocol.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/server/
+lib/python${MODPY_VERSION}/site-packages/fail2ban/server/__init__.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/server/__init__.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/server/action.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/server/action.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/server/actions.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/server/actions.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/server/asyncserver.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/server/asyncserver.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/server/banmanager.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/server/banmanager.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/server/database.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/server/database.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/server/datedetector.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/server/datedetector.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/server/datetemplate.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/server/datetemplate.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/server/faildata.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/server/faildata.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/server/failmanager.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/server/failmanager.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/server/failregex.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/server/failregex.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/server/filter.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/server/filter.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/server/filtergamin.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/server/filtergamin.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/server/filterpoll.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/server/filterpoll.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/server/filterpyinotify.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/server/filterpyinotify.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/server/filtersystemd.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/server/filtersystemd.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/server/jail.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/server/jail.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/server/jails.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/server/jails.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/server/jailthread.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/server/jailthread.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/server/mytime.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/server/mytime.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/server/server.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/server/server.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/server/strptime.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/server/strptime.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/server/ticket.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/server/ticket.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/server/transmitter.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/server/transmitter.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/__init__.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/__init__.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/action_d/
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/action_d/__init__.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/action_d/__init__.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/action_d/test_badips.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/action_d/test_badips.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/action_d/test_smtp.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/action_d/test_smtp.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/actionstestcase.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/actionstestcase.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/actiontestcase.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/actiontestcase.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/banmanagertestcase.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/banmanagertestcase.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/clientreadertestcase.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/clientreadertestcase.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/config/
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/config/action.d/
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/config/action.d/brokenaction.conf
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/config/fail2ban.conf
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/config/filter.d/
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/config/filter.d/simple.conf
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/config/jail.conf
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/databasetestcase.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/databasetestcase.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/datedetectortestcase.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/datedetectortestcase.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/dummyjail.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/dummyjail.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/failmanagertestcase.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/failmanagertestcase.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/action.d/
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/action.d/action.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/action.d/action.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/action.d/action_errors.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/action.d/action_errors.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/action.d/action_modifyainfo.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/action.d/action_modifyainfo.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/action.d/action_noAction.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/action.d/action_noAction.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/action.d/action_nomethod.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/action.d/action_nomethod.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/config/
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/config/apache-auth/
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/config/apache-auth/README
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/config/apache-auth/basic/
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/config/apache-auth/basic/authz_owner/
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/config/apache-auth/basic/authz_owner/.htaccess
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/config/apache-auth/basic/authz_owner/.htpasswd
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/config/apache-auth/basic/authz_owner/cant_get_me.html
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/config/apache-auth/basic/file/
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/config/apache-auth/basic/file/.htaccess
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/config/apache-auth/basic/file/.htpasswd
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/config/apache-auth/digest/
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/config/apache-auth/digest.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/config/apache-auth/digest.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/config/apache-auth/digest/.htaccess
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/config/apache-auth/digest/.htpasswd
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/config/apache-auth/digest_anon/
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/config/apache-auth/digest_anon/.htaccess
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/config/apache-auth/digest_anon/.htpasswd
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/config/apache-auth/digest_time/
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/config/apache-auth/digest_time/.htaccess
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/config/apache-auth/digest_time/.htpasswd
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/config/apache-auth/digest_wrongrelm/
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/config/apache-auth/digest_wrongrelm/.htaccess
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/config/apache-auth/digest_wrongrelm/.htpasswd
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/config/apache-auth/noentry/
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/config/apache-auth/noentry/.htaccess
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/database_v1.db
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/filter.d/
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/filter.d/substition.conf
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/filter.d/testcase-common.conf
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/filter.d/testcase01.conf
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/ignorecommand.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/ignorecommand.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/3proxy
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/apache-auth
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/apache-badbots
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/apache-botsearch
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/apache-modsecurity
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/apache-nohome
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/apache-noscript
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/apache-overflows
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/apache-shellshock
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/assp
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/asterisk
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/bsd/
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/bsd/syslog-plain.txt
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/bsd/syslog-v.txt
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/bsd/syslog-vv.txt
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/counter-strike
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/courier-auth
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/courier-smtp
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/cyrus-imap
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/directadmin
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/dovecot
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/dropbear
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/ejabberd-auth
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/exim
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/exim-spam
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/freeswitch
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/groupoffice
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/gssftpd
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/guacamole
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/horde
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/kerio
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/lighttpd-auth
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/monit
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/mysqld-auth
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/nagios
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/named-refused
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/nginx-http-auth
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/nsd
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/openwebmail
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/oracleims
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/pam-generic
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/perdition
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/php-url-fopen
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/portsentry
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/postfix
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/postfix-sasl
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/proftpd
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/pure-ftpd
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/qmail
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/recidive
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/roundcube-auth
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/selinux-ssh
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/sendmail-auth
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/sendmail-reject
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/sieve
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/sogo-auth
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/solid-pop3d
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/squid
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/squirrelmail
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/sshd
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/sshd-ddos
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/stunnel
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/suhosin
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/tine20
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/uwimap-auth
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/vsftpd
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/webmin-auth
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/wuftpd
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/logs/xinetd-fail
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/testcase-journal.log
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/testcase-multiline.log
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/testcase-usedns.log
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/testcase01.log
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/testcase02.log
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/testcase03.log
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/files/testcase04.log
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/filtertestcase.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/filtertestcase.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/misctestcase.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/misctestcase.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/samplestestcase.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/samplestestcase.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/servertestcase.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/servertestcase.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/sockettestcase.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/sockettestcase.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/utils.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/tests/utils.pyc
+lib/python${MODPY_VERSION}/site-packages/fail2ban/version.py
+lib/python${MODPY_VERSION}/site-packages/fail2ban/version.pyc
+share/doc/fail2ban/
+share/doc/fail2ban/DEVELOP
+share/doc/fail2ban/FILTERS
+share/doc/fail2ban/README.Solaris
+share/doc/fail2ban/README.md
+share/doc/fail2ban/run-rootless.txt
+share/fail2ban/
+share/fail2ban/bash-completion
+@sample /etc/bash_completion.d/fail2ban
+share/fail2ban/etc/
+@sample /etc/fail2ban/
+share/fail2ban/etc/action.d/
+@sample /etc/fail2ban/action.d/
+share/fail2ban/etc/action.d/apf.conf
+@sample /etc/fail2ban/action.d/apf.conf
+share/fail2ban/etc/action.d/badips.conf
+@sample /etc/fail2ban/action.d/badips.conf
+share/fail2ban/etc/action.d/badips.py
+@sample /etc/fail2ban/action.d/badips.py
+share/fail2ban/etc/action.d/blocklist_de.conf
+@sample /etc/fail2ban/action.d/blocklist_de.conf
+share/fail2ban/etc/action.d/cloudflare.conf
+@sample /etc/fail2ban/action.d/cloudflare.conf
+share/fail2ban/etc/action.d/complain.conf
+@sample /etc/fail2ban/action.d/complain.conf
+share/fail2ban/etc/action.d/dshield.conf
+@sample /etc/fail2ban/action.d/dshield.conf
+share/fail2ban/etc/action.d/dummy.conf
+@sample /etc/fail2ban/action.d/dummy.conf
+share/fail2ban/etc/action.d/hostsdeny.conf
+@sample /etc/fail2ban/action.d/hostsdeny.conf
+share/fail2ban/etc/action.d/mail-buffered.conf
+@sample /etc/fail2ban/action.d/mail-buffered.conf
+share/fail2ban/etc/action.d/mail-whois-lines.conf
+@sample /etc/fail2ban/action.d/mail-whois-lines.conf
+share/fail2ban/etc/action.d/mail-whois.conf
+@sample /etc/fail2ban/action.d/mail-whois.conf
+share/fail2ban/etc/action.d/mail.conf
+@sample /etc/fail2ban/action.d/mail.conf
+share/fail2ban/etc/action.d/mynetwatchman.conf
+@sample /etc/fail2ban/action.d/mynetwatchman.conf
+share/fail2ban/etc/action.d/pf.conf
+@sample /etc/fail2ban/action.d/pf.conf
+share/fail2ban/etc/action.d/sendmail-buffered.conf
+@sample /etc/fail2ban/action.d/sendmail-buffered.conf
+share/fail2ban/etc/action.d/sendmail-common.conf
+@sample /etc/fail2ban/action.d/sendmail-common.conf
+share/fail2ban/etc/action.d/sendmail-whois-ipjailmatches.conf
+@sample /etc/fail2ban/action.d/sendmail-whois-ipjailmatches.conf
+share/fail2ban/etc/action.d/sendmail-whois-ipmatches.conf
+@sample /etc/fail2ban/action.d/sendmail-whois-ipmatches.conf
+share/fail2ban/etc/action.d/sendmail-whois-lines.conf
+@sample /etc/fail2ban/action.d/sendmail-whois-lines.conf
+share/fail2ban/etc/action.d/sendmail-whois-matches.conf
+@sample /etc/fail2ban/action.d/sendmail-whois-matches.conf
+share/fail2ban/etc/action.d/sendmail-whois.conf
+@sample /etc/fail2ban/action.d/sendmail-whois.conf
+share/fail2ban/etc/action.d/sendmail.conf
+@sample /etc/fail2ban/action.d/sendmail.conf
+share/fail2ban/etc/action.d/smtp.py
+@sample /etc/fail2ban/action.d/smtp.py
+share/fail2ban/etc/action.d/xarf-login-attack.conf
+@sample /etc/fail2ban/action.d/xarf-login-attack.conf
+share/fail2ban/etc/fail2ban.conf
+@sample /etc/fail2ban/fail2ban.conf
+share/fail2ban/etc/fail2ban.d/
+@sample /etc/fail2ban/fail2ban.d/
+share/fail2ban/etc/filter.d/
+@sample /etc/fail2ban/filter.d/
+share/fail2ban/etc/filter.d/3proxy.conf
+@sample /etc/fail2ban/filter.d/3proxy.conf
+share/fail2ban/etc/filter.d/apache-auth.conf
+@sample /etc/fail2ban/filter.d/apache-auth.conf
+share/fail2ban/etc/filter.d/apache-badbots.conf
+@sample /etc/fail2ban/filter.d/apache-badbots.conf
+share/fail2ban/etc/filter.d/apache-botsearch.conf
+@sample /etc/fail2ban/filter.d/apache-botsearch.conf
+share/fail2ban/etc/filter.d/apache-common.conf
+@sample /etc/fail2ban/filter.d/apache-common.conf
+share/fail2ban/etc/filter.d/apache-modsecurity.conf
+@sample /etc/fail2ban/filter.d/apache-modsecurity.conf
+share/fail2ban/etc/filter.d/apache-nohome.conf
+@sample /etc/fail2ban/filter.d/apache-nohome.conf
+share/fail2ban/etc/filter.d/apache-noscript.conf
+@sample /etc/fail2ban/filter.d/apache-noscript.conf
+share/fail2ban/etc/filter.d/apache-overflows.conf
+@sample /etc/fail2ban/filter.d/apache-overflows.conf
+share/fail2ban/etc/filter.d/apache-shellshock.conf
+@sample /etc/fail2ban/filter.d/apache-shellshock.conf
+share/fail2ban/etc/filter.d/assp.conf
+@sample /etc/fail2ban/filter.d/assp.conf
+share/fail2ban/etc/filter.d/asterisk.conf
+@sample /etc/fail2ban/filter.d/asterisk.conf
+share/fail2ban/etc/filter.d/common.conf
+@sample /etc/fail2ban/filter.d/common.conf
+share/fail2ban/etc/filter.d/counter-strike.conf
+@sample /etc/fail2ban/filter.d/counter-strike.conf
+share/fail2ban/etc/filter.d/courier-auth.conf
+@sample /etc/fail2ban/filter.d/courier-auth.conf
+share/fail2ban/etc/filter.d/courier-smtp.conf
+@sample /etc/fail2ban/filter.d/courier-smtp.conf
+share/fail2ban/etc/filter.d/cyrus-imap.conf
+@sample /etc/fail2ban/filter.d/cyrus-imap.conf
+share/fail2ban/etc/filter.d/directadmin.conf
+@sample /etc/fail2ban/filter.d/directadmin.conf
+share/fail2ban/etc/filter.d/dovecot.conf
+@sample /etc/fail2ban/filter.d/dovecot.conf
+share/fail2ban/etc/filter.d/dropbear.conf
+@sample /etc/fail2ban/filter.d/dropbear.conf
+share/fail2ban/etc/filter.d/ejabberd-auth.conf
+@sample /etc/fail2ban/filter.d/ejabberd-auth.conf
+share/fail2ban/etc/filter.d/exim-common.conf
+@sample /etc/fail2ban/filter.d/exim-common.conf
+share/fail2ban/etc/filter.d/exim-spam.conf
+@sample /etc/fail2ban/filter.d/exim-spam.conf
+share/fail2ban/etc/filter.d/exim.conf
+@sample /etc/fail2ban/filter.d/exim.conf
+share/fail2ban/etc/filter.d/freeswitch.conf
+@sample /etc/fail2ban/filter.d/freeswitch.conf
+share/fail2ban/etc/filter.d/groupoffice.conf
+@sample /etc/fail2ban/filter.d/groupoffice.conf
+share/fail2ban/etc/filter.d/gssftpd.conf
+@sample /etc/fail2ban/filter.d/gssftpd.conf
+share/fail2ban/etc/filter.d/guacamole.conf
+@sample /etc/fail2ban/filter.d/guacamole.conf
+share/fail2ban/etc/filter.d/horde.conf
+@sample /etc/fail2ban/filter.d/horde.conf
+share/fail2ban/etc/filter.d/kerio.conf
+@sample /etc/fail2ban/filter.d/kerio.conf
+share/fail2ban/etc/filter.d/lighttpd-auth.conf
+@sample /etc/fail2ban/filter.d/lighttpd-auth.conf
+share/fail2ban/etc/filter.d/monit.conf
+@sample /etc/fail2ban/filter.d/monit.conf
+share/fail2ban/etc/filter.d/mysqld-auth.conf
+@sample /etc/fail2ban/filter.d/mysqld-auth.conf
+share/fail2ban/etc/filter.d/nagios.conf
+@sample /etc/fail2ban/filter.d/nagios.conf
+share/fail2ban/etc/filter.d/named-refused.conf
+@sample /etc/fail2ban/filter.d/named-refused.conf
+share/fail2ban/etc/filter.d/nginx-http-auth.conf
+@sample /etc/fail2ban/filter.d/nginx-http-auth.conf
+share/fail2ban/etc/filter.d/nsd.conf
+@sample /etc/fail2ban/filter.d/nsd.conf
+share/fail2ban/etc/filter.d/openwebmail.conf
+@sample /etc/fail2ban/filter.d/openwebmail.conf
+share/fail2ban/etc/filter.d/oracleims.conf
+@sample /etc/fail2ban/filter.d/oracleims.conf
+share/fail2ban/etc/filter.d/pam-generic.conf
+@sample /etc/fail2ban/filter.d/pam-generic.conf
+share/fail2ban/etc/filter.d/perdition.conf
+@sample /etc/fail2ban/filter.d/perdition.conf
+share/fail2ban/etc/filter.d/php-url-fopen.conf
+@sample /etc/fail2ban/filter.d/php-url-fopen.conf
+share/fail2ban/etc/filter.d/portsentry.conf
+@sample /etc/fail2ban/filter.d/portsentry.conf
+share/fail2ban/etc/filter.d/postfix-sasl.conf
+@sample /etc/fail2ban/filter.d/postfix-sasl.conf
+share/fail2ban/etc/filter.d/postfix.conf
+@sample /etc/fail2ban/filter.d/postfix.conf
+share/fail2ban/etc/filter.d/proftpd.conf
+@sample /etc/fail2ban/filter.d/proftpd.conf
+share/fail2ban/etc/filter.d/pure-ftpd.conf
+@sample /etc/fail2ban/filter.d/pure-ftpd.conf
+share/fail2ban/etc/filter.d/qmail.conf
+@sample /etc/fail2ban/filter.d/qmail.conf
+share/fail2ban/etc/filter.d/recidive.conf
+@sample /etc/fail2ban/filter.d/recidive.conf
+share/fail2ban/etc/filter.d/roundcube-auth.conf
+@sample /etc/fail2ban/filter.d/roundcube-auth.conf
+share/fail2ban/etc/filter.d/selinux-common.conf
+@sample /etc/fail2ban/filter.d/selinux-common.conf
+share/fail2ban/etc/filter.d/selinux-ssh.conf
+@sample /etc/fail2ban/filter.d/selinux-ssh.conf
+share/fail2ban/etc/filter.d/sendmail-auth.conf
+@sample /etc/fail2ban/filter.d/sendmail-auth.conf
+share/fail2ban/etc/filter.d/sendmail-reject.conf
+@sample /etc/fail2ban/filter.d/sendmail-reject.conf
+share/fail2ban/etc/filter.d/sieve.conf
+@sample /etc/fail2ban/filter.d/sieve.conf
+share/fail2ban/etc/filter.d/sogo-auth.conf
+@sample /etc/fail2ban/filter.d/sogo-auth.conf
+share/fail2ban/etc/filter.d/solid-pop3d.conf
+@sample /etc/fail2ban/filter.d/solid-pop3d.conf
+share/fail2ban/etc/filter.d/squid.conf
+@sample /etc/fail2ban/filter.d/squid.conf
+share/fail2ban/etc/filter.d/squirrelmail.conf
+@sample /etc/fail2ban/filter.d/squirrelmail.conf
+share/fail2ban/etc/filter.d/sshd-ddos.conf
+@sample /etc/fail2ban/filter.d/sshd-ddos.conf
+share/fail2ban/etc/filter.d/sshd.conf
+@sample /etc/fail2ban/filter.d/sshd.conf
+share/fail2ban/etc/filter.d/stunnel.conf
+@sample /etc/fail2ban/filter.d/stunnel.conf
+share/fail2ban/etc/filter.d/suhosin.conf
+@sample /etc/fail2ban/filter.d/suhosin.conf
+share/fail2ban/etc/filter.d/tine20.conf
+@sample /etc/fail2ban/filter.d/tine20.conf
+share/fail2ban/etc/filter.d/uwimap-auth.conf
+@sample /etc/fail2ban/filter.d/uwimap-auth.conf
+share/fail2ban/etc/filter.d/vsftpd.conf
+@sample /etc/fail2ban/filter.d/vsftpd.conf
+share/fail2ban/etc/filter.d/webmin-auth.conf
+@sample /etc/fail2ban/filter.d/webmin-auth.conf
+share/fail2ban/etc/filter.d/wuftpd.conf
+@sample /etc/fail2ban/filter.d/wuftpd.conf
+share/fail2ban/etc/filter.d/xinetd-fail.conf
+@sample /etc/fail2ban/filter.d/xinetd-fail.conf
+share/fail2ban/etc/jail.conf
+@sample /etc/fail2ban/jail.conf
+share/fail2ban/etc/jail.d/
+@sample /etc/fail2ban/jail.d/
+share/fail2ban/etc/paths-common.conf
+@sample /etc/fail2ban/paths-common.conf
+share/fail2ban/etc/paths-openbsd.conf
+@sample /etc/fail2ban/paths-openbsd.conf
+@rcscript ${RCDIR}/fail2ban
+@exec mkdir -p /var/lib/fail2ban
+@exec mkdir -p /var/run/fail2ban
+@unexec rmdir /var/lib/fail2ban
+@unexec rmdir /var/run/fail2ban

@@ -1,0 +1,18 @@
+Fail2ban can be configured in /etc/fail2ban/. The most interesting
+settings are in jail.conf; look for the following parameters.
+* ignoreip,
+* destemail,
+* sender,
+* action (select one of the action_* define before it).
+
+To enable more than the basic monitoring of ssh logs, copy the relevant
+(commented-out) section from /etc/fail2ban/jail.conf to a specific file in
+
+    /etc/fail2ban/jail.d/${SERVICE}.local
+
+For the drops to be effective, the following PF rules needs to be added
+towards the top of /etc/pfctl.conf.
+
+    table <fail2ban>
+    block drop in quick on egress from <fail2ban>
+

@@ -1,0 +1,868 @@
+$OpenBSD$
+--- config/jail.conf.orig	Tue Oct 28 02:49:40 2014
++++ config/jail.conf	Mon Mar  9 13:16:32 2015
+@@ -33,7 +33,7 @@
+ [INCLUDES]
+ 
+ #before = paths-distro.conf
+-before = paths-debian.conf
++before = paths-openbsd.conf
+ 
+ # The DEFAULT allows a global definition of the options. They can be overridden
+ # in each jail afterwards.
+@@ -148,7 +148,7 @@ port = 0:65535
+ # iptables-multiport, shorewall, etc) It is used to define
+ # action_* variables. Can be overridden globally or per
+ # section within jail.local file
+-banaction = iptables-multiport
++banaction = pf
+ 
+ # The simplest action to take: ban only
+ action_ = %(banaction)s[name=%(__name__)s, bantime="%(bantime)s", port="%(port)s", protocol="%(protocol)s", chain="%(chain)s"]
+@@ -207,520 +207,521 @@ action = %(action_)s
+ 
+ port    = ssh
+ logpath = %(sshd_log)s
++enabled = true
+ 
+ 
+-[sshd-ddos]
+-# This jail corresponds to the standard configuration in Fail2ban.
+-# The mail-whois action send a notification e-mail with a whois request
+-# in the body.
+-port    = ssh
+-logpath = %(sshd_log)s
++# [sshd-ddos]
++# # This jail corresponds to the standard configuration in Fail2ban.
++# # The mail-whois action send a notification e-mail with a whois request
++# # in the body.
++# port    = ssh
++# logpath = %(sshd_log)s
+ 
+ 
+-[dropbear]
++# [dropbear]
+ 
+-port     = ssh
+-logpath  = %(dropbear_log)s
++# port     = ssh
++# logpath  = %(dropbear_log)s
+ 
+ 
+-[selinux-ssh]
++# [selinux-ssh]
+ 
+-port     = ssh
+-logpath  = %(auditd_log)s
+-maxretry = 5
++# port     = ssh
++# logpath  = %(auditd_log)s
++# maxretry = 5
+ 
+ 
+ #
+ # HTTP servers
+ #
+ 
+-[apache-auth]
++# [apache-auth]
+ 
+-port     = http,https
+-logpath  = %(apache_error_log)s
++# port     = http,https
++# logpath  = %(apache_error_log)s
+ 
+ 
+-[apache-badbots]
+-# Ban hosts which agent identifies spammer robots crawling the web
+-# for email addresses. The mail outputs are buffered.
+-port     = http,https
+-logpath  = %(apache_access_log)s
+-bantime  = 172800
+-maxretry = 1
++# [apache-badbots]
++# # Ban hosts which agent identifies spammer robots crawling the web
++# # for email addresses. The mail outputs are buffered.
++# port     = http,https
++# logpath  = %(apache_access_log)s
++# bantime  = 172800
++# maxretry = 1
+ 
+ 
+-[apache-noscript]
++# [apache-noscript]
+ 
+-port     = http,https
+-logpath  = %(apache_error_log)s
+-maxretry = 6
++# port     = http,https
++# logpath  = %(apache_error_log)s
++# maxretry = 6
+ 
+ 
+-[apache-overflows]
++# [apache-overflows]
+ 
+-port     = http,https
+-logpath  = %(apache_error_log)s
+-maxretry = 2
++# port     = http,https
++# logpath  = %(apache_error_log)s
++# maxretry = 2
+ 
+ 
+-[apache-nohome]
++# [apache-nohome]
+ 
+-port     = http,https
+-logpath  = %(apache_error_log)s
+-maxretry = 2
++# port     = http,https
++# logpath  = %(apache_error_log)s
++# maxretry = 2
+ 
+ 
+-[apache-botsearch]
++# [apache-botsearch]
+ 
+-port     = http,https
+-logpath  = %(apache_error_log)s
+-maxretry = 2
++# port     = http,https
++# logpath  = %(apache_error_log)s
++# maxretry = 2
+ 
+ 
+-[apache-modsecurity]
++# [apache-modsecurity]
+ 
+-port     = http,https
+-logpath  = %(apache_error_log)s
+-maxretry = 2
++# port     = http,https
++# logpath  = %(apache_error_log)s
++# maxretry = 2
+ 
+-[apache-shellshock]
++# [apache-shellshock]
+ 
+-port    = http,https
+-logpath = $(apache_error_log)s
+-maxretry = 1
++# port    = http,https
++# logpath = %(apache_error_log)s
++# maxretry = 1
+ 
+-[nginx-http-auth]
++# [nginx-http-auth]
+ 
+-ports   = http,https
+-logpath = %(nginx_error_log)s
++# ports   = http,https
++# logpath = %(nginx_error_log)s
+ 
+ 
+-# Ban attackers that try to use PHP's URL-fopen() functionality
+-# through GET/POST variables. - Experimental, with more than a year
+-# of usage in production environments.
++# # Ban attackers that try to use PHP's URL-fopen() functionality
++# # through GET/POST variables. - Experimental, with more than a year
++# # of usage in production environments.
+ 
+-[php-url-fopen]
++# [php-url-fopen]
+ 
+-port    = http,https
+-logpath = %(nginx_access_log)s %(apache_access_log)s
++# port    = http,https
++# logpath = %(nginx_access_log)s %(apache_access_log)s
+ 
+ 
+-[suhosin]
++# [suhosin]
+ 
+-port    = http,https
+-logpath = %(suhosin_log)s
++# port    = http,https
++# logpath = %(suhosin_log)s
+ 
+ 
+-[lighttpd-auth]
+-# Same as above for Apache's mod_auth
+-# It catches wrong authentifications
+-port    = http,https
+-logpath = %(lighttpd_error_log)s
++# [lighttpd-auth]
++# # Same as above for Apache's mod_auth
++# # It catches wrong authentifications
++# port    = http,https
++# logpath = %(lighttpd_error_log)s
+ 
+ 
+-#
+-# Webmail and groupware servers
+-#
++# #
++# # Webmail and groupware servers
++# #
+ 
+-[roundcube-auth]
++# [roundcube-auth]
+ 
+-port     = http,https
+-logpath  = /var/log/roundcube/userlogins
++# port     = http,https
++# logpath  = /var/log/roundcube/userlogins
+ 
+ 
+-[openwebmail]
++# [openwebmail]
+ 
+-port     = http,https
+-logpath  = /var/log/openwebmail.log
++# port     = http,https
++# logpath  = /var/log/openwebmail.log
+ 
+ 
+-[horde]
++# [horde]
+ 
+-port     = http,https
+-logpath  = /var/log/horde/horde.log
++# port     = http,https
++# logpath  = /var/log/horde/horde.log
+ 
+ 
+-[groupoffice]
++# [groupoffice]
+ 
+-port     = http,https
+-logpath  = /home/groupoffice/log/info.log
++# port     = http,https
++# logpath  = /home/groupoffice/log/info.log
+ 
+ 
+-[sogo-auth]
+-# Monitor SOGo groupware server
+-# without proxy this would be:
+-# port    = 20000
+-port     = http,https
+-logpath  = /var/log/sogo/sogo.log
++# [sogo-auth]
++# # Monitor SOGo groupware server
++# # without proxy this would be:
++# # port    = 20000
++# port     = http,https
++# logpath  = /var/log/sogo/sogo.log
+ 
+ 
+-[tine20]
++# [tine20]
+ 
+-logpath  = /var/log/tine20/tine20.log
+-port     = http,https
+-maxretry = 5
++# logpath  = /var/log/tine20/tine20.log
++# port     = http,https
++# maxretry = 5
+ 
+ 
+-#
+-# Web Applications
+-#
+-#
++# #
++# # Web Applications
++# #
++# #
+ 
+-[guacamole]
++# [guacamole]
+ 
+-port     = http,https
+-logpath  = /var/log/tomcat*/catalina.out
++# port     = http,https
++# logpath  = /var/log/tomcat*/catalina.out
+ 
+-[monit]
+-#Ban clients brute-forcing the monit gui login
+-filter   = monit
+-port = 2812
+-logpath  = /var/log/monit
++# [monit]
++# #Ban clients brute-forcing the monit gui login
++# filter   = monit
++# port = 2812
++# logpath  = /var/log/monit
+ 
+ 
+-[webmin-auth]
++# [webmin-auth]
+ 
+-port    = 10000
+-logpath = %(syslog_authpriv)s
++# port    = 10000
++# logpath = %(syslog_authpriv)s
+ 
+ 
+-#
+-# HTTP Proxy servers
+-#
+-#
++# #
++# # HTTP Proxy servers
++# #
++# #
+ 
+-[squid]
++# [squid]
+ 
+-port     =  80,443,3128,8080
+-logpath = /var/log/squid/access.log
++# port     =  80,443,3128,8080
++# logpath = /var/log/squid/access.log
+ 
+ 
+-[3proxy]
++# [3proxy]
+ 
+-port    = 3128
+-logpath = /var/log/3proxy.log
++# port    = 3128
++# logpath = /var/log/3proxy.log
+ 
+-#
+-# FTP servers
+-#
++# #
++# # FTP servers
++# #
+ 
+ 
+-[proftpd]
++# [proftpd]
+ 
+-port     = ftp,ftp-data,ftps,ftps-data
+-logpath  = %(proftpd_log)s
++# port     = ftp,ftp-data,ftps,ftps-data
++# logpath  = %(proftpd_log)s
+ 
+ 
+-[pure-ftpd]
++# [pure-ftpd]
+ 
+-port     = ftp,ftp-data,ftps,ftps-data
+-logpath  = %(pureftpd_log)s
+-maxretry = 6
++# port     = ftp,ftp-data,ftps,ftps-data
++# logpath  = %(pureftpd_log)s
++# maxretry = 6
+ 
+ 
+-[gssftpd]
++# [gssftpd]
+ 
+-port     = ftp,ftp-data,ftps,ftps-data
+-logpath  = %(syslog_daemon)s
+-maxretry = 6
++# port     = ftp,ftp-data,ftps,ftps-data
++# logpath  = %(syslog_daemon)s
++# maxretry = 6
+ 
+ 
+-[wuftpd]
++# [wuftpd]
+ 
+-port     = ftp,ftp-data,ftps,ftps-data
+-logpath  = %(wuftpd_log)s
+-maxretry = 6
++# port     = ftp,ftp-data,ftps,ftps-data
++# logpath  = %(wuftpd_log)s
++# maxretry = 6
+ 
+ 
+-[vsftpd]
+-# or overwrite it in jails.local to be
+-# logpath = %(syslog_authpriv)s
+-# if you want to rely on PAM failed login attempts
+-# vsftpd's failregex should match both of those formats
+-port     = ftp,ftp-data,ftps,ftps-data
+-logpath  = %(vsftpd_log)s
++# [vsftpd]
++# # or overwrite it in jails.local to be
++# # logpath = %(syslog_authpriv)s
++# # if you want to rely on PAM failed login attempts
++# # vsftpd's failregex should match both of those formats
++# port     = ftp,ftp-data,ftps,ftps-data
++# logpath  = %(vsftpd_log)s
+ 
+ 
+-#
+-# Mail servers
+-#
++# #
++# # Mail servers
++# #
+ 
+-# ASSP SMTP Proxy Jail
+-[assp]
++# # ASSP SMTP Proxy Jail
++# [assp]
+ 
+-port     = smtp,465,submission
+-logpath  = /root/path/to/assp/logs/maillog.txt
++# port     = smtp,465,submission
++# logpath  = /root/path/to/assp/logs/maillog.txt
+ 
+ 
+-[courier-smtp]
++# [courier-smtp]
+ 
+-port     = smtp,465,submission
+-logpath  = %(syslog_mail)s
++# port     = smtp,465,submission
++# logpath  = %(syslog_mail)s
+ 
+ 
+-[postfix]
++# [postfix]
+ 
+-port     = smtp,465,submission
+-logpath  = %(postfix_log)s
++# port     = smtp,465,submission
++# logpath  = %(postfix_log)s
+ 
+ 
+-[sendmail-auth]
++# [sendmail-auth]
+ 
+-port    = submission,465,smtp
+-logpath = %(syslog_mail)s
++# port    = submission,465,smtp
++# logpath = %(syslog_mail)s
+ 
+ 
+-[sendmail-reject]
++# [sendmail-reject]
+ 
+-port     = smtp,465,submission
+-logpath  = %(syslog_mail)s
++# port     = smtp,465,submission
++# logpath  = %(syslog_mail)s
+ 
+ 
+-[qmail-rbl]
++# [qmail-rbl]
+ 
+-filter  = qmail
+-port    = smtp,465,submission
+-logpath = /service/qmail/log/main/current
++# filter  = qmail
++# port    = smtp,465,submission
++# logpath = /service/qmail/log/main/current
+ 
+ 
+-# dovecot defaults to logging to the mail syslog facility
+-# but can be set by syslog_facility in the dovecot configuration.
+-[dovecot]
++# # dovecot defaults to logging to the mail syslog facility
++# # but can be set by syslog_facility in the dovecot configuration.
++# [dovecot]
+ 
+-port    = pop3,pop3s,imap,imaps,submission,465,sieve
+-logpath = %(dovecot_log)s
++# port    = pop3,pop3s,imap,imaps,submission,465,sieve
++# logpath = %(dovecot_log)s
+ 
+ 
+-[sieve]
++# [sieve]
+ 
+-port   = smtp,465,submission
+-logpath = %(dovecot_log)s
++# port   = smtp,465,submission
++# logpath = %(dovecot_log)s
+ 
+ 
+-[solid-pop3d]
++# [solid-pop3d]
+ 
+-port    = pop3,pop3s
+-logpath = %(solidpop3d_log)s
++# port    = pop3,pop3s
++# logpath = %(solidpop3d_log)s
+ 
+ 
+-[exim]
++# [exim]
+ 
+-port   = smtp,465,submission
+-logpath = %(exim_main_log)s
++# port   = smtp,465,submission
++# logpath = %(exim_main_log)s
+ 
+ 
+-[exim-spam]
++# [exim-spam]
+ 
+-port   = smtp,465,submission
+-logpath = %(exim_main_log)s
++# port   = smtp,465,submission
++# logpath = %(exim_main_log)s
+ 
+ 
+-[kerio]
++# [kerio]
+ 
+-port    = imap,smtp,imaps,465
+-logpath = /opt/kerio/mailserver/store/logs/security.log
++# port    = imap,smtp,imaps,465
++# logpath = /opt/kerio/mailserver/store/logs/security.log
+ 
+ 
+-#
+-# Mail servers authenticators: might be used for smtp,ftp,imap servers, so
+-# all relevant ports get banned
+-#
++# #
++# # Mail servers authenticators: might be used for smtp,ftp,imap servers, so
++# # all relevant ports get banned
++# #
+ 
+-[courier-auth]
++# [courier-auth]
+ 
+-port     = smtp,465,submission,imap3,imaps,pop3,pop3s
+-logpath  = %(syslog_mail)s
++# port     = smtp,465,submission,imap3,imaps,pop3,pop3s
++# logpath  = %(syslog_mail)s
+ 
+ 
+-[postfix-sasl]
++# [postfix-sasl]
+ 
+-port     = smtp,465,submission,imap3,imaps,pop3,pop3s
+-# You might consider monitoring /var/log/mail.warn instead if you are
+-# running postfix since it would provide the same log lines at the
+-# "warn" level but overall at the smaller filesize.
+-logpath  = %(postfix_log)s
++# port     = smtp,465,submission,imap3,imaps,pop3,pop3s
++# # You might consider monitoring /var/log/mail.warn instead if you are
++# # running postfix since it would provide the same log lines at the
++# # "warn" level but overall at the smaller filesize.
++# logpath  = %(postfix_log)s
+ 
+ 
+-[perdition]
++# [perdition]
+ 
+-port   = imap3,imaps,pop3,pop3s
+-logpath = %(syslog_mail)s
++# port   = imap3,imaps,pop3,pop3s
++# logpath = %(syslog_mail)s
+ 
+ 
+-[squirrelmail]
++# [squirrelmail]
+ 
+-port = smtp,465,submission,imap2,imap3,imaps,pop3,pop3s,http,https,socks
+-logpath = /var/lib/squirrelmail/prefs/squirrelmail_access_log
++# port = smtp,465,submission,imap2,imap3,imaps,pop3,pop3s,http,https,socks
++# logpath = /var/lib/squirrelmail/prefs/squirrelmail_access_log
+ 
+ 
+-[cyrus-imap]
++# [cyrus-imap]
+ 
+-port   = imap3,imaps
+-logpath = %(syslog_mail)s
++# port   = imap3,imaps
++# logpath = %(syslog_mail)s
+ 
+ 
+-[uwimap-auth]
++# [uwimap-auth]
+ 
+-port   = imap3,imaps
+-logpath = %(syslog_mail)s
++# port   = imap3,imaps
++# logpath = %(syslog_mail)s
+ 
+ 
+-#
+-#
+-# DNS servers
+-#
++# #
++# #
++# # DNS servers
++# #
+ 
+ 
+-# !!! WARNING !!!
+-#   Since UDP is connection-less protocol, spoofing of IP and imitation
+-#   of illegal actions is way too simple.  Thus enabling of this filter
+-#   might provide an easy way for implementing a DoS against a chosen
+-#   victim. See
+-#    http://nion.modprobe.de/blog/archives/690-fail2ban-+-dns-fail.html
+-#   Please DO NOT USE this jail unless you know what you are doing.
+-#
+-# IMPORTANT: see filter.d/named-refused for instructions to enable logging
+-# This jail blocks UDP traffic for DNS requests.
+-# [named-refused-udp]
+-#
+-# filter   = named-refused
+-# port     = domain,953
+-# protocol = udp
+-# logpath  = /var/log/named/security.log
++# # !!! WARNING !!!
++# #   Since UDP is connection-less protocol, spoofing of IP and imitation
++# #   of illegal actions is way too simple.  Thus enabling of this filter
++# #   might provide an easy way for implementing a DoS against a chosen
++# #   victim. See
++# #    http://nion.modprobe.de/blog/archives/690-fail2ban-+-dns-fail.html
++# #   Please DO NOT USE this jail unless you know what you are doing.
++# #
++# # IMPORTANT: see filter.d/named-refused for instructions to enable logging
++# # This jail blocks UDP traffic for DNS requests.
++# # [named-refused-udp]
++# #
++# # filter   = named-refused
++# # port     = domain,953
++# # protocol = udp
++# # logpath  = /var/log/named/security.log
+ 
+-# IMPORTANT: see filter.d/named-refused for instructions to enable logging
+-# This jail blocks TCP traffic for DNS requests.
++# # IMPORTANT: see filter.d/named-refused for instructions to enable logging
++# # This jail blocks TCP traffic for DNS requests.
+ 
+-[named-refused]
++# [named-refused]
+ 
+-port     = domain,953
+-logpath  = /var/log/named/security.log
++# port     = domain,953
++# logpath  = /var/log/named/security.log
+ 
+ 
+-[nsd]
++# [nsd]
+ 
+-port     = 53
+-action   = %(banaction)s[name=%(__name__)s-tcp, port="%(port)s", protocol="tcp", chain="%(chain)s", actname=%(banaction)s-tcp]
+-           %(banaction)s[name=%(__name__)s-udp, port="%(port)s", protocol="udp", chain="%(chain)s", actname=%(banaction)s-udp]
+-logpath = /var/log/nsd.log
++# port     = 53
++# action   = %(banaction)s[name=%(__name__)s-tcp, port="%(port)s", protocol="tcp", chain="%(chain)s", actname=%(banaction)s-tcp]
++#            %(banaction)s[name=%(__name__)s-udp, port="%(port)s", protocol="udp", chain="%(chain)s", actname=%(banaction)s-udp]
++# logpath = /var/log/nsd.log
+ 
+ 
+-#
+-# Miscellaneous
+-#
++# #
++# # Miscellaneous
++# #
+ 
+-[asterisk]
++# [asterisk]
+ 
+-port     = 5060,5061
+-action   = %(banaction)s[name=%(__name__)s-tcp, port="%(port)s", protocol="tcp", chain="%(chain)s", actname=%(banaction)s-tcp]
+-           %(banaction)s[name=%(__name__)s-udp, port="%(port)s", protocol="udp", chain="%(chain)s", actname=%(banaction)s-udp]
+-           %(mta)s-whois[name=%(__name__)s, dest="%(destemail)s"]
+-logpath  = /var/log/asterisk/messages
+-maxretry = 10
++# port     = 5060,5061
++# action   = %(banaction)s[name=%(__name__)s-tcp, port="%(port)s", protocol="tcp", chain="%(chain)s", actname=%(banaction)s-tcp]
++#            %(banaction)s[name=%(__name__)s-udp, port="%(port)s", protocol="udp", chain="%(chain)s", actname=%(banaction)s-udp]
++#            %(mta)s-whois[name=%(__name__)s, dest="%(destemail)s"]
++# logpath  = /var/log/asterisk/messages
++# maxretry = 10
+ 
+ 
+-[freeswitch]
++# [freeswitch]
+ 
+-port     = 5060,5061
+-action   = %(banaction)s[name=%(__name__)s-tcp, port="%(port)s", protocol="tcp", chain="%(chain)s", actname=%(banaction)s-tcp]
+-           %(banaction)s[name=%(__name__)s-udp, port="%(port)s", protocol="udp", chain="%(chain)s", actname=%(banaction)s-udp]
+-           %(mta)s-whois[name=%(__name__)s, dest="%(destemail)s"]
+-logpath  = /var/log/freeswitch.log
+-maxretry = 10
++# port     = 5060,5061
++# action   = %(banaction)s[name=%(__name__)s-tcp, port="%(port)s", protocol="tcp", chain="%(chain)s", actname=%(banaction)s-tcp]
++#            %(banaction)s[name=%(__name__)s-udp, port="%(port)s", protocol="udp", chain="%(chain)s", actname=%(banaction)s-udp]
++#            %(mta)s-whois[name=%(__name__)s, dest="%(destemail)s"]
++# logpath  = /var/log/freeswitch.log
++# maxretry = 10
+ 
+ 
+-# To log wrong MySQL access attempts add to /etc/my.cnf in [mysqld] or
+-# equivalent section:
+-# log-warning = 2
+-#
+-# for syslog (daemon facility)
+-# [mysqld_safe]
+-# syslog
+-#
+-# for own logfile
+-# [mysqld]
+-# log-error=/var/log/mysqld.log
+-[mysqld-auth]
++# # To log wrong MySQL access attempts add to /etc/my.cnf in [mysqld] or
++# # equivalent section:
++# # log-warning = 2
++# #
++# # for syslog (daemon facility)
++# # [mysqld_safe]
++# # syslog
++# #
++# # for own logfile
++# # [mysqld]
++# # log-error=/var/log/mysqld.log
++# [mysqld-auth]
+ 
+-port     = 3306
+-logpath  = %(mysql_log)s
+-maxretry = 5
++# port     = 3306
++# logpath  = %(mysql_log)s
++# maxretry = 5
+ 
+ 
+-# Jail for more extended banning of persistent abusers
+-# !!! WARNING !!!
+-#   Make sure that your loglevel specified in fail2ban.conf/.local
+-#   is not at DEBUG level -- which might then cause fail2ban to fall into
+-#   an infinite loop constantly feeding itself with non-informative lines
+-[recidive]
++# # Jail for more extended banning of persistent abusers
++# # !!! WARNING !!!
++# #   Make sure that your loglevel specified in fail2ban.conf/.local
++# #   is not at DEBUG level -- which might then cause fail2ban to fall into
++# #   an infinite loop constantly feeding itself with non-informative lines
++# [recidive]
+ 
+-logpath  = /var/log/fail2ban.log
+-port     = all
+-protocol = all
+-bantime  = 604800  ; 1 week
+-findtime = 86400   ; 1 day
+-maxretry = 5
++# logpath  = /var/log/fail2ban.log
++# port     = all
++# protocol = all
++# bantime  = 604800  ; 1 week
++# findtime = 86400   ; 1 day
++# maxretry = 5
+ 
+ 
+-# Generic filter for PAM. Has to be used with action which bans all
+-# ports such as iptables-allports, shorewall
++# # Generic filter for PAM. Has to be used with action which bans all
++# # ports such as iptables-allports, shorewall
+ 
+-[pam-generic]
+-# pam-generic filter can be customized to monitor specific subset of 'tty's
+-banaction = iptables-allports
+-logpath  = %(syslog_authpriv)s
++# [pam-generic]
++# # pam-generic filter can be customized to monitor specific subset of 'tty's
++# banaction = iptables-allports
++# logpath  = %(syslog_authpriv)s
+ 
+ 
+-[xinetd-fail]
++# [xinetd-fail]
+ 
+-banaction = iptables-multiport-log
+-logpath   = %(syslog_daemon)s
+-maxretry  = 2
++# banaction = iptables-multiport-log
++# logpath   = %(syslog_daemon)s
++# maxretry  = 2
+ 
+ 
+-# stunnel - need to set port for this
+-[stunnel]
++# # stunnel - need to set port for this
++# [stunnel]
+ 
+-logpath = /var/log/stunnel4/stunnel.log
++# logpath = /var/log/stunnel4/stunnel.log
+ 
+ 
+-[ejabberd-auth]
++# [ejabberd-auth]
+ 
+-port    = 5222
+-logpath = /var/log/ejabberd/ejabberd.log
++# port    = 5222
++# logpath = /var/log/ejabberd/ejabberd.log
+ 
+ 
+-[counter-strike]
++# [counter-strike]
+ 
+-logpath = /opt/cstrike/logs/L[0-9]*.log
+-# Firewall: http://www.cstrike-planet.com/faq/6
+-tcpport = 27030,27031,27032,27033,27034,27035,27036,27037,27038,27039
+-udpport = 1200,27000,27001,27002,27003,27004,27005,27006,27007,27008,27009,27010,27011,27012,27013,27014,27015
+-action  = %(banaction)s[name=%(__name__)s-tcp, port="%(tcpport)s", protocol="tcp", chain="%(chain)s", actname=%(banaction)s-tcp]
+-           %(banaction)s[name=%(__name__)s-udp, port="%(udpport)s", protocol="udp", chain="%(chain)s", actname=%(banaction)s-udp]
++# logpath = /opt/cstrike/logs/L[0-9]*.log
++# # Firewall: http://www.cstrike-planet.com/faq/6
++# tcpport = 27030,27031,27032,27033,27034,27035,27036,27037,27038,27039
++# udpport = 1200,27000,27001,27002,27003,27004,27005,27006,27007,27008,27009,27010,27011,27012,27013,27014,27015
++# action  = %(banaction)s[name=%(__name__)s-tcp, port="%(tcpport)s", protocol="tcp", chain="%(chain)s", actname=%(banaction)s-tcp]
++#            %(banaction)s[name=%(__name__)s-udp, port="%(udpport)s", protocol="udp", chain="%(chain)s", actname=%(banaction)s-udp]
+ 
+-# consider low maxretry and a long bantime
+-# nobody except your own Nagios server should ever probe nrpe
+-[nagios]
++# # consider low maxretry and a long bantime
++# # nobody except your own Nagios server should ever probe nrpe
++# [nagios]
+ 
+-enabled  = false
+-logpath  = %(syslog_daemon)s     ; nrpe.cfg may define a different log_facility
+-maxretry = 1
++# enabled  = false
++# logpath  = %(syslog_daemon)s     ; nrpe.cfg may define a different log_facility
++# maxretry = 1
+ 
+ 
+-[oracleims]
+-# see "oracleims" filter file for configuration requirement for Oracle IMS v6 and above
+-enabled = false
+-logpath = /opt/sun/comms/messaging64/log/mail.log_current
+-maxretry = 6
+-banaction = iptables-allports
++# [oracleims]
++# # see "oracleims" filter file for configuration requirement for Oracle IMS v6 and above
++# enabled = false
++# logpath = /opt/sun/comms/messaging64/log/mail.log_current
++# maxretry = 6
++# banaction = iptables-allports
+ 
+-[directadmin]
+-enabled = false
+-logpath = /var/log/directadmin/login.log
+-port = 2222
++# [directadmin]
++# enabled = false
++# logpath = /var/log/directadmin/login.log
++# port = 2222
+ 
+-[portsentry]
+-enabled  = false
+-logpath  = /var/lib/portsentry/portsentry.history
+-maxretry = 1
+\ No newline at end of file
++# [portsentry]
++# enabled  = false
++# logpath  = /var/lib/portsentry/portsentry.history
++# maxretry = 1

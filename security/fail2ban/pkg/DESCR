@@ -1,0 +1,9 @@
+Fail2Ban scans log files like /var/log/pwdfail and bans IP that makes
+too many password failures. It updates firewall rules to reject the IP
+address. These rules can be defined by the user. Fail2Ban can read
+multiple log files such as sshd or Apache web server ones.
+
+Fail2Ban is able to reduce the rate of incorrect authentications
+attempts however it cannot eliminate the risk that weak authentication
+presents. Configure services to use only two factor or public/private
+authentication mechanisms if you really want to protect services.
