@@ -1,0 +1,12 @@
+$OpenBSD$
+--- deps/cares/include/ares.h.orig	Sun Oct 30 09:32:31 2016
++++ deps/cares/include/ares.h	Sun Oct 30 09:32:45 2016
+@@ -38,7 +38,7 @@
+    require it! */
+ #if defined(_AIX) || defined(__NOVELL_LIBC__) || defined(__NetBSD__) || \
+     defined(__minix) || defined(__SYMBIAN32__) || defined(__INTEGRITY) || \
+-    defined(ANDROID) || defined(__ANDROID__)
++    defined(ANDROID) || defined(__ANDROID__) || defined(__OpenBSD__)
+ #include <sys/select.h>
+ #endif
+ #if (defined(NETWARE) && !defined(__NOVELL_LIBC__))

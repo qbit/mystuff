@@ -1,0 +1,7 @@
+Not Sure if I want to take node this direction. It's nice having
+multiple versions but it will at least double the effort of
+maintaining.
+
+- Figure out how to do the binaries:
+  a) Maybe have an "env" script that sets vars.
+  b) Possible to do something like python with node6.x?

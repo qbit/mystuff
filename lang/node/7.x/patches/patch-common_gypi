@@ -1,0 +1,13 @@
+$OpenBSD$
+--- common.gypi.orig	Tue Oct 25 07:25:58 2016
++++ common.gypi	Tue Oct 25 12:11:37 2016
+@@ -278,6 +278,9 @@
+           ['_type=="static_library" and OS=="solaris"', {
+             'standalone_static_library': 1,
+           }],
++          ['OS=="openbsd"', {
++            'ldflags': [ '-Wl,-z,wxneeded' ],
++          }],
+         ],
+         'conditions': [
+           [ 'target_arch=="ia32"', {
