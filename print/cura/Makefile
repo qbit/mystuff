@@ -2,7 +2,7 @@
 
 COMMENT =		3d printing and slicing application
 
-VERSION =		14.11-RC7
+VERSION =		15.04.5-RC5
 DISTNAME =		Cura-${VERSION}
 PKGNAME =		cura-${VERSION}
 
@@ -16,7 +16,7 @@ MAINTAINER =		Aaron Bieber <abieber@openbsd.org>
 PERMIT_PACKAGE_CDROM =	Yes
 
 GH_ACCOUNT =		daid
-GH_PROJECT =		Cura
+GH_PROJECT =		LegacyCura
 GH_TAGNAME =		${VERSION}
 
 MODULES =		lang/python
@@ -43,7 +43,7 @@ do-install:
 		${PREFIX}/lib/python${MODPY_VERSION}/site-packages/Cura
 	cp -Rp ${WRKSRC}/resources/* \
 		${PREFIX}/lib/python${MODPY_VERSION}/site-packages/Cura/resources
-	${SUBST_CMD} -c ${FILESDIR}/cura ${WRKSRC}/Cura/cura
+	${SUBST_CMD} -m 666 -c ${FILESDIR}/cura ${WRKSRC}/Cura/cura
 	${INSTALL_SCRIPT} ${WRKSRC}/Cura/cura ${PREFIX}/bin/cura
 	chown -R ${BINOWN}:${BINGRP} \
 		${PREFIX}/lib/python${MODPY_VERSION}/site-packages/Cura

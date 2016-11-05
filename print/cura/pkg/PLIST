@@ -92,11 +92,14 @@ lib/python${MODPY_VERSION}/site-packages/Cura/resources/example/Attribution.txt
 lib/python${MODPY_VERSION}/site-packages/Cura/resources/example/UltimakerHandle.stl
 lib/python${MODPY_VERSION}/site-packages/Cura/resources/example/UltimakerRobot_support.stl
 lib/python${MODPY_VERSION}/site-packages/Cura/resources/firmware/
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/firmware/.gitignore
 lib/python${MODPY_VERSION}/site-packages/Cura/resources/firmware/Attribution.txt
 lib/python${MODPY_VERSION}/site-packages/Cura/resources/firmware/MarlinUltimaker-COPYING
 lib/python${MODPY_VERSION}/site-packages/Cura/resources/firmware/MarlinWitbox.hex
 lib/python${MODPY_VERSION}/site-packages/Cura/resources/images/
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/images/Printrbot_logo.png
 lib/python${MODPY_VERSION}/site-packages/Cura/resources/images/Ultimaker2backplate.png
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/images/Ultimaker2plusbackplate.png
 lib/python${MODPY_VERSION}/site-packages/Cura/resources/images/UltimakerPlusbackplate.png
 lib/python${MODPY_VERSION}/site-packages/Cura/resources/images/UltimakerRobot.png
 lib/python${MODPY_VERSION}/site-packages/Cura/resources/images/attention.png
@@ -168,6 +171,10 @@ lib/python${MODPY_VERSION}/site-packages/Cura/resources/locale/fr/
 lib/python${MODPY_VERSION}/site-packages/Cura/resources/locale/fr/LC_MESSAGES/
 lib/python${MODPY_VERSION}/site-packages/Cura/resources/locale/fr/LC_MESSAGES/Cura.mo
 lib/python${MODPY_VERSION}/site-packages/Cura/resources/locale/fr/LC_MESSAGES/Cura.po
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/locale/it/
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/locale/it/LC_MESSAGES/
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/locale/it/LC_MESSAGES/Cura.mo
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/locale/it/LC_MESSAGES/Cura.po
 lib/python${MODPY_VERSION}/site-packages/Cura/resources/locale/ko/
 lib/python${MODPY_VERSION}/site-packages/Cura/resources/locale/ko/LC_MESSAGES/
 lib/python${MODPY_VERSION}/site-packages/Cura/resources/locale/ko/LC_MESSAGES/Cura.mo
@@ -184,6 +191,10 @@ lib/python${MODPY_VERSION}/site-packages/Cura/resources/locale/ru/
 lib/python${MODPY_VERSION}/site-packages/Cura/resources/locale/ru/LC_MESSAGES/
 lib/python${MODPY_VERSION}/site-packages/Cura/resources/locale/ru/LC_MESSAGES/Cura.mo
 lib/python${MODPY_VERSION}/site-packages/Cura/resources/locale/ru/LC_MESSAGES/Cura.po
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/locale/tr/
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/locale/tr/LC_MESSAGES/
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/locale/tr/LC_MESSAGES/Cura.mo
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/locale/tr/LC_MESSAGES/Cura.po
 lib/python${MODPY_VERSION}/site-packages/Cura/resources/locale/zh/
 lib/python${MODPY_VERSION}/site-packages/Cura/resources/locale/zh/LC_MESSAGES/
 lib/python${MODPY_VERSION}/site-packages/Cura/resources/locale/zh/LC_MESSAGES/Cura.mo
@@ -191,19 +202,62 @@ lib/python${MODPY_VERSION}/site-packages/Cura/resources/locale/zh/LC_MESSAGES/Cu
 lib/python${MODPY_VERSION}/site-packages/Cura/resources/machine_profiles/
 lib/python${MODPY_VERSION}/site-packages/Cura/resources/machine_profiles/BFB.ini
 lib/python${MODPY_VERSION}/site-packages/Cura/resources/machine_profiles/DeltaBot.ini
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/machine_profiles/Hephestos.ini
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/machine_profiles/Hephestos_XL.ini
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/machine_profiles/Kupido.ini
 lib/python${MODPY_VERSION}/site-packages/Cura/resources/machine_profiles/MakerBotReplicator.ini
 lib/python${MODPY_VERSION}/site-packages/Cura/resources/machine_profiles/Mendel.ini
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/machine_profiles/Ord.ini
 lib/python${MODPY_VERSION}/site-packages/Cura/resources/machine_profiles/Prusa Mendel i3.ini
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/machine_profiles/RIGID3D HOBBY.ini
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/machine_profiles/ROBO 3D R1.ini
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/machine_profiles/Rigid3D.ini
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/machine_profiles/Rigid3d_Zero.ini
 lib/python${MODPY_VERSION}/site-packages/Cura/resources/machine_profiles/RigidBot.ini
 lib/python${MODPY_VERSION}/site-packages/Cura/resources/machine_profiles/RigidBotBig.ini
 lib/python${MODPY_VERSION}/site-packages/Cura/resources/machine_profiles/Witbox.ini
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/machine_profiles/Zone3d Printer.ini
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/machine_profiles/julia.ini
 lib/python${MODPY_VERSION}/site-packages/Cura/resources/machine_profiles/punchtec Connect XL.ini
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/machine_profiles/rigid3d_3rdGen.ini
 lib/python${MODPY_VERSION}/site-packages/Cura/resources/meshes/
 lib/python${MODPY_VERSION}/site-packages/Cura/resources/meshes/Attribution.txt
-lib/python${MODPY_VERSION}/site-packages/Cura/resources/meshes/Witbox_platform.stl
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/meshes/hephestos_platform.stl
 lib/python${MODPY_VERSION}/site-packages/Cura/resources/meshes/ultimaker2_platform.stl
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/meshes/ultimaker2go_platform.stl
 lib/python${MODPY_VERSION}/site-packages/Cura/resources/meshes/ultimaker_platform.stl
-lib/python${MODPY_VERSION}/site-packages/Cura/resources/meshes/ultimaker_plus_platform.stl
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/meshes/witbox_platform.stl
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/quickprint/
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/quickprint/materials/
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/quickprint/materials/1_pla.ini
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/quickprint/materials/2_abs.ini
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/quickprint/materials/3_cpe.ini
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/quickprint/profiles/
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/quickprint/profiles/1_low.ini
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/quickprint/profiles/2_normal.ini
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/quickprint/profiles/3_high.ini
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/quickprint/profiles/4_ulti.ini
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/quickprint/profiles/ultimaker2+/
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/quickprint/profiles/ultimaker2+/abs_0.25mm_high.ini
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/quickprint/profiles/ultimaker2+/abs_0.4mm_fast.ini
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/quickprint/profiles/ultimaker2+/abs_0.4mm_high.ini
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/quickprint/profiles/ultimaker2+/abs_0.4mm_normal.ini
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/quickprint/profiles/ultimaker2+/abs_0.6mm_normal.ini
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/quickprint/profiles/ultimaker2+/abs_0.8mm_fast.ini
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/quickprint/profiles/ultimaker2+/cpe_0.25mm_high.ini
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/quickprint/profiles/ultimaker2+/cpe_0.4mm_fast.ini
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/quickprint/profiles/ultimaker2+/cpe_0.4mm_high.ini
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/quickprint/profiles/ultimaker2+/cpe_0.4mm_normal.ini
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/quickprint/profiles/ultimaker2+/cpe_0.6mm_normal.ini
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/quickprint/profiles/ultimaker2+/cpe_0.8mm_fast.ini
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/quickprint/profiles/ultimaker2+/pla_0.25mm_high.ini
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/quickprint/profiles/ultimaker2+/pla_0.4mm_fast.ini
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/quickprint/profiles/ultimaker2+/pla_0.4mm_high.ini
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/quickprint/profiles/ultimaker2+/pla_0.4mm_normal.ini
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/quickprint/profiles/ultimaker2+/pla_0.6mm_normal.ini
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/quickprint/profiles/ultimaker2+/pla_0.8mm_fast.ini
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/quickprint/profiles/ultimaker2+extended/
+lib/python${MODPY_VERSION}/site-packages/Cura/resources/quickprint/profiles/ultimaker2+extended/redirect.ini
 lib/python${MODPY_VERSION}/site-packages/Cura/resources/stl.ico
 lib/python${MODPY_VERSION}/site-packages/Cura/resources/version
 lib/python${MODPY_VERSION}/site-packages/Cura/serialCommunication.py
@@ -317,6 +371,7 @@ lib/python${MODPY_VERSION}/site-packages/Cura/util/pymclevel/schematic.pyc
 lib/python${MODPY_VERSION}/site-packages/Cura/util/removableStorage.py
 lib/python${MODPY_VERSION}/site-packages/Cura/util/removableStorage.pyc
 lib/python${MODPY_VERSION}/site-packages/Cura/util/resources.py
+lib/python${MODPY_VERSION}/site-packages/Cura/util/resources.py.orig
 lib/python${MODPY_VERSION}/site-packages/Cura/util/resources.pyc
 lib/python${MODPY_VERSION}/site-packages/Cura/util/sliceEngine.py
 lib/python${MODPY_VERSION}/site-packages/Cura/util/sliceEngine.pyc
@@ -325,6 +380,7 @@ lib/python${MODPY_VERSION}/site-packages/Cura/util/util3d.pyc
 lib/python${MODPY_VERSION}/site-packages/Cura/util/validators.py
 lib/python${MODPY_VERSION}/site-packages/Cura/util/validators.pyc
 lib/python${MODPY_VERSION}/site-packages/Cura/util/version.py
+lib/python${MODPY_VERSION}/site-packages/Cura/util/version.py.orig
 lib/python${MODPY_VERSION}/site-packages/Cura/util/version.pyc
 lib/python${MODPY_VERSION}/site-packages/Cura/util/youmagine.py
 lib/python${MODPY_VERSION}/site-packages/Cura/util/youmagine.pyc

@@ -2,7 +2,7 @@
 
 COMMENT =		console application for gcode generation
 
-VERSION =		14.11-RC7
+VERSION =		15.04.6
 DISTNAME =		CuraEngine-${VERSION}
 
 CATEGORIES =		print
