@@ -4,9 +4,7 @@ COMMENT =	tftp rewrite daemon
 
 GH_ACCOUNT =	qbit
 GH_PROJECT =	trd
-GH_TAGNAME =	v0.1.0
-#DISTNAME =	trd-${V}
-#DISTFILES =	trd-v${V}${EXTRACT_SUFX}
+GH_TAGNAME =	v1.0.0
 
 CATEGORIES =	sysutils
 HOMEPAGE =	https://code.bolddaemon.com/qbit/trd
