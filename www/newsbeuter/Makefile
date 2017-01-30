@@ -6,18 +6,18 @@ CATEGORIES =		www
 
 HOMEPAGE =		http://newsbeuter.org/
 
-MAINTAINER =		Kyle Isom <kyle@tyrfingr.is>
-
 # mit
 PERMIT_PACKAGE_CDROM =	Yes
 
-WANTLIB += c crypto curl json-c m ncursesw pthread sqlite3 stfl
-WANTLIB += xml2
+WANTLIB += c crypto curl iconv intl json-c m ncursesw pthread
+WANTLIB += sqlite3 stfl xml2
 
 MASTER_SITES =		http://newsbeuter.org/downloads/
 
-MODULES =		gcc4 \
-			devel/gettext
+BUILD_DEPENDS =		devel/gettext-tools
+RUN_DEPENDS =		devel/gettext
+
+MODULES =		gcc4
 
 MODGCC4_LANGS = c c++
 MODGCC4_ARCHS = *
