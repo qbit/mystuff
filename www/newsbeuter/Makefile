@@ -6,7 +6,7 @@ CATEGORIES =		www
 
 HOMEPAGE =		http://newsbeuter.org/
 
-# mit
+# MIT
 PERMIT_PACKAGE_CDROM =	Yes
 
 WANTLIB += c crypto curl iconv intl json-c m ncursesw pthread
@@ -14,15 +14,15 @@ WANTLIB += sqlite3 stfl xml2
 
 MASTER_SITES =		http://newsbeuter.org/downloads/
 
-BUILD_DEPENDS =		devel/gettext-tools
-RUN_DEPENDS =		devel/gettext
-
 MODULES =		gcc4
 
 MODGCC4_LANGS = c c++
 MODGCC4_ARCHS = *
 
+BUILD_DEPENDS =		devel/gettext-tools
+
 LIB_DEPENDS =		databases/sqlite3 \
+			devel/gettext \
 			devel/stfl \
 			devel/json-c \
 			textproc/libxml	\
