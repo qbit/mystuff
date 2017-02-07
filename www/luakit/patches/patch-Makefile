@@ -1,13 +1,18 @@
-$OpenBSD: patch-Makefile,v 1.1.1.1 2012/10/28 23:43:00 abieber Exp $
---- Makefile.orig	Mon Oct  1 11:38:55 2012
-+++ Makefile	Mon Oct  1 11:39:09 2012
-@@ -37,13 +37,13 @@ globalconf.h: globalconf.h.in
- $(OBJS): $(HEADS) config.mk
+$OpenBSD$
+--- Makefile.orig	Wed Feb  1 07:15:16 2017
++++ Makefile	Wed Feb  1 07:16:48 2017
+@@ -42,21 +42,21 @@ globalconf.h: globalconf.h.in
+ $(filter-out $(EXT_OBJS),$(OBJS)) $(EXT_OBJS): $(HEADS) config.mk
  
- .c.o:
+ $(filter-out $(EXT_OBJS),$(OBJS)) : %.o : %.c
 -	@echo $(CC) -c $< -o $@
 +	@echo $(CC) -c $(CFLAGS) $(CPPFLAGS) $< -o $@
  	@$(CC) -c $(CFLAGS) $(CPPFLAGS) $< -o $@
+ 
+ $(EXT_OBJS) : %.o : %.c
+-	@echo $(CC) -c $< -o $@
++	@echo $(CC) -c $(CFLAGS) -DLUAKIT_WEB_EXTENSION -fpic $(CPPFLAGS) $< -o $@
+ 	@$(CC) -c $(CFLAGS) -DLUAKIT_WEB_EXTENSION -fpic $(CPPFLAGS) $< -o $@
  
  widgets/webview.o: $(wildcard widgets/webview/*.c)
  
@@ -16,4 +21,9 @@ $OpenBSD: patch-Makefile,v 1.1.1.1 2012/10/28 23:43:00 abieber Exp $
 +	@echo $(CC) -o $@ $(OBJS) $(LDFLAGS)
  	@$(CC) -o $@ $(OBJS) $(LDFLAGS)
  
- luakit.1: luakit
+ luakit.so: $(EXT_OBJS)
+-	@echo $(CC) -o $@ $(EXT_OBJS)
++	@echo $(CC) -o $@ $(EXT_OBJS) $(LDFLAGS)
+ 	@$(CC) -o $@ $(EXT_OBJS) -shared $(LDFLAGS)
+ 
+ luakit.1: luakit.1.in
