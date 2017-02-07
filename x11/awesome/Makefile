@@ -13,13 +13,19 @@ MAINTAINER=		David Coppa <dcoppa@openbsd.org>
 # GPLv2+
 PERMIT_PACKAGE_CDROM=	Yes
 
-WANTLIB=		X11 c cairo dbus-1 execinfo \
-			gdk_pixbuf-2.0 glib-2.0 gobject-2.0 \
-			${MODLUA_WANTLIB} m pthread \
-			startup-notification-1 xcb xcb-cursor \
-			xcb-icccm xcb-keysyms xcb-randr \
-			xcb-render xcb-shape xcb-util \
-			xcb-xinerama xcb-xtest xdg-basedir
+#WANTLIB=		X11 c cairo dbus-1 execinfo \
+#			gdk_pixbuf-2.0 glib-2.0 gobject-2.0 \
+#			${MODLUA_WANTLIB} m pthread \
+#			startup-notification-1 xcb xcb-cursor \
+#			xcb-icccm xcb-keysyms xcb-randr \
+#			xcb-render xcb-shape xcb-util \
+#			xcb-xinerama xcb-xtest xdg-basedir
+
+WANTLIB += X11 c cairo dbus-1 execinfo gdk_pixbuf-2.0 glib-2.0
+WANTLIB += gobject-2.0 ${MODLUA_WANTLIB} m startup-notification-1 xcb xcb-cursor
+WANTLIB += xcb-icccm xcb-keysyms xcb-randr xcb-render xcb-shape
+WANTLIB += xcb-util xcb-xinerama xcb-xkb xcb-xrm xcb-xtest xdg-basedir
+WANTLIB += xkbcommon xkbcommon-x11
 
 MASTER_SITES=		https://github.com/awesomeWM/awesome-releases/raw/master/
 
@@ -35,7 +41,8 @@ LIB_DEPENDS=		devel/libexecinfo \
 			graphics/gdk-pixbuf2 \
 			${MODLUA_LIB_DEPENDS} \
 			x11/dbus \
-			x11/libxdg-basedir
+			x11/libxdg-basedir \
+			x11/xkbcommon
 
 MODLUA_BUILD_DEPENDS=	devel/lua-lgi
 
