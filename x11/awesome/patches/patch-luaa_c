@@ -1,0 +1,15 @@
+$OpenBSD$
+--- luaa.c.orig	Sun Dec 25 14:17:14 2016
++++ luaa.c	Tue Feb  7 15:14:53 2017
+@@ -600,7 +600,11 @@ setup_awesome_signals(lua_State *L)
+ 
+     /* POSIX.1-2001, according to man 7 signal */
+     SETUP_SIGNAL(SIGBUS);
++#ifdef __OpenBSD__
++    SETUP_SIGNAL(SIGIO);
++#else
+     SETUP_SIGNAL(SIGPOLL);
++#endif
+     SETUP_SIGNAL(SIGPROF);
+     SETUP_SIGNAL(SIGSYS);
+     SETUP_SIGNAL(SIGTRAP);

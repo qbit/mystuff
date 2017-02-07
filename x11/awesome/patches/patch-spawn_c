@@ -1,0 +1,14 @@
+$OpenBSD$
+--- spawn.c.orig	Sun Dec 25 14:17:14 2016
++++ spawn.c	Tue Feb  7 15:14:53 2017
+@@ -53,6 +53,10 @@
+ 
+ #include "spawn.h"
+ 
++#ifdef __OpenBSD__
++#include <sys/wait.h>
++#endif
++
+ #include <unistd.h>
+ #include <glib.h>
+ 
