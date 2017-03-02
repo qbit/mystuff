@@ -1,0 +1,7 @@
+Clipster is a simple clipboard manager, written in Python (2 or 3). It aims to 
+be lightweight, have a small set of non-core dependencies (Gtk+), and is 
+designed to interact well with tiling and keyboard-based window managers. It 
+uses selection events, rather than polling, and offers both command-line and 
+GUI interaction with the clipboard.
+
+
