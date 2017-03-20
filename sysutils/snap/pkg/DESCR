@@ -1,0 +1,3 @@
+snap is a ksh(1) script designed upgrade an OpenBSD machine to the latest
+snapshots available.
+
