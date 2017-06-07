@@ -1,15 +1,15 @@
 # $OpenBSD$
 
-COMMENT =	Core utilities for Python packages
+COMMENT =	Pure Python PNG image encoder/decoder
 
-DISTNAME =	packaging-${MODPY_EGG_VERSION}
+DISTNAME =	pypng-${MODPY_EGG_VERSION}
 PKGNAME =	py-${DISTNAME}
 
 CATEGORIES =	pypi
 
-HOMEPAGE =	https://github.com/pypa/packaging
+HOMEPAGE =	https://github.com/drj11/pypng
 
-# unknown license -> 'BSD or Apache License, Version 2.0'
+# license field not set, consider bugging module's author
 PERMIT_PACKAGE_CDROM =	unknown license
 PERMIT_PACKAGE_FTP =	unknown license
 PERMIT_DISTFILES_FTP =	unknown license
@@ -19,7 +19,7 @@ MODULES =		lang/python
 FLAVORS =	python3
 FLAVOR ?=
 
-MODPY_EGG_VERSION =	16.7
+MODPY_EGG_VERSION =	0.0.18
 
 MODPY_PI =		Yes
 
