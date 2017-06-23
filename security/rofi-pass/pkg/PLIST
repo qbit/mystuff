@@ -5,3 +5,4 @@ share/doc/rofi-pass/
 share/doc/rofi-pass/README.md
 share/doc/rofi-pass/config.example
 @sample ${SYSCONFDIR}/rofi-pass.conf
+share/examples/rofi-pass.conf

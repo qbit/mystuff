@@ -4,7 +4,7 @@ COMMENT =	rofi frontend for password-store
 
 GH_ACCOUNT =	carnager
 GH_PROJECT =	rofi-pass
-GH_TAGNAME =	1.4.4
+GH_TAGNAME =	1.5.0
 
 CATEGORIES =	security
 
@@ -14,7 +14,7 @@ PERMIT_PACKAGE_CDROM =	Yes
 RUN_DEPENDS =	security/password-store \
 		sysutils/ggrep \
 		sysutils/rofi \
-		x11/xdotool	
+		x11/xdotool
 
 TEST_DEPENDS =	${RUN_DEPENDS}
 
