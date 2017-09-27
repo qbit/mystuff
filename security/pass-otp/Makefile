@@ -4,7 +4,7 @@ COMMENT =	otp extension for password-store
 
 GH_ACCOUNT =	tadfisher
 GH_PROJECT =	pass-otp
-GH_TAGNAME =	v0.1.0
+GH_TAGNAME =	v1.0.0
 
 CATEGORIES =	security
 
