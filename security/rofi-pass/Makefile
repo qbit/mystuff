@@ -4,7 +4,7 @@ COMMENT =	rofi frontend for password-store
 
 GH_ACCOUNT =	carnager
 GH_PROJECT =	rofi-pass
-GH_TAGNAME =	1.5.0
+GH_TAGNAME =	1.5.1
 
 CATEGORIES =	security
 
