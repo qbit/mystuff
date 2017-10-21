@@ -17,8 +17,6 @@ RUN_DEPENDS =	security/gnupg2
 
 WANTLIB += c pthread
 
-MASTER_SITES =	https://github.com/justwatchcom/gopass/releases/download/v${V}/
-
 MODULES =	lang/go
 MODGO_TYPE =	bin
 
