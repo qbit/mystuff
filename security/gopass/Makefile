@@ -1,6 +1,6 @@
 # $OpenBSD: Makefile,v 1.2 2016/07/14 16:57:55 ajacoutot Exp $
 
-COMMENT =	more awesome password manager
+COMMENT =	pass compatible password manager wirtten in go
 
 GH_ACCOUNT =	justwatchcom
 GH_PROJECT =	gopass
@@ -13,7 +13,11 @@ HOMEPAGE =	https://github.com/justwatchcom/gopass
 # MIT
 PERMIT_PACKAGE_CDROM =	Yes
 
-MASTER_SITES =	https://github.com/justwatchcom/gopass/releases/download/${GH_TAGNAME}/
+RUN_DEPENDS =	security/gnupg2
+
+WANTLIB += c pthread
+
+MASTER_SITES =	https://github.com/justwatchcom/gopass/releases/download/v${V}/
 
 MODULES =	lang/go
 MODGO_TYPE =	bin
