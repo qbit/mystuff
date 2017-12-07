@@ -33,24 +33,6 @@ Index: config.def.h
  static unsigned int defaultcs = 256;
  static unsigned int defaultrcs = 257;
  
-@@ -134,7 +135,7 @@ static unsigned int cursorshape = 2;
-  * Default colour and shape of the mouse cursor
-  */
- static unsigned int mouseshape = XC_xterm;
--static unsigned int mousefg = 7;
-+static unsigned int mousefg = 8;
- static unsigned int mousebg = 0;
- 
- /*
-@@ -143,7 +144,7 @@ static unsigned int mousebg = 0;
-  * complex.
-  */
- static unsigned int defaultitalic = 11;
--static unsigned int defaultunderline = 7;
-+static unsigned int defaultunderline = 8;
- 
- /*
-  * Internal mouse shortcuts.
 @@ -172,6 +173,8 @@ static Shortcut shortcuts[] = {
  	{ MODKEY|ShiftMask,     XK_C,           clipcopy,       {.i =  0} },
  	{ MODKEY|ShiftMask,     XK_V,           clippaste,      {.i =  0} },
