@@ -1,0 +1,8 @@
+Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. Node.js 
+uses an event-driven, non-blocking I/O model that makes it lightweight and 
+efficient. Node.js' package ecosystem, npm, is the largest ecosystem of open 
+source libraries in the world.
+
+This is the 6.x LTS version. LTS support will transition into maintenance on
+2018-04-18. More information on scheduling here:
+https://github.com/nodejs/LTS#lts-schedule

@@ -1,62 +1,58 @@
-COMMENT =	V8 JavaScript for clients and servers
+# $OpenBSD:$
 
-DISTNAME =	node-${NODE_VERSION}
-PKGNAME =	${DISTNAME:S/v//g}
+ONLY_FOR_ARCHS =	amd64 arm64 i386
 
-USE_WXNEEDED =	Yes
+USE_WXNEEDED =		Yes
 
-CATEGORIES =	lang
-MASTER_SITES =	${HOMEPAGE}dist/${NODE_VERSION}/
-MASTER_SITES0 =	https://github.com/qbit/node-pledge/archive/
+COMMENT =		V8 JavaScript for clients and servers
 
-MAINTAINR =	Aaron Bieber <abieber@openbsd.org>
+DISTFILES =		node-pledge-{}${PLEDGE_VER}.tar.gz:0 ${DISTNAME}.tar.gz
+DISTNAME =		node-${NODE_VERSION}
+PKGNAME =		${DISTNAME:S/v//g}
 
-HOMEPAGE =	http://nodejs.org/
+MASTER_SITES0 =		https://github.com/qbit/node-pledge/archive/
+
+CATEGORIES =		lang devel
+
+HOMEPAGE =		http://nodejs.org/
+
+MAINTAINER =		Aaron Bieber <abieber@openbsd.org>
 
 # MIT
 PERMIT_PACKAGE_CDROM =	Yes
 
-ONLY_FOR_ARCHES =	amd64 i386 powerpc
+MASTER_SITES =		${HOMEPAGE}dist/${NODE_VERSION}/
 
-PLEDGE_VER =		1.1.0
 
-DISTFILES =	node-pledge-{}${PLEDGE_VER}.tar.gz:0 ${DISTNAME}.tar.gz
+MODULES =	lang/python
 
-MODULES=        gcc4 \
-                lang/python
+USE_GMAKE =	Yes
 
-MODGCC4_LANGS = c c++
-MODGCC4_ARCHS = *
+BUILD_DEPENDS =	sysutils/flock
 
-USE_GMAKE=      Yes
+RUN_DEPENDS =	devel/gmake \
+		sysutils/flock
 
-BUILD_DEPENDS=  sysutils/flock
+TEST_TARGET =		test
+CONFIGURE_STYLE =	simple
 
-RUN_DEPENDS=    devel/gmake \
-                lang/gcc/${MODGCC4_VERSION},-c++ \
-                sysutils/flock
+CONFIGURE_ARGS =	--shared-zlib
 
-TEST_TARGET=            test
-CONFIGURE_STYLE=        simple
-
-# libpath and includes aren't picked up, but I added them here as a note.
-# The patch for node.gyp is where they are actually being set.
-#CONFIGURE_ARGS= --shared-openssl \
-#                --shared-openssl-includes=${LOCALBASE}/include/eopenssl \
-#                --shared-openssl-libpath=${LOCALBASE}/lib/eopenssl \
-#                --shared-zlib
-CONIFURE_ARGS=	--shared-zlib
-
-SUBST_VARS+=    DISTNAME
-SUBST_VARS+=    DISTFILES
-SUBST_VARS+=    EXTRACT_SUFX
-SUBST_VARS+=    LOCALBASE
-SUBST_VARS+=    PREFIX
-SUBST_VARS+=    WRKDIST
+.if "${MACHINE}" ==	"arm64"
+CONFIGURE_ARGS +=	--openssl-no-asm
+.endif
 
 MAKE_ENV+=      V=1 CXX="${CXX}" CXXFLAGS="${CXXFLAGS}" \
-                LDFLAGS="-L${LOCALBASE}/lib -L${X11BASE}/lib"
 
+SUBST_VARS += 		DISTNAME
+SUBST_VARS += 		DISTFILES
+SUBST_VARS += 		EXTRACT_SUFX
+SUBST_VARS += 		LOCALBASE
+SUBST_VARS += 		PREFIX
+SUBST_VARS +=		WRKDIST
+
+MAKE_ENV +=		V=1 CXX="${CXX}" CXXFLAGS="${CXXFLAGS}" \
+			LDFLAGS="-L${LOCALBASE}/lib -L${X11BASE}/lib"
 
 do-extract:
 	mkdir ${WRKSRC}; \
@@ -66,9 +62,15 @@ do-extract:
 	mv ${WRKSRC}/deps/npm/node_modules/node-pledge-${PLEDGE_VER} \
 		${WRKSRC}/deps/npm/node_modules/node-pledge
 
+post-extract:
+	# Currently tarbals exclude tools/eslint, while the tests that require it
+	# are still in tree
+	cd ${WRKSRC} && for x in $$(grep -r "tools/eslint" test/* | awk -F: '{print $$1}' | sort | uniq); do \
+		rm $$x; \
+	done
 
 pre-configure:
-	# Bad practice, but prevents a whole stack of patches.
+	@# Bad practice, but prevents a whole stack of patches.
 	ln -sf ${LOCALBASE}/bin/python${MODPY_VERSION} ${WRKDIR}/bin/python
 	${SUBST_CMD} ${WRKDIST}/lib/module.js \
 		${WRKDIST}/deps/npm/bin/node-gyp-bin/node-gyp \
@@ -80,13 +82,21 @@ pre-configure:
 
 post-install:
 	${MODPY_BIN} ${MODPY_LIBDIR}/compileall.py \
-		${PREFIX}/node/${VERSION}/lib/node_modules/npm/node_modules/node-gyp/gyp
-		${INSTALL_DATA_DIR} ${PREFIX}/share/node/${NODE_VERSION}
-		${INSTALL_DATA} ${FULLDISTDIR}/${DISTNAME}.tar.gz \
-		${PREFIX}/share/node/${NODE_VERSION}/${DISTNAME}.tar.gz
-	ln -s ${TRUEPREFIX}/node/${VERSION}/lib/node_modules/npm/bin/node-gyp-bin/node-gyp \
-		${PREFIX}/node/${VERSION}/bin/node-gyp;
-	cd ${PREFIX}/node/${VERSION}/include/node/openssl/archs; rm -rf \
-		{VC,aix,darwin,linux,solaris}*
+		${PREFIX}/lib/node_modules/npm/node_modules/node-gyp/gyp
+	${INSTALL_DATA_DIR} ${PREFIX}/share/node
+	${INSTALL_DATA} ${FULLDISTDIR}/${DISTNAME}.tar.gz \
+		${PREFIX}/share/node/${DISTNAME}.tar.gz
+	ln -s ${TRUEPREFIX}/lib/node_modules/npm/bin/node-gyp-bin/node-gyp \
+		${PREFIX}/bin/node-gyp;
+	cd ${PREFIX}/lib/node_modules/npm/node_modules && for x in *; do \
+		mv $$x ../..; \
+		ln -s ../../$$x $$x; \
+	done
+
+do-test:
+	cd ${WRKSRC} && \
+	ulimit -n $$(ulimit -Hn) && \
+	ulimit -d $$(ulimit -Hd) && \
+	gmake test
 
 
