@@ -1,0 +1,14 @@
+$OpenBSD$
+
+Index: vendor/github.com/ayufan/golang-kardianos-service/service_unix.go
+--- vendor/github.com/ayufan/golang-kardianos-service/service_unix.go.orig
++++ vendor/github.com/ayufan/golang-kardianos-service/service_unix.go
+@@ -2,7 +2,7 @@
+ // Use of this source code is governed by a zlib-style
+ // license that can be found in the LICENSE file.
+ 
+-// +build linux darwin
++// +build linux darwin openbsd
+ 
+ package service
+ 
