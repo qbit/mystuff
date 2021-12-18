@@ -1,9 +1,0 @@
-@comment $OpenBSD$
-lib/python${MODPY_VERSION}/site-packages/sarge/
-lib/python${MODPY_VERSION}/site-packages/sarge-${MODPY_EGG_VERSION}-py${MODPY_VERSION}.egg-info
-lib/python${MODPY_VERSION}/site-packages/sarge/__init__.py
-lib/python${MODPY_VERSION}/site-packages/sarge/__init__.pyc
-lib/python${MODPY_VERSION}/site-packages/sarge/shlext.py
-lib/python${MODPY_VERSION}/site-packages/sarge/shlext.pyc
-lib/python${MODPY_VERSION}/site-packages/sarge/utils.py
-lib/python${MODPY_VERSION}/site-packages/sarge/utils.pyc
