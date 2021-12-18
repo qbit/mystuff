@@ -1,0 +1,27 @@
+#!/bin/sh
+# OpenBSD-specific startup script for GoLand IDE
+
+PYCHARM_HOME=${TRUEPREFIX}/goland
+
+#-----------------------------------------------------------------------------
+# Determine configuration settings
+#-----------------------------------------------------------------------------
+
+export JAVA_BIN=$(javaPathHelper -c goland)
+export JAVA_HOME=$(javaPathHelper -h goland)
+
+if [ ! -x "${JAVA_BIN}" ]; then
+	echo "Error: JAVA_HOME may not be defined correctly: ${JAVA_HOME}"
+	echo "       Unable to find Java binary ${JAVA_BIN}"
+	exit 1
+fi
+
+# Check if 'goland' executable can be found
+if [ ! -x "${PYCHARM_HOME}/bin/goland.sh" ]; then
+	echo "Error: PYCHARM_HOME may not be defined correctly: ${PYCHARM_HOME}"
+	echo -n "       Unable to find launcher binary: "
+	echo "${PYCHARM_HOME}/bin/goland.sh"
+	exit 1
+fi
+
+PATH=${JAVA_HOME}/bin:$PATH exec "${PYCHARM_HOME}/bin/goland.sh" -e $@

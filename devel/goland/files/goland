@@ -1,0 +1,44 @@
+#!/bin/sh
+#
+# $OpenBSD: goland,v 1.3 2020/12/05 11:23:04 rsadowski Exp $
+#
+# OpenBSD-specific startup script for GoLand IDE
+
+PYCHARM_HOME=${TRUEPREFIX}/goland
+DATASIZE="2048000"
+[[ `arch -s` == i386 ]] && DATASIZE="1536000"
+
+#-----------------------------------------------------------------------------
+# Determine configuration settings
+#-----------------------------------------------------------------------------
+
+export JAVA_BIN=$(javaPathHelper -c goland)
+export JAVA_HOME=$(javaPathHelper -h goland)
+
+if [ ! -x "${JAVA_BIN}" ]; then
+	echo "Error: JAVA_HOME may not be defined correctly: ${JAVA_HOME}"
+	echo "       Unable to find Java binary ${JAVA_BIN}"
+	exit 1
+fi
+
+# Check if 'goland' executable can be found
+if [ ! -x "${PYCHARM_HOME}/bin/goland.sh" ]; then
+	echo "Error: PYCHARM_HOME may not be defined correctly: ${PYCHARM_HOME}"
+	echo -n "       Unable to find launcher binary: "
+	echo "${PYCHARM_HOME}/bin/goland.sh"
+	exit 1
+fi
+
+xm_log() {
+	echo -n "$@\nDo you want to run GoLand anyway?\n\
+(If you don't increase these limits, GoLand might fail to work properly.)" | \
+		${X11BASE}/bin/xmessage -file - -center -buttons yes:0,no:1 -default no
+}
+
+if [ $(ulimit -Sd) -lt ${DATASIZE} ]; then
+	ulimit -Sd ${DATASIZE} || \
+		xm_log "Cannot increase datasize-cur to at least ${DATASIZE}"
+		[ $? -eq 0 ] || exit
+fi
+
+PATH=${JAVA_HOME}/bin:$PATH exec "${PYCHARM_HOME}/bin/goland.sh" $@

@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Type=Application
+Name=GoLand
+GenericName=GoLand
+Comment=GoLand Integrated Development Environment
+Icon=${TRUEPREFIX}/goland/bin/goland.png
+Exec=${TRUEPREFIX}/bin/goland
+Terminal=false
+StartupNotify=true
+Categories=Application;Development;
