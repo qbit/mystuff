@@ -1,2 +1,0 @@
-@comment $OpenBSD$
-@lib lib/libdespotify.so.${LIBdespotify_VERSION}
