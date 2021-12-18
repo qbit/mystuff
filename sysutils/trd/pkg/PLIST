@@ -1,3 +1,0 @@
-@comment $OpenBSD$
-@bin bin/trd
-@rcscript ${RCDIR}/trd

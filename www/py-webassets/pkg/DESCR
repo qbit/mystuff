@@ -1,5 +1,0 @@
-webassets is a general, dependency-independent library for managing the assets
-of your web application. It can merge and compress your CSS and JavaScript
-files, supporting a wide variety of different filters, and supports working
-with compilers like CoffeeScript or Sass.
-

@@ -1,4 +1,0 @@
-@comment $OpenBSD$
-lib/password-store/extensions/
-lib/password-store/extensions/otp.bash
-@man man/man1/pass-otp.1
