@@ -2,7 +2,7 @@
 
 COMMENT=		Go IDE based on IntelliJ IDEA
 
-V=			2021.3
+V=			2021.3.1
 DISTNAME=		goland-${V}
 CATEGORIES=		devel
 
@@ -12,7 +12,6 @@ MAINTAINER =		Aaron Bieber <abieber@openbsd.org>
 
 PERMIT_PACKAGE=	nope
 
-#https://download-cdn.jetbrains.com/go/goland-2021.3.tar.gz
 MASTER_SITES=		https://download.jetbrains.com/go/
 
 MODULES=		java
