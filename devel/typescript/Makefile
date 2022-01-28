@@ -2,7 +2,7 @@
 
 COMMENT =	a superset of JavaScript that compiles to JavaScript
 
-V =		4.5.4
+V =		4.5.5
 DISTNAME =	typescript-${V}
 
 CATEGORIES =	devel
