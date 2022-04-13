@@ -1,3 +1,4 @@
+@comment $OpenBSD: PLIST,v 1.28 2021/12/17 18:22:33 rsadowski Exp $
 bin/goland
 bin/goland-lightedit
 goland/
@@ -528,7 +529,7 @@ goland/jbr/lib/modules
 goland/jbr/lib/psfont.properties.ja
 goland/jbr/lib/psfontj2d.properties
 goland/jbr/lib/security/
-goland/jbr/lib/security/blocked.certs
+goland/jbr/lib/security/blacklisted.certs
 goland/jbr/lib/security/cacerts
 goland/jbr/lib/security/default.policy
 goland/jbr/lib/security/public_suffix_list.dat
@@ -554,7 +555,7 @@ goland/lib/asm-tree-7.1.jar
 goland/lib/asm-util-7.1.jar
 goland/lib/async-profiler.jar
 goland/lib/bootstrap.jar
-goland/lib/build-marker-GO-213.7172.22
+goland/lib/build-marker-GO-213.6777.51
 goland/lib/byte-buddy-agent.jar
 goland/lib/cds/
 goland/lib/cds/classesLogAgent.jar

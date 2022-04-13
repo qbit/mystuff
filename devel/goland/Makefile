@@ -2,7 +2,7 @@
 
 COMMENT=		Go IDE based on IntelliJ IDEA
 
-V=			2021.3.2
+V=			2021.3.4
 DISTNAME=		goland-${V}
 CATEGORIES=		devel
 
