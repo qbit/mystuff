@@ -1,0 +1,11 @@
+@newgroup _gitle:2222
+@newuser _gitle:2222:2222:daemon:Gitle:/var/empty:/sbin/nologin
+@rcscript ${RCDIR}/gitle
+@mode 755
+@owner _gitle
+@group _gitle
+@sample ${VARBASE}/gitle/
+@mode
+@owner
+@group
+@bin bin/gitle
