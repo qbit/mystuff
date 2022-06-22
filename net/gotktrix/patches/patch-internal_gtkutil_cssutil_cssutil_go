@@ -1,0 +1,11 @@
+Index: internal/gtkutil/cssutil/cssutil.go
+--- internal/gtkutil/cssutil/cssutil.go.orig
++++ internal/gtkutil/cssutil/cssutil.go
+@@ -77,6 +77,7 @@ var applyOnce sync.Once
+ 
+ // ApplyGlobalCSS applies the current global CSS to the default display.
+ func ApplyGlobalCSS() {
++	return
+ 	applyOnce.Do(func() {
+ 		globalCSS := globalCSS.String()
+ 
