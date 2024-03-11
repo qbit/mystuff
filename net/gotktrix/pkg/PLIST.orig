@@ -1,3 +1,0 @@
-@comment $OpenBSD: PLIST,v$
-@comment bin/ease-in-out-gradient
-@bin bin/gotktrix
